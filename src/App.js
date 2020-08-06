@@ -4,6 +4,10 @@ import Aiku from './components/Aiku';
 import Login from './components/Login';
 import apiClient from './services/api';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+
+
 const App = () => {
   const [loggedIn, setLoggedIn] = React.useState(
       sessionStorage.getItem('loggedIn') === 'true' || false
