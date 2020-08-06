@@ -6,9 +6,6 @@ import {ReactComponent as LoginLogo} from "../cerebro.svg";
 const Login = (props) => {
 
 
-    console.log(props);
-
-    //const [toHome, setToHome] = React.useState(false);
 
 
     const [state, setState]=React.useState(
@@ -17,10 +14,6 @@ const Login = (props) => {
             password:""
         }
     );
-
-    if (props.loggedIn) {
-        return <Redirect to='/' />
-    }
 
 
 
@@ -54,9 +47,7 @@ const Login = (props) => {
 
     }
 
-   // if (toHome === true) {
-   //     return <Redirect to='/' />
-   // }
+
 
     return (
 
