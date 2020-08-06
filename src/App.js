@@ -6,6 +6,8 @@ import SideNav from "./components/navigation/SideNav";
 import TopHeader from "./components/navigation/TopHeader";
 
 import Dashboard from "./components/Dashboard";
+import Footer from "./components/navigation/Footer";
+import apiClient from "./services/api";
 
 
 const App = () => {
@@ -15,18 +17,17 @@ const App = () => {
         sessionStorage.setItem('loggedIn', 'yes');
     };
 
-    /*
+
     const logout = () => {
 
         apiClient.post('/api/logout').then(response => {
-          if (response.status === 204) {
-            setLoggedIn(false);
-            sessionStorage.setItem('loggedIn', 'no');
-          }
+            if (response.status === 204) {
+                setLoggedIn('no');
+                sessionStorage.setItem('loggedIn', 'no');
+            }
         })
 
     };
-  */
 
 
     if (loggedIn == 'no') {
@@ -37,11 +38,8 @@ const App = () => {
     return (<Router>
 
         <div className="h-screen flex overflow-hidden bg-gray-100">
-
-
-            <MobileSideNav/>
-            <SideNav/>
-
+            <MobileSideNav logout={logout}/>
+            <SideNav logout={logout}/>
             <div className="flex flex-col w-0 flex-1 overflow-hidden">
                 <div className="md:hidden pl-1 pt-1 sm:pl-3 sm:pt-3">
                     <button
@@ -57,14 +55,15 @@ const App = () => {
                         <TopHeader/>
                         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
                             <Switch>
-                                <Route path='/' exact render={props => (<Dashboard {...props} loggedIn={loggedIn}/>)}/>
+                                <Route path='/' exact render={props => (<Dashboard {...props} />)}/>
                             </Switch>
                         </div>
                     </div>
                 </main>
+                <Footer/>
+
             </div>
         </div>
-
 
     </Router>);
 

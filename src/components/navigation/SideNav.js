@@ -17,8 +17,16 @@ const SideNavLink = (props) => {
 
 }
 
+const Footer = (props) => {
 
-const SideNav = () => {
+
+    return (<footer className="bg-gray-800 h-6 text-xs  pl-5 pb-2 text-gray-200">
+            <button onClick={props.logout} className="inline-block align-middle ">Log out</button>
+        </footer>)
+
+}
+
+const SideNav = (props) => {
 
 
     return (
@@ -56,6 +64,7 @@ const SideNav = () => {
                             </div>
                         </a>
                     </div>
+                    <Footer logout={props.logout}/>
                 </div>
             </div>
         </div>
