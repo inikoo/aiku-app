@@ -31,7 +31,6 @@ const App = () => {
   return (
       <Router>
 
-        <div className="flex flex-col h-screen justify-between">
           <Switch>
 
             <Route path='/login' render={props => (
@@ -42,13 +41,8 @@ const App = () => {
             )} />
 
           </Switch>
-          x
-          <footer className="flex justify-between  h-6 bg-grey-500">
-            <div></div>
-            <div><button onClick={logout} className="nav-link btn btn-link">Logout</button>  </div>
-            <div></div>
-          </footer>
-        </div>
+
+
       </Router>
   );
 };
