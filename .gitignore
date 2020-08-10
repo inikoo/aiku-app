@@ -25,3 +25,4 @@ yarn-error.log*
 .npmrc
 .idea/*
 .idea/jsLibraryMappings.xml
+src/assets/main.css
