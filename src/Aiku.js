@@ -10,7 +10,7 @@ import Footer from "./components/navigation/Footer";
 import apiClient from "./services/api";
 
 
-const App = () => {
+const Aiku = () => {
     const [loggedIn, setLoggedIn] = React.useState(sessionStorage.getItem('loggedIn') === 'yes' || 'no');
     const login = () => {
         setLoggedIn(true);
@@ -70,4 +70,4 @@ const App = () => {
 
 };
 
-export default App;
+export default Aiku;
