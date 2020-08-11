@@ -1,75 +1,46 @@
 import React from 'react';
 import {Redirect} from 'react-router-dom';
-import apiClient from '../services/api';
 import {ReactComponent as LoginLogo} from "../cerebro.svg";
-import {useDispatch} from "react-redux";
+
+import { connect } from 'react-redux';
+import { login } from '../actions';
+
 import Alert from "./alerts/Alert";
 
 
-import {
-    loginSuccess
-} from './../features/profile/profileSlice'
-
-const Login = (props) => {
 
 
-    const dispatch = useDispatch()
+let Login = ({loggedIn,login}) => {
 
 
-    const [state, setState] = React.useState({
+
+
+    const [credentials, setCredentials] = React.useState({
         handle: "", password: ""
     });
 
-    const [error, setAuthError] = React.useState({
-        error: ""
-    });
+
+
 
 
     const handleChange = ({target}) => {
-        setState({
-            ...state, [target.name]: target.value
+        setCredentials({
+            ...credentials, [target.name]: target.value
         });
     }
 
     const onSubmit = e => {
 
         e.preventDefault();
-        apiClient.get('sanctum/csrf-cookie').then(response => {
-
-            if (response.status === 204) {
-
-                apiClient.post('http://kun.localhost:8000/api/login', state).then(res => {
+        login(credentials)
 
 
-                    console.log(res)
 
-                    if (res.status === 200) {
-                        props.login();
-                        //dispatch('loginSuccess', res);
-                        return <Redirect to='/'/>
-                        // setToHome(true);
-                    }
-                }).catch(error => {
-                    if (error.response && error.response.status === 422) {
-                        // setAuthError(true);
-                    } else {
-                        //setUnknownError(true);
-                        console.error(error);
-                    }
-                });
+    }
 
 
-            } else {
-
-            }
-
-
-        }).catch(() => {
-
-            //setUnknownError(true);
-
-        });
-
+    if (loggedIn===true) {
+        return <Redirect to='/' />
     }
 
 
@@ -132,5 +103,13 @@ const Login = (props) => {
     );
 }
 
+const mapStateToProps = state => ({
+    loggedIn: state.loggedIn
+});
 
-export default Login;
+const mapDispatchToProps = {
+    login: login,
+};
+Login = connect(mapStateToProps,mapDispatchToProps)(Login);
+export default Login
+

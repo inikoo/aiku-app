@@ -4,14 +4,14 @@
  Copyright (c) 2020. Aiku.io
  */
 
-import React, {useState} from 'react';
+import React from 'react';
 import UserAvatar from 'react-user-avatar';
 import {connect} from 'react-redux'
 
 const ProfileNav = ({profileName}) => {
 
     return (<div className="flex-shrink-0 flex bg-gray-700 p-4">
-        <a href="#" className="flex-shrink-0 w-full group block">
+        <button  className="flex-shrink-0 w-full group block">
             <div className="flex items-center">
                 <div className="text-white">
                     <UserAvatar size="48" name={profileName}/>
@@ -25,12 +25,12 @@ const ProfileNav = ({profileName}) => {
                     </p>
                 </div>
             </div>
-        </a>
+        </button>
     </div>);
 };
 
 const mapStateToProps = state => ({
-    profileName: 'x'
+    profileName: state.auth.profileName
 });
 
 export default connect(mapStateToProps, {ProfileNav})(ProfileNav)

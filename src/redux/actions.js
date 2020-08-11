@@ -4,7 +4,7 @@
  Copyright (c) 2020. Aiku.io
  */
 
-import * as ACTIONS from './actionTypes'
+import * as ACTIONS from '../actions/actionTypes'
 
 let profileData = {
     name:"Guest"
