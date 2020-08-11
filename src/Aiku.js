@@ -11,11 +11,12 @@ import MobileSideNav from "./components/navigation/MobileSideNav";
 import SideNav from "./components/navigation/SideNav";
 import TopHeader from "./components/navigation/TopHeader";
 
-import Dashboard from "./components/Dashboard";
+import Dashboard from "./components/dashboard/Dashboard";
 import Footer from "./components/navigation/Footer";
 import apiClient from "./services/api";
 import {login} from "./actions";
 import {connect} from "react-redux";
+import Profile from "./components/profile/Profile";
 
 
 let Aiku = ({loggedIn}) => {
@@ -62,6 +63,8 @@ let Aiku = ({loggedIn}) => {
                             <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
                                 <Switch>
                                     <Route path='/' exact render={props => (<Dashboard {...props} />)}/>
+                                    <Route path='/profile' exact render={props => (<Profile {...props} />)}/>
+
                                 </Switch>
                             </div>
                         </div>

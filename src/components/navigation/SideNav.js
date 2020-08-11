@@ -1,21 +1,24 @@
 import React from 'react';
+import {
+    Link
+} from "react-router-dom";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faTachometerAlt, faUsers, faMailBulk, faStoreAlt} from '@fortawesome/pro-regular-svg-icons'
-import ProfileNav from "./ProfileNav";
+import ProfileNav from "./ProfileLink";
 import Logout from "../Logout";
 
 
 const SideNavLink = (props) => {
 
 
-    return (<button
+    return (<Link to={props.to}
                className={`${props.selected ? 'text-white bg-gray-900' : 'text-gray-300 hover:text-white hover:bg-gray-700 focus:text-white'} 
                group flex items-center px-2 py-2 text-base leading-6 font-medium rounded-md focus:outline-none transition ease-in-out duration-150 focus:bg-gray-700`}>
         <FontAwesomeIcon
             className="mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-300 group-focus:text-gray-300 transition ease-in-out duration-150"
             icon={props.icon}/>
         {props.text}
-    </button>)
+    </Link>)
 
 }
 
@@ -31,10 +34,10 @@ const SideNav = () => {
                         <img className="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-logo-on-dark.svg" alt="AIku"/>
                     </div>
                     <nav className="mt-5 flex-1 px-2 bg-gray-800 space-y-1">
-                        <SideNavLink text="Dashboard" icon={faTachometerAlt}/>
-                        <SideNavLink text="Customers" icon={faUsers} selected={true}/>
-                        <SideNavLink text="Mailroom" icon={faMailBulk}/>
-                        <SideNavLink text="Products" icon={faStoreAlt}/>
+                        <SideNavLink to="/" text="Dashboard" icon={faTachometerAlt}/>
+                        <SideNavLink to="/customers" text="Customers" icon={faUsers} selected={true}/>
+                        <SideNavLink to="/mailroom" text="Mailroom" icon={faMailBulk}/>
+                        <SideNavLink to="/products" text="Products" icon={faStoreAlt}/>
                     </nav>
                 </div>
                 <ProfileNav/>

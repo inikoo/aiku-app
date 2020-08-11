@@ -7,11 +7,12 @@
 import React from 'react';
 import UserAvatar from 'react-user-avatar';
 import {connect} from 'react-redux'
+import {Link} from "react-router-dom";
 
-const ProfileNav = ({profileName}) => {
+const ProfileLink = ({profileName}) => {
 
     return (<div className="flex-shrink-0 flex bg-gray-700 p-4">
-        <button  className="flex-shrink-0 w-full group block">
+        <Link to="/profile" className="flex-shrink-0 w-full group block">
             <div className="flex items-center">
                 <div className="text-white">
                     <UserAvatar size="48" name={profileName}/>
@@ -25,7 +26,7 @@ const ProfileNav = ({profileName}) => {
                     </p>
                 </div>
             </div>
-        </button>
+        </Link>
     </div>);
 };
 
@@ -33,4 +34,4 @@ const mapStateToProps = state => ({
     profileName: state.auth.profileName
 });
 
-export default connect(mapStateToProps, {ProfileNav})(ProfileNav)
+export default connect(mapStateToProps, {ProfileNav: ProfileLink})(ProfileLink)
