@@ -8,9 +8,7 @@ import React, {useState} from 'react';
 import UserAvatar from 'react-user-avatar';
 import {connect} from 'react-redux'
 
-const ProfileNav = () => {
-
-    const profileName ='x';
+const ProfileNav = ({profileName}) => {
 
     return (<div className="flex-shrink-0 flex bg-gray-700 p-4">
         <a href="#" className="flex-shrink-0 w-full group block">
@@ -31,5 +29,8 @@ const ProfileNav = () => {
     </div>);
 };
 
+const mapStateToProps = state => ({
+    profileName: 'x'
+});
 
-export default ProfileNav;
+export default connect(mapStateToProps, {ProfileNav})(ProfileNav)

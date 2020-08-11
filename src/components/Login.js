@@ -2,14 +2,18 @@ import React from 'react';
 import {Redirect} from 'react-router-dom';
 import apiClient from '../services/api';
 import {ReactComponent as LoginLogo} from "../cerebro.svg";
+import {useDispatch} from "react-redux";
 import Alert from "./alerts/Alert";
 
 
+import {
+    loginSuccess
+} from './../features/profile/profileSlice'
 
 const Login = (props) => {
 
 
-
+    const dispatch = useDispatch()
 
 
     const [state, setState] = React.useState({
@@ -41,6 +45,7 @@ const Login = (props) => {
 
                     if (res.status === 200) {
                         props.login();
+                        //dispatch('loginSuccess', res);
                         return <Redirect to='/'/>
                         // setToHome(true);
                     }

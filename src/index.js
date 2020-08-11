@@ -1,21 +1,15 @@
-
-/*
- Author: Raul A Perusquía-Flores (raul@aiku.io)
- Created: Tue, 11 Aug 2020 16:32:52 Malaysia Time, Kuala Lumpur, Malaysia
- Copyright (c) 2020. Aiku.io
- */
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './assets/main.css'
 import Aiku from './Aiku';
-
+import {Provider} from 'react-redux'
+import store from './redux/store'
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<React.StrictMode>
-
+    <Provider store={store}>
         <Aiku/>
-
+    </Provider>
 </React.StrictMode>, document.getElementById('root'));
 
 // If you want your redux to work offline and load faster, you can change
