@@ -1,3 +1,10 @@
+
+/*
+ Author: Raul A Perusquía-Flores (raul@aiku.io)
+ Created: Tue,  Aug 2020  Malaysia Time, Kuala Lumpur, Malaysia
+ Copyright (c) 2020. Aiku.io
+ */
+
 import React from 'react';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Login from './components/Login';
