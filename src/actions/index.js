@@ -4,7 +4,10 @@
  Copyright (c) 2020. Aiku.io
  */
 
+import {LOGIN, LOGOUT} from "./actionTypes";
+
 export const login = (credentials) => ({
-    type: 'LOGIN',
-    credentials
+    type: LOGIN, credentials
 })
+
+export const logout = () => ({type: LOGOUT})

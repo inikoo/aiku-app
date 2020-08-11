@@ -36,10 +36,13 @@ import rootSaga from './sagas';
 const sagaMiddleware = createSagaMiddleware();
 //import * as serviceWorker from './serviceWorker';
 
+
 const store = createStore(
     reducer,
     applyMiddleware(sagaMiddleware, logger),
 );
+
+
 sagaMiddleware.run(rootSaga);
 render(<React.StrictMode><Provider store={store}>
         <Aiku />

@@ -1,6 +1,5 @@
 import React from 'react';
 import {Redirect} from 'react-router-dom';
-import apiClient from '../services/api';
 import {ReactComponent as LoginLogo} from "../cerebro.svg";
 
 import { connect } from 'react-redux';
@@ -11,7 +10,7 @@ import Alert from "./alerts/Alert";
 
 
 
-let Login = ({login}) => {
+let Login = ({loggedIn,login}) => {
 
 
 
@@ -20,9 +19,8 @@ let Login = ({login}) => {
         handle: "", password: ""
     });
 
-    const [error, setAuthError] = React.useState({
-        error: ""
-    });
+
+
 
 
     const handleChange = ({target}) => {
@@ -38,6 +36,11 @@ let Login = ({login}) => {
 
 
 
+    }
+
+
+    if (loggedIn===true) {
+        return <Redirect to='/' />
     }
 
 
@@ -100,10 +103,13 @@ let Login = ({login}) => {
     );
 }
 
+const mapStateToProps = state => ({
+    loggedIn: state.loggedIn
+});
 
 const mapDispatchToProps = {
     login: login,
 };
-Login = connect(null,mapDispatchToProps)(Login);
+Login = connect(mapStateToProps,mapDispatchToProps)(Login);
 export default Login
 

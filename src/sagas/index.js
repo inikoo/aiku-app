@@ -4,52 +4,16 @@
  Copyright (c) 2020. Aiku.io
  */
 
+import {all} from 'redux-saga/effects';
+
+
+/*
 import {put, takeLatest, all, call} from 'redux-saga/effects';
 import apiClient from "../services/api";
 import {Redirect} from "react-router-dom";
 import React from "react";
 
 
-export const loginRequest = (payload) => {
-    apiClient.get('sanctum/csrf-cookie').then(response => {
-
-        if (response.status === 204) {
-
-            return 'caca';
-            return apiClient.post('http://kun.localhost:8000/api/login', payload.credentials).then(res => {
-
-
-                if (res.status === 200) {
-
-                    return res.data
-
-                    //props.login();
-                    //dispatch('loginSuccess', res);
-                    //     return <Redirect to='/'/>
-                    // setToHome(true);
-                }
-            }).catch(error => {
-                alert('xxx')
-                if (error.response && error.response.status === 422) {
-                    // setAuthError(true);
-                } else {
-                    //setUnknownError(true);
-                    console.error(error);
-                }
-            });
-
-
-        } else {
-
-        }
-
-
-    }).catch(() => {
-
-        //setUnknownError(true);
-
-    });
-}
 
 function* tryLogin(payload) {
 
@@ -65,7 +29,7 @@ function* tryLogin(payload) {
 
     if (getCsrfCookie == 'ok') {
 
-        const {state, data} = yield apiClient.post('api/login', payload.credentials).then(res => {
+        const {state, data} = yield apiClient.post('api/auth', payload.credentials).then(res => {
             if (res.status === 200) {
                 return {state: 200, data: res.data}
             } else {
@@ -84,52 +48,6 @@ function* tryLogin(payload) {
     }
 
 
-    /*
-
-    apiClient.get('sanctum/csrf-cookie').then(response => {
-
-        if (response.status === 204) {
-
-            return 'caca';
-            return apiClient.post('http://kun.localhost:8000/api/login', payload.credentials).then(res => {
-
-
-                if (res.status === 200) {
-
-                    return res.data
-
-                    //props.login();
-                    //dispatch('loginSuccess', res);
-                    //     return <Redirect to='/'/>
-                    // setToHome(true);
-                }
-            }).catch(error => {
-                alert('xxx')
-                if (error.response && error.response.status === 422) {
-                    // setAuthError(true);
-                } else {
-                    //setUnknownError(true);
-                    console.error(error);
-                }
-            });
-
-
-
-
-        } else {
-
-        }
-
-
-    }).catch(() => {
-
-        //setUnknownError(true);
-
-    });
-*/
-
-
-    //  yield put({type: "NEWS_RECEIVED", json: 'm'});
 }
 
 function* actionWatcher() {
@@ -138,4 +56,13 @@ function* actionWatcher() {
 
 export default function* rootSaga() {
     yield all([actionWatcher(),]);
+}
+
+*/
+
+
+import {authSagas} from './auth';
+
+export default function* rootSaga() {
+    yield all([...authSagas,])
 }
