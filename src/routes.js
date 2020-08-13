@@ -15,6 +15,16 @@ import Timesheets from "./components/hr/Timesheets";
 import Timesheet from "./components/hr/TimesheetId";
 import Contractors from "./components/hr/Contractors";
 import Contractor from "./components/hr/ContractorId";
+import Stores from "./components/store/Stores";
+import Store from "./components/store/StoreId";
+import Customers from "./components/store/Customers";
+import Customer from "./components/store/CustomerId";
+import Orders from "./components/store/Orders";
+import Order from "./components/store/OrderId";
+import Products from "./components/store/Products";
+import Product from "./components/store/ProductId";
+import Website from "./components/store/Website";
+import Mailroom from "./components/store/Mailroom";
 
 
 export default [
