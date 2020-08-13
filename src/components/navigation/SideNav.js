@@ -34,7 +34,7 @@ const SideNav = () => {
                         <img className="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-logo-on-dark.svg" alt="AIku"/>
                     </div>
                     <nav className="mt-5 flex-1 px-2 bg-gray-800 space-y-1">
-                        <SideNavLink to="/dashboard" text="Dashboard" icon={faTachometerAlt}/>
+                        <SideNavLink to="/" text="Dashboard" icon={faTachometerAlt}/>
                         <SideNavLink to="/customers" text="Customers" icon={faUsers} selected={true}/>
                         <SideNavLink to="/mailroom" text="Mailroom" icon={faMailBulk}/>
                         <SideNavLink to="/products" text="Products" icon={faStoreAlt}/>
@@ -46,7 +46,7 @@ const SideNav = () => {
                         <SideNavLink to="/inventory" text="Inventory" icon={faBox}/>
                         <SideNavLink to="/suppliers" text="Suppliers" icon={faHandHoldingBox}/>
                         <SideNavLink to="/production" text="Production" icon={faIndustry}/>
-                        <SideNavLink to="/staff" text="Staff" icon={faClipboardUser}/>
+                        <SideNavLink to="/hr" text="Human resources" icon={faClipboardUser}/>
                         <SideNavLink to="/accounting" text="Accounting" icon={faAbacus}/>
                         <SideNavLink to="/reports" text="Reports" icon={faChartLine}/>
                         <SideNavLink to="/users" text="Users" icon={faUsersClass}/>
