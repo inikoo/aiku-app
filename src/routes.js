@@ -5,9 +5,21 @@
  */
 
 import Dashboard from "./components/Dashboard";
+import HumanResources from "./components/hr/HumanResources";
+import HRCalendar from "./components/hr/HRCalendar";
+import ClockingMachines from "./components/hr/ClockingMachines";
+import ClockingMachine from "./components/hr/ClockingMachineID";
+import Employees from "./components/hr/Employees";
+import Employee from "./components/hr/EmployeeId";
+import Timesheets from "./components/hr/Timesheets";
+import Timesheet from "./components/hr/TimesheetId";
+import Contractors from "./components/hr/Contractors";
+import Contractor from "./components/hr/ContractorId";
+
 
 export default [
     { path: "/", name: "Dashboard", Component: Dashboard },
+
     { path: "/stores", name: "Stores", Component: Stores },
     { path: "/store/:storeID", name: "Store", Component: Store },
     { path: "/store/:storeID/customers", name: "Customers", Component: Customers },
