@@ -49,7 +49,7 @@ const SideNav = () => {
                         <SideNavLink to="/hr" text="Human resources" icon={faClipboardUser}/>
                         <SideNavLink to="/accounting" text="Accounting" icon={faAbacus}/>
                         <SideNavLink to="/reports" text="Reports" icon={faChartLine}/>
-                        <SideNavLink to="/users" text="Users" icon={faUsersClass}/>
+                        <SideNavLink to="/system/users" text="Users" icon={faUsersClass}/>
                         <SideNavLink to="/settings" text="Settings" icon={faSlidersH}/>
                     </nav>
                 </div>

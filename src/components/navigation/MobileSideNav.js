@@ -65,7 +65,7 @@ const MobileSideNav = () => {
                             <MobileSideNavLink to="/staff" text="Staff" icon={faClipboardUser}/>
                             <MobileSideNavLink to="/accounting" text="Accounting" icon={faAbacus}/>
                             <MobileSideNavLink to="/reports" text="Reports" icon={faChartLine}/>
-                            <MobileSideNavLink to="/users" text="Users" icon={faUsersClass}/>
+                            <MobileSideNavLink to="/system/users" text="Users" icon={faUsersClass}/>
                             <MobileSideNavLink to="/settings" text="Settings" icon={faSlidersH}/>
                         </nav>
                     </div>
