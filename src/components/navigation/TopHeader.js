@@ -18,18 +18,17 @@ const TopHeader = (props) => {
 
     const breadcrumbs = useBreadcrumbs();
 
-    console.log(breadcrumbs)
 
     return (
 
-
+    <div>
     <nav className="bg-gray-800">
-            <Breadcrumbs breadcrumbs={breadcrumbs}  />
 
-        <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
-            <div className="relative flex items-center justify-between h-16">
+
+        <div className=" px-0 sm:px-4 ">
+            <div className="relative flex items-center justify-between h-12">
                 <div className="flex items-center px-2 lg:px-0">
-                    <div className="hidden lg:block lg:ml-6">
+                    <div className="hidden lg:block lg:ml-0">
                         <div className="flex">
                                 <TopHeaderLink to="/dashboard" text="Dashboard"/>
                                 <TopHeaderLink to="/team" text="Team" selected={true}/>
@@ -75,6 +74,8 @@ const TopHeader = (props) => {
 
 
     </nav>
+    <Breadcrumbs  breadcrumbs={breadcrumbs}/>
+    </div>
 );
 
 

@@ -19,6 +19,7 @@ import routes from "./routes";
 
 
 
+
 let Aiku = ({loggedIn}) => {
 
     const [mobileSideNavIsOpen, setMobileSideNavIsOpen] = useState(false);
@@ -48,7 +49,11 @@ let Aiku = ({loggedIn}) => {
 
     };
 
+
+
     if (loggedIn) {
+
+
         return (<Router>
 
 
@@ -63,6 +68,7 @@ let Aiku = ({loggedIn}) => {
                         <div className=" pb-6 ">
 
                             <TopHeader mobileSideNavIsOpen={mobileSideNavIsOpen} showMobileSideNav={showMobileSideNav}/>
+
                             <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
                                 <Switch>
 

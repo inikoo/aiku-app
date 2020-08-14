@@ -13,10 +13,10 @@ const Breadcrumb = (props) => {
 
 
     if (props.last) {
-        return (<><span  className="text-gray-400">{props.label}</span></>)
+        return (<><span  className="text-gray-500">{props.label}</span></>)
     }
 
-    return (<><NavLink to={props.to} className="text-gray-400 hover:text-gray-200 transition duration-150 ease-in-out">{props.label}</NavLink>
+    return (<><NavLink to={props.to} className="text-gray-500 hover:text-gray-700 transition duration-150 ease-in-out">{props.label}</NavLink>
         <svg className="flex-shrink-0 mx-2 h-5 w-5 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
             <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd"/>
         </svg>
@@ -34,7 +34,7 @@ const Breadcrumbs = (props) => {
         return ''
     }
 
-    return (<div>
+    return (<div  className="pt-1 pl-5 mb-2">
 
 
 
