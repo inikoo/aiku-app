@@ -27,6 +27,9 @@ import Website from "./components/store/Website";
 import Mailroom from "./components/store/Mailroom";
 import Profile from "./components/profile/Profile";
 import Users from "./components/system/Users";
+import User from "./components/system/UserId";
+import Roles from "./components/system/Roles";
+import Role from "./components/system/Role";
 
 export default [{path: "/", name: "Dashboard", Component: Dashboard},
 
@@ -59,11 +62,10 @@ export default [{path: "/", name: "Dashboard", Component: Dashboard},
     {path: "/hr/contractors", name: "Contractors", Component: Contractors}, {path: "/hr/contractor/:contractorID", name: "Contractor", Component: Contractor},
 
     {path: "/system/users", name: "Users", Component: Users},
-
-    //{path: "/system/users", name: "Users", Component: Users},
-    //{path: "/system/user/:userID", name: "User", Component: User},
-    //{path: "/system/roles", name: "Roles", Component: Roles},
-    //{path: "/system/role/:userID", name: "User", Component: Role},
+    {path: "/system/users", name: "Users", Component: Users},
+    {path: "/system/user/:userID", name: "User", Component: User},
+    {path: "/system/roles", name: "Roles", Component: Roles},
+    {path: "/system/role/:userID", name: "User", Component: Role},
 
 
     {path: "/profile", name: "Profile", Component: Profile},
