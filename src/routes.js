@@ -4,7 +4,7 @@
  Copyright (c) 2020. Aiku.io
  */
 
-import Dashboard from "./components/Dashboard";
+import Dashboard from "./components/dashboard/Dashboard";
 import HumanResources from "./components/hr/HumanResources";
 import HRCalendar from "./components/hr/HRCalendar";
 import ClockingMachines from "./components/hr/ClockingMachines";
@@ -25,38 +25,32 @@ import Products from "./components/store/Products";
 import Product from "./components/store/ProductId";
 import Website from "./components/store/Website";
 import Mailroom from "./components/store/Mailroom";
+import Profile from "./components/profile/Profile";
+
+export default [{path: "/", name: "Dashboard", Component: Dashboard},
+
+    {path: "/stores", name: "Stores", Component: Stores}, {path: "/store/:storeID", name: "Store", Component: Store}, {
+        path: "/store/:storeID/customers", name: "Customers", Component: Customers
+    }, {path: "/store/:storeID/orders/:customerID", name: "Customer", Component: Customer},
 
 
-export default [
-    { path: "/", name: "Dashboard", Component: Dashboard },
+    {path: "/store/:storeID/orders", name: "Customers", Component: Orders}, {path: "/store/:storeID/orders/:orderID", name: "Customers", Component: Order},
 
-    { path: "/stores", name: "Stores", Component: Stores },
-    { path: "/store/:storeID", name: "Store", Component: Store },
-    { path: "/store/:storeID/customers", name: "Customers", Component: Customers },
-    { path: "/store/:storeID/orders/:customerID", name: "Customer", Component: Customer },
+    {path: "/store/:storeID/products", name: "Products", Component: Products}, {path: "/store/:storeID/product/:storeID", name: "Products", Component: Product},
+
+    {path: "/store/:storeID/website", name: "Website", Component: Website}, {path: "/store/:storeID/mailroom", name: "Mailroom", Component: Mailroom},
 
 
-    { path: "/store/:storeID/orders", name: "Customers", Component: Orders },
-    { path: "/store/:storeID/orders/:orderID", name: "Customers", Component: Order },
+    {path: "/hr", name: "Human resources", Component: HumanResources}, {path: "/hr/calender", name: "Calendar", Component: HRCalendar}, {
+        path: "/hr/clocking-machines", name: "ClockingMachines", Component: ClockingMachines
+    }, {path: "/hr/clocking-machines/:clockingMachineID", name: "ClockingMachine", Component: ClockingMachine}, {path: "/hr/employees", name: "Employees", Component: Employees}, {
+        path: "/hr/employee/:employeeID", name: "Employee", Component: Employee
+    }, {path: "/hr/employee/:employeeID/timesheets", name: "Timesheets", Component: Timesheets}, {
+        path: "/hr/employee/:employeeID/timesheet/:timesheetID", name: "Timesheet", Component: Timesheet
+    }, {path: "/hr/contractors", name: "Contractors", Component: Contractors}, {path: "/hr/contractor/:contractorID", name: "Contractor", Component: Contractor},
 
-    { path: "/store/:storeID/products", name: "Products", Component: Products },
-    { path: "/store/:storeID/product/:storeID", name: "Products", Component: Product },
+    {path: "/profile", name: "Profile", Component: Profile},
 
-    { path: "/store/:storeID/website", name: "Website", Component: Website },
-    { path: "/store/:storeID/mailroom", name: "Mailroom", Component: Mailroom },
-
-
-
-    { path: "/hr", name: "Human resources", Component: HumanResources },
-    { path: "/hr/calender", name: "Calendar", Component: HRCalendar },
-    { path: "/hr/clocking-machines", name: "ClockingMachines", Component: ClockingMachines },
-    { path: "/hr/clocking-machines/:clockingMachineID", name: "ClockingMachine", Component: ClockingMachine },
-    { path: "/hr/employees", name: "Employees", Component: Employees },
-    { path: "/hr/employee/:employeeID", name: "Employee", Component: Employee },
-    { path: "/hr/employee/:employeeID/timesheets", name: "Timesheets", Component: Timesheets },
-    { path: "/hr/employee/:employeeID/timesheet/:timesheetID", name: "Timesheet", Component: Timesheet },
-    { path: "/hr/contractors", name: "Contractors", Component: Contractors },
-    { path: "/hr/contractor/:contractorID", name: "Contractor", Component: Contractor },
-    
 
 ];
+
