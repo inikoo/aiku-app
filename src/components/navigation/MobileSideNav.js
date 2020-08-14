@@ -74,18 +74,15 @@ const MobileSideNav = () => {
                     <div className="flex-shrink-0 flex bg-gray-700 p-4">
                         <a href="#" className="flex-shrink-0 group block">
                             <div className="flex items-center">
-                                <div>
-                                    <img className="inline-block h-10 w-10 rounded-full"
-                                         src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""/>
-                                </div>
-                                <div className="ml-3">
-                                    <p className="text-base leading-6 font-medium text-white">
-                                        Tom Cook
-                                    </p>
-                                    <p className="text-sm leading-5 font-medium text-gray-400 group-hover:text-gray-300 transition ease-in-out duration-150">
-                                        View profile
-                                    </p>
-                                </div>
+                               <span className="inline-flex rounded-md shadow-sm">
+  <button type="button"
+          className="inline-flex items-center px-20 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150">
+         <svg className="h-5 w-5 text-indigo-300 group-hover:text-indigo-400 transition ease-in-out duration-150" fill="currentColor" viewBox="0 0 20 20">
+             <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd"/>
+              </svg>
+    Log Out
+  </button>
+</span>
                             </div>
                         </a>
                     </div>
@@ -94,6 +91,7 @@ const MobileSideNav = () => {
                 </div>
             </div>
         </div>
+
 
     );
 

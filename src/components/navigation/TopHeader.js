@@ -1,5 +1,16 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 
+
+const TopHeaderLink = (props) => {
+
+
+    return (<Link to={props.to}
+                  className={`${props.selected ? 'text-white bg-gray-900' : 'text-gray-300 hover:text-white hover:bg-gray-700 focus:text-white'} 
+                flex block px-2 py-2 text-base leading-6 font-medium rounded-md focus:outline-none transition ease-in-out duration-150 focus:bg-gray-700`}>
+        {props.text}
+    </Link>)
+}
 
 const TopHeader = () => {
 
@@ -9,20 +20,17 @@ const TopHeader = () => {
         <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
             <div className="relative flex items-center justify-between h-16">
                 <div className="flex items-center px-2 lg:px-0">
-
                     <div className="hidden lg:block lg:ml-6">
                         <div className="flex">
-                            <a href="#"
-                               className="px-3 py-2 rounded-md text-sm leading-5 font-medium text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Dashboard</a>
-                            <a href="#"
-                               className="ml-4 px-3 py-2 rounded-md text-sm leading-5 font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Team</a>
-                            <a href="#"
-                               className="ml-4 px-3 py-2 rounded-md text-sm leading-5 font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Projects</a>
-                            <a href="#"
-                               className="ml-4 px-3 py-2 rounded-md text-sm leading-5 font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Calendar</a>
+                                <TopHeaderLink to="/dashboard" text="Dashboard"/>
+                                <TopHeaderLink to="/team" text="Team" selected={true}/>
+                                <TopHeaderLink to="/projects" text="Projects"/>
+                                <TopHeaderLink to="/calendar" text="Calendar"/>
                         </div>
                     </div>
                 </div>
+
+
                 <div className="flex-1 flex justify-center px-2 lg:ml-6 lg:justify-end">
                     <div className="max-w-lg w-full lg:max-w-xs">
                         <label htmlFor="search" className="sr-only">Search</label>
