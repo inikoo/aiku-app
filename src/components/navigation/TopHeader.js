@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from "react-router-dom";
 
 import Breadcrumbs from "./Breadcrumbs";
+import useBreadcrumbs from "use-react-router-breadcrumbs";
 
 const TopHeaderLink = (props) => {
 
@@ -13,12 +14,17 @@ const TopHeaderLink = (props) => {
     </Link>)
 }
 
-const TopHeader = () => {
+const TopHeader = (props) => {
 
+    const breadcrumbs = useBreadcrumbs();
+
+    console.log(breadcrumbs)
 
     return (
-        <nav className="bg-gray-800">
-            <Breadcrumbs/>
+
+
+    <nav className="bg-gray-800">
+            <Breadcrumbs breadcrumbs={breadcrumbs}  />
 
         <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
             <div className="relative flex items-center justify-between h-16">
@@ -50,64 +56,24 @@ const TopHeader = () => {
                     </div>
                 </div>
                 <div className="flex lg:hidden">
-                    {/* Mobile menu button */}
-                    <button
-                        className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white transition duration-150 ease-in-out"
+
+                    <button onClick={props.showMobileSideNav}
+                        className={`${props.mobileSideNavIsOpen?'hidden' :''}  
+                        inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white transition duration-150 ease-in-out`}
                         aria-label="Main menu" aria-expanded="false">
-                        {/* Icon when menu is closed. */}
-                        {/* Menu open: "hidden", Menu closed: "block" */}
+
                         <svg className="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"/>
                         </svg>
-                        {/* Icon when menu is open. */}
-                        {/* Menu open: "block", Menu closed: "hidden" */}
-                        <svg className="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"/>
-                        </svg>
+
+
                     </button>
                 </div>
 
             </div>
         </div>
 
-        {/*
-          Mobile menu, toggle classes based on menu state.
 
-          Menu open: "block", Menu closed: "hidden"
-        */}
-        <div className="hidden lg:hidden">
-            <div className="px-2 pt-2 pb-3">
-                <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Dashboard</a>
-                <a href="#"
-                   className="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Team</a>
-                <a href="#"
-                   className="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Projects</a>
-                <a href="#"
-                   className="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Calendar</a>
-            </div>
-            <div className="pt-4 pb-3 border-t border-gray-700">
-                <div className="flex items-center px-5">
-                    <div className="flex-shrink-0">
-                        <img className="h-10 w-10 rounded-full"
-                             src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""/>
-                    </div>
-                    <div className="ml-3">
-                        <div className="text-base font-medium leading-6 text-white">Tom Cook</div>
-                        <div className="text-sm font-medium leading-5 text-gray-400">tom@example.com</div>
-                    </div>
-                </div>
-                <div className="mt-3 px-2">
-                    <a href="#"
-                       className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Your
-                        Profile</a>
-                    <a href="#"
-                       className="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Settings</a>
-                    <a href="#"
-                       className="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out">Sign
-                        out</a>
-                </div>
-            </div>
-        </div>
     </nav>
 );
 
