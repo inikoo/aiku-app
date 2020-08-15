@@ -14,6 +14,7 @@
     "@fortawesome/pro-regular-svg-icons": "^5.14.0",
     "@fortawesome/pro-solid-svg-icons": "^5.14.0",
     "@fortawesome/react-fontawesome": "^0.1.11",
+    "@lingui/react": "^2.9.1",
     "@reduxjs/toolkit": "^1.4.0",
     "@tailwindcss/ui": "^0.5.0",
     "@testing-library/jest-dom": "^4.2.4",
@@ -48,7 +49,10 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build:css": "postcss src/assets/tailwind.css -o src/assets/main.css",
-    "watch:css": "postcss src/assets/tailwind.css -o src/assets/main.css"
+    "watch:css": "postcss src/assets/tailwind.css -o src/assets/main.css",
+    "add-locale": "lingui add-locale",
+    "extract": "lingui extract",
+    "compile": "lingui compile"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -66,7 +70,11 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@lingui/cli": "^2.9.1",
+    "@lingui/macro": "^2.9.1",
     "autoprefixer": "^9.8.6",
+    "babel-core": "^7.0.0-bridge.0",
     "postcss-cli": "^7.1.1",
     "tailwindcss": "^1.6.2"
   }
