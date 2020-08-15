@@ -16,7 +16,14 @@ import apiClient from "./services/api";
 import {login} from "./actions";
 import {connect} from "react-redux";
 import routes from "./routes";
+import { ApolloClient, InMemoryCache,ApolloProvider } from '@apollo/client';
 
+
+
+const client = new ApolloClient({
+    uri: 'http://kun.test/graphql',
+    cache: new InMemoryCache()
+});
 
 
 
@@ -55,7 +62,7 @@ let Aiku = ({loggedIn}) => {
 
 
         return (<Router>
-
+            <ApolloProvider client={client}>
 
             <div className="h-screen flex overflow-hidden bg-gray-100">
                 <MobileSideNav hideMobileSideNav={hideMobileSideNav} mobileSideNavIsOpen={mobileSideNavIsOpen} logout={logout}/>
@@ -90,7 +97,7 @@ let Aiku = ({loggedIn}) => {
 
                 </div>
             </div>
-
+            </ApolloProvider>
         </Router>);
     }
 

@@ -1,0 +1,149 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+    query: Query
+}
+
+union Userable = Contractor | Employee
+
+type Contractor {
+    created_at: DateTime!
+    id: ID!
+    name: String!
+    slug: String!
+    status: String!
+    updated_at: DateTime!
+    user: User!
+}
+
+type Employee {
+    created_at: DateTime!
+    id: ID!
+    name: String!
+    slug: String!
+    status: String!
+    updated_at: DateTime!
+    user: User!
+}
+
+"Pagination information about the corresponding list of items."
+type PageInfo {
+    "Count of nodes in current request."
+    count: Int
+    "Current page of request."
+    currentPage: Int
+    "When paginating forwards, the cursor to continue."
+    endCursor: String
+    "When paginating forwards, are there more items?"
+    hasNextPage: Boolean!
+    "When paginating backwards, are there more items?"
+    hasPreviousPage: Boolean!
+    "Last page in connection."
+    lastPage: Int
+    "When paginating backwards, the cursor to continue."
+    startCursor: String
+    "Total number of node in connection."
+    total: Int
+}
+
+"Pagination information about the corresponding list of items."
+type PaginatorInfo {
+    "Total count of available items in the page."
+    count: Int!
+    "Current pagination page."
+    currentPage: Int!
+    "Index of first item in the current page."
+    firstItem: Int
+    "If collection has more pages."
+    hasMorePages: Boolean!
+    "Index of last item in the current page."
+    lastItem: Int
+    "Last page number of the collection."
+    lastPage: Int!
+    "Number of items per page in the collection."
+    perPage: Int!
+    "Total items available in the collection."
+    total: Int!
+}
+
+type Query {
+    employee(id: ID): Employee
+    tenant(id: ID): Tenant
+    tenants(
+        "Limits number of fetched elements."
+        first: Int = 100,
+        "The offset from which elements are returned."
+        page: Int
+    ): TenantPaginator
+    user(id: ID): User
+    users(
+        "Limits number of fetched elements."
+        first: Int = 100,
+        "The offset from which elements are returned."
+        page: Int
+    ): UserPaginator
+}
+
+type Tenant {
+    created_at: DateTime!
+    id: ID!
+    name: String!
+    updated_at: DateTime!
+}
+
+"A paginated list of Tenant items."
+type TenantPaginator {
+    "A list of Tenant items."
+    data: [Tenant!]!
+    "Pagination information about the list of items."
+    paginatorInfo: PaginatorInfo!
+}
+
+type User {
+    created_at: DateTime!
+    handle: String!
+    id: ID!
+    updated_at: DateTime!
+    userable: Userable!
+}
+
+"A paginated list of User items."
+type UserPaginator {
+    "A list of User items."
+    data: [User!]!
+    "Pagination information about the list of items."
+    paginatorInfo: PaginatorInfo!
+}
+
+"The available directions for ordering a list of records."
+enum SortOrder {
+    "Sort records in ascending order."
+    ASC
+    "Sort records in descending order."
+    DESC
+}
+
+"Specify if you want to include or exclude trashed results from a query."
+enum Trashed {
+    "Only return trashed results."
+    ONLY
+    "Return both trashed and non-trashed results."
+    WITH
+    "Only return non-trashed results."
+    WITHOUT
+}
+
+"Allows ordering a list of records."
+input OrderByClause {
+    "The column that is used for ordering."
+    field: String!
+    "The direction that is used for ordering."
+    order: SortOrder!
+}
+
+
+"A datetime string with format `Y-m-d H:i:s`, e.g. `2018-05-23 13:43:32`."
+scalar DateTime
+
+"A date string with format `Y-m-d`, e.g. `2011-05-23`."
+scalar Date
