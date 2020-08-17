@@ -6,7 +6,9 @@ import { connect } from 'react-redux';
 import { login } from '../actions';
 
 import Alert from "./alerts/Alert";
-
+import T from "./wrappers/T";
+import { I18n } from "@lingui/react"
+import { t } from "@lingui/macro"
 
 
 
@@ -44,6 +46,8 @@ let Login = ({loggedIn,login}) => {
     }
 
 
+
+
     return (
 
         <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
@@ -55,7 +59,7 @@ let Login = ({loggedIn,login}) => {
                     </h2>
                     <p className="mt-2 text-center text-sm leading-5 text-gray-600">
                         <span className="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">
-            Demo account
+
           </span>
                     </p>
                 </div>
@@ -63,18 +67,32 @@ let Login = ({loggedIn,login}) => {
                     <input type="hidden" name="remember" value="true"/>
                     <div className="rounded-md shadow-sm">
                         <div>
-                            <input
-                                onChange={handleChange}
-                                aria-label="Username" name="handle" type="string" required
-                                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5"
-                                placeholder="Username"/>
+
+                            <I18n>
+                                {({ i18n }) => (
+                                <input
+                                    onChange={handleChange}
+                                    aria-label={i18n._(t`Username`)} name="handle" type="string" required
+                                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5"
+                                    placeholder={i18n._(t`Username`)}/>
+                                    )}
+                            </I18n>
+
+
                         </div>
                         <div className="-mt-px">
-                            <input
-                                onChange={handleChange}
-                                aria-label="Password" name="password" type="password" required
-                                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5"
-                                placeholder="Password"/>
+
+
+                            <I18n>
+                                {({ i18n }) => (
+                                    <input
+                                        onChange={handleChange}
+                                        aria-label={i18n._(t`Password`)} name="password" type="password" required
+                                        className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5"
+                                        placeholder={i18n._(t`Password`)} />
+                                )}
+                            </I18n>
+
                         </div>
                     </div>
 
@@ -87,7 +105,7 @@ let Login = ({loggedIn,login}) => {
                 <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd"/>
               </svg>
             </span>
-                            Sign in
+                            {<T>Sign in</T>}
                         </button>
                     </div>
                 </form>
