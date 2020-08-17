@@ -57,21 +57,20 @@ const SideNav = () => {
 
 
 
-                        <SideNavLink to="/mailroom" text="Mailroom" icon={faMailBulk}/>
-                        <SideNavLink to="/products" text="Products" icon={faStoreAlt}/>
-                        <SideNavLink to="/offers" text="Offers" icon={faBadgePercent}/>
-                        <SideNavLink to="/websites" text="Websites" icon={faGlobe}/>
-                        <SideNavLink to="/orders" text="Orders" icon={faShoppingCart}/>
-                        <SideNavLink to="/delivering" text="Delivering" icon={faConveyorBeltAlt}/>
-                        <SideNavLink to="/warehouse" text="Warehouse" icon={faWarehouseAlt}/>
-                        <SideNavLink to="/inventory" text="Inventory" icon={faBox}/>
-                        <SideNavLink to="/suppliers" text="Suppliers" icon={faHandHoldingBox}/>
-                        <SideNavLink to="/production" text="Production" icon={faIndustry}/>
-                        <SideNavLink to="/hr" text="Human resources" icon={faClipboardUser}/>
-                        <SideNavLink to="/accounting" text="Accounting" icon={faAbacus}/>
-                        <SideNavLink to="/reports" text="Reports" icon={faChartLine}/>
-                        <SideNavLink to="/system/users" text="Users" icon={faUsersClass}/>
-                        <SideNavLink to="/settings" text="Settings" icon={faSlidersH}/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                     </nav>
                 </div>
                 <ProfileNav/>
