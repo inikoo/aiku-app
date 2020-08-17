@@ -9,6 +9,7 @@ import {logout} from "../../actions";
 import {connect} from "react-redux";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSignOut} from "@fortawesome/pro-regular-svg-icons";
+import T from "../wrappers/T";
 
 
 let MobileLogout = ({logout}) => {
@@ -18,7 +19,7 @@ let MobileLogout = ({logout}) => {
  <FontAwesomeIcon
      className="fa-fw fa-flip-horizontal mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-300 group-focus:text-gray-300 transition ease-in-out duration-150"
      icon={faSignOut}/>
-    Out
+      <T>Out</T>
   </button>
 </span>);
 };

@@ -20,7 +20,6 @@ const SideNavLink = (props) => {
     </Link>)
 
 }
-//<SideNavLink key={key} to={obj.path} text={obj.text} icon={obj.icon}/>
 
 const SideNav = () => {
 

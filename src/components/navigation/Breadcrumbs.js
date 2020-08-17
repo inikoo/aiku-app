@@ -10,10 +10,8 @@ import {NavLink} from "react-router-dom";
 
 const Breadcrumb = (props) => {
 
-
-
     if (props.last) {
-        return (<><span  className="text-gray-500">{props.label}</span></>)
+        return (<><span className="text-gray-500">{props.label}</span></>)
     }
 
     return (<><NavLink to={props.to} className="text-gray-500 hover:text-gray-700 transition duration-150 ease-in-out">{props.label}</NavLink>
@@ -26,32 +24,19 @@ const Breadcrumb = (props) => {
 const Breadcrumbs = (props) => {
 
     const breadcrumbs = props.breadcrumbs
-
-
     const numberBreadcrumbs = breadcrumbs.length - 1;
 
     if (numberBreadcrumbs <= 0) {
         return ''
     }
 
-    return (<div  className="pt-1 pl-5 mb-2">
-
-
-
-
+    return (<div className="pt-1 pl-5 mb-2">
         <nav className="hidden sm:flex items-center text-sm leading-5 font-medium">
             {breadcrumbs.map(({
                                   match, breadcrumb
-                              }, key) => (
-
-                <Breadcrumb to={match.url} label={breadcrumb} index={key} last={numberBreadcrumbs===key}/>
-
-
-            ))}
+                              }, key) => (<Breadcrumb to={match.url} label={breadcrumb} index={key} last={numberBreadcrumbs === key}/>))}
         </nav>
     </div>);
 }
 
 export default Breadcrumbs;
-
-// <a to={match.url} className="text-gray-400 hover:text-gray-200 transition duration-150 ease-in-out">{breadcrumb}</a>

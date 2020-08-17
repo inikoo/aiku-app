@@ -7,9 +7,9 @@
 import React from 'react';
 import TableMultiline from "../ui/lists/tables/TableMultiline";
 import {useQuery, gql} from '@apollo/client';
+import T from "../wrappers/T";
 import AvatarCell from "../ui/lists/tables/cells/AvatarCell";
 import TwoLineCell from "../ui/lists/tables/cells/TwoLineCell";
-import T from "../wrappers/T";
 
 
 const USERS = gql`
@@ -46,17 +46,13 @@ const USERS = gql`
 function UsersTable() {
 
     const {loading, error, data} = useQuery(USERS);
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error :(</p>;
+    if (loading) return <p><T>Loading...</T></p>;
+    if (error) return <p><T>Error</T> :(</p>;
 
     const headers = ['User', 'title', 'status', 'role', ''];
 
-    console.log(data.users.data)
-
-    const users = data.users.data.map(obj => {
-
-        console.log(obj.userable)
-        return [<AvatarCell name={obj.userable.name} property={obj.handle}/>, <TwoLineCell main={obj.userable.name} secondary={obj.handle}/>,
+    const users = data.users.data.map( obj => {
+        return [<AvatarCell name={obj["userable"].name} property={obj.handle}/>, <TwoLineCell main={obj["userable"].name} secondary={obj.handle}/>,
 
         ]
     })
