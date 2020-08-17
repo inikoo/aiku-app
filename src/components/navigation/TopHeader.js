@@ -1,30 +1,24 @@
 import React from 'react';
-import {Link} from "react-router-dom";
-
 import Breadcrumbs from "./Breadcrumbs";
 import useBreadcrumbs from "use-react-router-breadcrumbs";
-import {useLocation} from "react-router";
-
-const TopHeaderLink = (props) => {
+import TopNav from "./TopNav";
 
 
-    return (<Link to={props.to}
-                  className={`${props.selected ? 'text-white bg-gray-900' : 'text-gray-300 hover:text-white hover:bg-gray-700 focus:text-white'} 
-                flex block px-2 py-2 text-base leading-6 font-medium rounded-md focus:outline-none transition ease-in-out duration-150 focus:bg-gray-700`}>
-        {props.text}
-    </Link>)
-}
 
 const TopHeader = (props) => {
 
     const breadcrumbs = useBreadcrumbs();
+    const numberBreadcrumbs = breadcrumbs.length - 1;
 
-    let xxx = useLocation();
 
-    let location = useLocation()
-    console.log(xxx);
+    if (numberBreadcrumbs <= 0) {
+        return ''
+    }
 
-    console.log(location);
+    console.log(breadcrumbs);
+
+
+
 
     return (
 
@@ -34,17 +28,8 @@ const TopHeader = (props) => {
 
         <div className=" px-0 sm:px-4 ">
             <div className="relative flex items-center justify-between h-12">
-                <div className="flex items-center px-2 lg:px-0">
-                    <div className="hidden lg:block lg:ml-0">
-                        <div className="flex">
-                                <TopHeaderLink to="/dashboard" text="Dashboard"/>
-                                <TopHeaderLink to="/team" text="Team" />
-                                <TopHeaderLink to="/projects" text="Projects"/>
-                                <TopHeaderLink to="/calendar" text="Calendar"/>
-                        </div>
 
-                    </div>
-                </div>
+               <TopNav breadcrumbs={breadcrumbs} />
 
 
                 <div className="flex-1 flex justify-center px-2 lg:ml-6 lg:justify-end">
