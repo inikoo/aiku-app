@@ -30,7 +30,7 @@ import {
 } from '@fortawesome/pro-regular-svg-icons'
 import Transition from "../ui/helpers/Transition";
 import ProfileNav from "./ProfileLink";
-import MobileLogout from "../MobileLogout";
+import MobileLogout from "../auth/MobileLogout";
 
 
 const MobileSideNavLink = (props) => {

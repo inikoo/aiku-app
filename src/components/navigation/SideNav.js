@@ -1,25 +1,9 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {
-    faMailBulk,
-    faStoreAlt,
-    faBadgePercent,
-    faGlobe,
-    faShoppingCart,
-    faConveyorBeltAlt,
-    faWarehouseAlt,
-    faBox,
-    faHandHoldingBox,
-    faIndustry,
-    faClipboardUser,
-    faAbacus,
-    faChartLine,
-    faUsersClass,
-    faSlidersH
-} from '@fortawesome/pro-regular-svg-icons'
+
 import ProfileNav from "./ProfileLink";
-import Logout from "../Logout";
+import Logout from "../auth/Logout";
 import {modules} from "../../routes/modules";
 
 
@@ -54,28 +38,13 @@ const SideNav = () => {
                             <SideNavLink key={key} to={obj.path} text={obj.text} icon={obj.icon}/>
                              ))
                         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                     </nav>
                 </div>
-                <ProfileNav/>
-
                 <Logout/>
+                <ProfileNav/>
+                <footer className="bg-gray-800 h-6 text-xs  pl-5 pb-2 text-gray-200">
+                </footer>
+
             </div>
         </div>
     </div>);

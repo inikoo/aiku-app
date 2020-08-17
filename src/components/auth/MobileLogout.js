@@ -1,11 +1,11 @@
 /*
  Author: Raul A Perusquía-Flores (raul@aiku.io)
- Created: Fri, 14 Aug 2020 17:30:55 Malaysia Time, Kuala Lumpur, Malaysia
+ Created: Mon, 17 Aug 2020 23:02:18 Malaysia Time, Kuala Lumpur, Malaysia
  Copyright (c) 2020. Aiku.io
  */
 
 import React from 'react';
-import {logout} from "../actions";
+import {logout} from "../../actions";
 import {connect} from "react-redux";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSignOut} from "@fortawesome/pro-regular-svg-icons";
