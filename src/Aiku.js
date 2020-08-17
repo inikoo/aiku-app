@@ -12,18 +12,12 @@ import SideNav from "./components/navigation/SideNav";
 import TopHeader from "./components/navigation/TopHeader";
 
 import Footer from "./components/navigation/Footer";
-import apiClient from "./services/api";
 import {login} from "./actions";
 import {connect} from "react-redux";
 import routes from "./routes/routes";
-import { ApolloClient, InMemoryCache,ApolloProvider } from '@apollo/client';
+import { ApolloProvider} from '@apollo/client';
+import apolloClient from "./services/apolloClient";
 
-
-
-const client = new ApolloClient({
-    uri: 'http://kun.localhost:8000/graphql',
-    cache: new InMemoryCache()
-});
 
 
 
@@ -39,36 +33,17 @@ let Aiku = ({loggedIn}) => {
     }
 
 
-    const login = () => {
-        //setLoggedIn(true);
-        localStorage.setItem('loggedIn', 'yes');
-    };
-
-
-    const logout = () => {
-
-        apiClient.post('/api/logout').then(response => {
-            if (response.status === 204) {
-                //setLoggedIn('no');
-                localStorage.setItem('loggedIn', 'no');
-            }
-        })
-
-    };
-
-
-
     if (loggedIn) {
 
 
         return (<Router>
-            <ApolloProvider client={client}>
+            <ApolloProvider client={apolloClient}>
 
             <div className="h-screen flex overflow-hidden bg-gray-100">
-                <MobileSideNav hideMobileSideNav={hideMobileSideNav} mobileSideNavIsOpen={mobileSideNavIsOpen} logout={logout}/>
+                <MobileSideNav hideMobileSideNav={hideMobileSideNav} mobileSideNavIsOpen={mobileSideNavIsOpen} />
 
 
-                <SideNav logout={logout}/>
+                <SideNav />
                 <div className="flex flex-col w-0 flex-1 overflow-hidden">
 
                     <main className="flex-1 relative z-0 overflow-y-auto focus:outline-none" tabIndex="0">

@@ -42,9 +42,10 @@ function* tryLogin(payload) {
 }
 
 function* Logout() {
-
     yield apiClient.post('api/logout').then(() => {
-    })
+    }).catch(() => {
+
+    });
 
     yield put({type: "LOGGED_OUT"});
 
