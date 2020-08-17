@@ -15,7 +15,7 @@ import Footer from "./components/navigation/Footer";
 import apiClient from "./services/api";
 import {login} from "./actions";
 import {connect} from "react-redux";
-import routes from "./routes";
+import routes from "./routes/routes";
 import { ApolloClient, InMemoryCache,ApolloProvider } from '@apollo/client';
 
 

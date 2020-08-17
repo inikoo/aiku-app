@@ -5,7 +5,7 @@
  */
 
 import React from 'react';
-import Trans from "@lingui/react/Trans";
+import { Trans } from '@lingui/macro';
 
 
 const T = ({children}) => {

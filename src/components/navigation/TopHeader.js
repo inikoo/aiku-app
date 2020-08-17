@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 
 import Breadcrumbs from "./Breadcrumbs";
 import useBreadcrumbs from "use-react-router-breadcrumbs";
+import {useLocation} from "react-router";
 
 const TopHeaderLink = (props) => {
 
@@ -18,6 +19,12 @@ const TopHeader = (props) => {
 
     const breadcrumbs = useBreadcrumbs();
 
+    let xxx = useLocation();
+
+    let location = useLocation()
+    console.log(xxx);
+
+    console.log(location);
 
     return (
 
@@ -31,10 +38,11 @@ const TopHeader = (props) => {
                     <div className="hidden lg:block lg:ml-0">
                         <div className="flex">
                                 <TopHeaderLink to="/dashboard" text="Dashboard"/>
-                                <TopHeaderLink to="/team" text="Team" selected={true}/>
+                                <TopHeaderLink to="/team" text="Team" />
                                 <TopHeaderLink to="/projects" text="Projects"/>
                                 <TopHeaderLink to="/calendar" text="Calendar"/>
                         </div>
+
                     </div>
                 </div>
 

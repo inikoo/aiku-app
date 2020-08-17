@@ -15,7 +15,7 @@ import {logger} from 'redux-logger';
 import reducer from './reducers';
 import Aiku from './Aiku';
 import rootSaga from './sagas';
-import I18nProvider from "@lingui/react/I18nProvider";
+import { I18nProvider } from '@lingui/react'
 
 const sagaMiddleware = createSagaMiddleware();
 //import * as serviceWorker from './serviceWorker';
