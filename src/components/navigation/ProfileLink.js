@@ -8,6 +8,7 @@ import React from 'react';
 import UserAvatar from 'react-user-avatar';
 import {connect} from 'react-redux'
 import {Link} from "react-router-dom";
+import T from "../wrappers/T";
 
 const ProfileLink = ({profileName}) => {
 
@@ -22,7 +23,7 @@ const ProfileLink = ({profileName}) => {
                         {profileName}
                     </p>
                     <p className="text-xs leading-4 font-medium text-gray-300 group-hover:text-gray-200 transition ease-in-out duration-150">
-                        View profile
+                        <T>View profile</T>
                     </p>
                 </div>
             </div>
