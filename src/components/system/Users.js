@@ -7,7 +7,8 @@
 import React from 'react';
 import TableMultiline from "../ui/lists/tables/TableMultiline";
 import {useQuery, gql} from '@apollo/client';
-import T from "../wrappers/T";
+import { Trans } from '@lingui/macro';
+
 import AvatarCell from "../ui/lists/tables/cells/AvatarCell";
 import TwoLineCell from "../ui/lists/tables/cells/TwoLineCell";
 
@@ -51,8 +52,8 @@ const USERS = gql`
 function UsersTable() {
 
     const {loading, error, data} = useQuery(USERS);
-    if (loading) return <p><T>Loading...</T></p>;
-    if (error) return <p><T>Error</T> :(</p>;
+    if (loading) return <p><Trans>Loading...</Trans></p>;
+    if (error) return <p><Trans>Error</Trans> :(</p>;
 
     const headers = ['User', 'title', 'status', 'role', ''];
 
@@ -75,7 +76,7 @@ const Users = () => {
         <div className="mt-2 md:flex md:items-center md:justify-between mb-3">
             <div className="flex-1 min-w-0">
                 <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:leading-9 sm:truncate">
-                    <T>Users</T>
+                    <Trans>Users</Trans>
                 </h2>
             </div>
 

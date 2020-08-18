@@ -5,11 +5,12 @@
  */
 
 import React from 'react';
+import { Trans } from '@lingui/macro';
 
 
 const Employees = () => {
 
-    return (<div>Employees</div>);
+    return (<Trans>Employees</Trans>);
 
 
 };

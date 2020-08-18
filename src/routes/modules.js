@@ -21,212 +21,212 @@ import {
 
 
 } from "@fortawesome/pro-regular-svg-icons";
-import T from "../components/wrappers/T";
+import Trans from "@lingui/react/Trans";
 
 const modules = [
 
 
-    {id: 'dashboard', path: "/", text: <T>Dashboard</T>, icon: faTachometerAlt},
+    {id: 'dashboard', path: "/", text: <Trans>Dashboard</Trans>, icon: faTachometerAlt},
 
     {
-        id: 'customers', path: "/customers", text: <T>Customers</T>, icon: faUsers, subModules: [
+        id: 'customers', path: "/customers", text: <Trans>Customers</Trans>, icon: faUsers, subModules: [
 
-            {path: '/customers', text: <T>Customers</T>, icon: faUsers},
+            {path: '/customers', text: <Trans>Customers</Trans>, icon: faUsers},
 
-            {path: '/customers/lists', text: <T>Lists</T>, icon: faList},
+            {path: '/customers/lists', text: <Trans>Lists</Trans>, icon: faList},
 
-            {path: '/customers/insights', text: <T>Insights</T>, icon: faGraduationCap},
+            {path: '/customers/insights', text: <Trans>Insights</Trans>, icon: faGraduationCap},
 
-            {path: '/prospects', text: <T>Prospects</T>, icon: faUserAlien},
+            {path: '/prospects', text: <Trans>Prospects</Trans>, icon: faUserAlien},
 
         ]
     },
 
 
     {
-        id: 'mailroom', path: "/mailroom", text: <T>Mailroom</T>, icon: faMailBulk, subModules: [
+        id: 'mailroom', path: "/mailroom", text: <Trans>Mailroom</Trans>, icon: faMailBulk, subModules: [
 
-            {path: '/mailroom', text: <T>Marketing</T>, icon: faBullhorn},
+            {path: '/mailroom', text: <Trans>Marketing</Trans>, icon: faBullhorn},
 
-            {path: '/mailroom/notifications', text: <T>Customers notifications</T>, icon: faUsers},
+            {path: '/mailroom/notifications', text: <Trans>Customers notifications</Trans>, icon: faUsers},
 
-            {path: '/mailroom/staff_notifications', text: <T>Staff notifications</T>, icon: faBell},
+            {path: '/mailroom/staff_notifications', text: <Trans>Staff notifications</Trans>, icon: faBell},
 
                     ]
     },
 
     {
-        id: 'products', path: "/products", text: <T>Products</T>, icon: faStoreAlt, subModules: [
+        id: 'products', path: "/products", text: <Trans>Products</Trans>, icon: faStoreAlt, subModules: [
 
-            {path: '/products', text: <T>Dashboard</T>, icon: faTachometerAlt},
+            {path: '/products', text: <Trans>Dashboard</Trans>, icon: faTachometerAlt},
 
-            {path: '/products/product', text: <T>Products</T>, icon: faCube},
+            {path: '/products/product', text: <Trans>Products</Trans>, icon: faCube},
 
-            {path: '/products/categories', text: <T>Categories</T>, icon: faSitemap},
+            {path: '/products/categories', text: <Trans>Categories</Trans>, icon: faSitemap},
 
-            {path: '/products/settings', text: <T>Settings</T>, icon: faSlidersH},
-
-        ]
-    },
-
-    {
-        id: 'offers', path: "/offers", text: <T>Offers</T>, icon: faBadgePercent, subModules: [
-
-            {path: '/offers', text: <T>Categories</T>, icon: faSitemap},
-
-            {path: '/offers/offer', text: <T>Offers</T>, icon: faTags},
+            {path: '/products/settings', text: <Trans>Settings</Trans>, icon: faSlidersH},
 
         ]
     },
 
     {
-        id: 'websites', path: "/websites", text: <T>Websites</T>, icon: faGlobe, subModules: [
+        id: 'offers', path: "/offers", text: <Trans>Offers</Trans>, icon: faBadgePercent, subModules: [
 
-            {path: '/websites', text: <T>Analytics</T>, icon: faAnalytics},
+            {path: '/offers', text: <Trans>Categories</Trans>, icon: faSitemap},
 
-            {path: '/websites/webpages', text: <T>Web pages</T>, icon: faBrowser},
-
-            {path: '/websites/users', text: <T>Users</T>, icon: faUsersClass},
-
-            {path: '/websites/workshop', text: <T>Workshop</T>, icon: faDraftingCompass},
+            {path: '/offers/offer', text: <Trans>Offers</Trans>, icon: faTags},
 
         ]
     },
 
     {
-        id: 'orders', path: "/orders", text: <T>Orders</T>, icon: faShoppingCart, subModules: [
+        id: 'websites', path: "/websites", text: <Trans>Websites</Trans>, icon: faGlobe, subModules: [
 
-            {path: '/orders', text: <T>Control panel</T>, icon: faStream},
+            {path: '/websites', text: <Trans>Analytics</Trans>, icon: faAnalytics},
 
-            {path: '/orders/order', text: <T>Orders</T>, icon: faShoppingCart},
+            {path: '/websites/webpages', text: <Trans>Web pages</Trans>, icon: faBrowser},
 
-        ]
-    },
+            {path: '/websites/users', text: <Trans>Users</Trans>, icon: faUsersClass},
 
-    {
-        id: 'delivering', path: "/delivering", text: <T>Delivering</T>, icon: faConveyorBeltAlt, subModules: [
-
-            {path: '/delivering', text: <T>Delivery notes (All)</T>, icon: faTruck},
-
-            {path: '/delivering/pending_delivery_notes', text: <T>Pending deliveries</T>, icon: faStream},
-
-            {path: '/delivering/shippers', text: <T>Shipping companies</T>, icon: faTruckLoading},
+            {path: '/websites/workshop', text: <Trans>Workshop</Trans>, icon: faDraftingCompass},
 
         ]
     },
 
     {
-        id: 'warehouse', path: "/warehouse", text: <T>Warehouse</T>, icon: faWarehouseAlt, subModules: [
+        id: 'orders', path: "/orders", text: <Trans>Orders</Trans>, icon: faShoppingCart, subModules: [
 
-            {path: '/warehouse', text: <T>Dashboard</T>, icon: faTachometerAlt},
+            {path: '/orders', text: <Trans>Control panel</Trans>, icon: faStream},
 
-            {path: '/warehouse/warehouse_details', text: <T>Warehouse</T>, icon: faWarehouseAlt},
-
-            {path: '/warehouse/locations', text: <T>Locations</T>, icon: faPallet},
-
-            {path: '/warehouse/production_deliveries', text: <T>Production deliveries</T>, icon: faIndustry},
-
-            {path: '/warehouse/returns', text: <T>Returns</T>, icon: faBackspace},
-
-            {path: '/warehouse/issues', text: <T>Issues</T>, icon: faPoop},
+            {path: '/orders/order', text: <Trans>Orders</Trans>, icon: faShoppingCart},
 
         ]
     },
 
     {
-        id: 'inventory', path: "/inventory", text: <T>Inventory</T>, icon: faBox, subModules: [
+        id: 'delivering', path: "/delivering", text: <Trans>Delivering</Trans>, icon: faConveyorBeltAlt, subModules: [
 
-            {path: '/inventory', text: <T>Dashboard</T>, icon: faTachometerAlt},
+            {path: '/delivering', text: <Trans>Delivery notes (All)</Trans>, icon: faTruck},
 
-            {path: '/inventory/inventory_parts', text: <T>Inventory (Parts)</T>, icon: faBoxes},
+            {path: '/delivering/pending_delivery_notes', text: <Trans>Pending deliveries</Trans>, icon: faStream},
 
-            {path: '/inventory/category', text: <T>Part's families</T>, icon: faSitemap},
-
-            {path: '/inventory/stock_history', text: <T>Stock History</T>, icon: faScanner},
+            {path: '/delivering/shippers', text: <Trans>Shipping companies</Trans>, icon: faTruckLoading},
 
         ]
     },
 
     {
-        id: 'suppliers', path: "/suppliers", text: <T>Suppliers</T>, icon: faHandHoldingBox, subModules: [
+        id: 'warehouse', path: "/warehouse", text: <Trans>Warehouse</Trans>, icon: faWarehouseAlt, subModules: [
 
-            {path: '/suppliers', text: <T>Dashboard</T>, icon: faTachometerAlt},
+            {path: '/warehouse', text: <Trans>Dashboard</Trans>, icon: faTachometerAlt},
 
-            {path: '/suppliers/supplier', text: <T>Suppliers</T>, icon: faHandHoldingBox},
+            {path: '/warehouse/warehouse_details', text: <Trans>Warehouse</Trans>, icon: faWarehouseAlt},
 
-            {path: '/suppliers/agents', text: <T>Agents</T>, icon: faUserSecret},
+            {path: '/warehouse/locations', text: <Trans>Locations</Trans>, icon: faPallet},
 
-            {path: '/suppliers/products', text: <T>Products</T>, icon: faHandReceiving},
+            {path: '/warehouse/production_deliveries', text: <Trans>Production deliveries</Trans>, icon: faIndustry},
 
-            {path: '/suppliers/orders', text: <T>Purchase orders/Deliveries</T>, icon: faClipboard},
+            {path: '/warehouse/returns', text: <Trans>Returns</Trans>, icon: faBackspace},
 
-        ]
-    },
-
-    {
-        id: 'production', path: "/production", text: <T>Production</T>, icon: faIndustry, subModules: [
-
-
+            {path: '/warehouse/issues', text: <Trans>Issues</Trans>, icon: faPoop},
 
         ]
     },
 
     {
-        id: 'hr', path: "/hr", text: <T>Human resources</T>, icon: faClipboardUser, subModules: [
+        id: 'inventory', path: "/inventory", text: <Trans>Inventory</Trans>, icon: faBox, subModules: [
 
-            {path: '/hr', text: <T>Employees</T>, icon: faUserHeadset},
+            {path: '/inventory', text: <Trans>Dashboard</Trans>, icon: faTachometerAlt},
 
-            {path: '/hr/contractors', text: <T>Contractors</T>, icon: faUserHardHat},
+            {path: '/inventory/inventory_parts', text: <Trans>Inventory (Parts)</Trans>, icon: faBoxes},
 
-            {path: '/hr/timesheet', text: <T>Timesheets</T>, icon: faStopwatch},
+            {path: '/inventory/category', text: <Trans>Part's families</Trans>, icon: faSitemap},
 
-            {path: '/hr/clocking_machines', text: <T>Clocking-in Machines</T>, icon: faChessClock},
-
-        ]
-    },
-
-    {
-        id: 'accounting', path: "/accounting", text: <T>Accounting</T>, icon: faAbacus, subModules: [
-
-            {path: '/accounting', text: <T>Invoices (All)</T>, icon: faFileInvoiceDollar},
-
-            {path: '/accounting/payments', text: <T>Payments (All)</T>, icon: faCreditCard},
-
-            {path: '/accounting/credits', text: <T>Credit vault (All)</T>, icon: faPiggyBank},
+            {path: '/inventory/stock_history', text: <Trans>Stock History</Trans>, icon: faScanner},
 
         ]
     },
 
     {
-        id: 'reports', path: "/reports", text: <T>Reports</T>, icon: faChartLine, subModules: [
+        id: 'suppliers', path: "/suppliers", text: <Trans>Suppliers</Trans>, icon: faHandHoldingBox, subModules: [
+
+            {path: '/suppliers', text: <Trans>Dashboard</Trans>, icon: faTachometerAlt},
+
+            {path: '/suppliers/supplier', text: <Trans>Suppliers</Trans>, icon: faHandHoldingBox},
+
+            {path: '/suppliers/agents', text: <Trans>Agents</Trans>, icon: faUserSecret},
+
+            {path: '/suppliers/products', text: <Trans>Products</Trans>, icon: faHandReceiving},
+
+            {path: '/suppliers/orders', text: <Trans>Purchase orders/Deliveries</Trans>, icon: faClipboard},
 
         ]
     },
 
     {
-        id: 'users', path: "/system/users", text: <T>Users</T>, icon: faUsersClass, subModules: [
+        id: 'production', path: "/production", text: <Trans>Production</Trans>, icon: faIndustry, subModules: [
 
-            {path: '/system/users', text: <T> Users (All)</T>, icon: faUsersClass},
 
-            {path: '/system/users/employee', text: <T>Employees</T>, icon: faUserHeadset},
-
-            {path: '/system/users/contractors', text: <T>Contractors</T>, icon: faUserHardHat},
-
-            {path: '/system/users/suppliers', text: <T>Suppliers</T>, icon: faHandHoldingBox},
-
-            {path: '/system/users/agents', text: <T>Agents</T>, icon: faUserSecret},
 
         ]
     },
 
     {
-        id: 'settings', path: "/settings", text: <T>Settings</T>, icon: faSlidersH, subModules: [
+        id: 'hr', path: "/hr", text: <Trans>Human resources</Trans>, icon: faClipboardUser, subModules: [
 
-            {path: '/settings', text: <T>Account</T>, icon: faStar},
+            {path: '/hr', text: <Trans>Employees</Trans>, icon: faUserHeadset},
 
-            {path: '/settings/data_sets', text: <T>Data sets</T>, icon: faAlignLeft},
+            {path: '/hr/contractors', text: <Trans>Contractors</Trans>, icon: faUserHardHat},
 
-            {path: '/settings/setting', text: <T>Settings</T>, icon: faCog},
+            {path: '/hr/timesheet', text: <Trans>Timesheets</Trans>, icon: faStopwatch},
+
+            {path: '/hr/clocking_machines', text: <Trans>Clocking-in Machines</Trans>, icon: faChessClock},
+
+        ]
+    },
+
+    {
+        id: 'accounting', path: "/accounting", text: <Trans>Accounting</Trans>, icon: faAbacus, subModules: [
+
+            {path: '/accounting', text: <Trans>Invoices (All)</Trans>, icon: faFileInvoiceDollar},
+
+            {path: '/accounting/payments', text: <Trans>Payments (All)</Trans>, icon: faCreditCard},
+
+            {path: '/accounting/credits', text: <Trans>Credit vault (All)</Trans>, icon: faPiggyBank},
+
+        ]
+    },
+
+    {
+        id: 'reports', path: "/reports", text: <Trans>Reports</Trans>, icon: faChartLine, subModules: [
+
+        ]
+    },
+
+    {
+        id: 'users', path: "/system/users", text: <Trans>Users</Trans>, icon: faUsersClass, subModules: [
+
+            {path: '/system/users', text: <Trans> Users (All)</Trans>, icon: faUsersClass},
+
+            {path: '/system/users/employee', text: <Trans>Employees</Trans>, icon: faUserHeadset},
+
+            {path: '/system/users/contractors', text: <Trans>Contractors</Trans>, icon: faUserHardHat},
+
+            {path: '/system/users/suppliers', text: <Trans>Suppliers</Trans>, icon: faHandHoldingBox},
+
+            {path: '/system/users/agents', text: <Trans>Agents</Trans>, icon: faUserSecret},
+
+        ]
+    },
+
+    {
+        id: 'settings', path: "/settings", text: <Trans>Settings</Trans>, icon: faSlidersH, subModules: [
+
+            {path: '/settings', text: <Trans>Account</Trans>, icon: faStar},
+
+            {path: '/settings/data_sets', text: <Trans>Data sets</Trans>, icon: faAlignLeft},
+
+            {path: '/settings/setting', text: <Trans>Settings</Trans>, icon: faCog},
 
         ]
     },

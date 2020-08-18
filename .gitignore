@@ -27,3 +27,5 @@ yarn-error.log*
 .idea/jsLibraryMappings.xml
 src/assets/main.css
 package-lock.json
+.graphqlconfig
+src/locales/_build/*

@@ -4,7 +4,16 @@ schema {
     query: Query
 }
 
-union Userable = Contractor | Employee
+union Userable = Admin | Contractor | Employee
+
+type Admin {
+    created_at: DateTime!
+    id: ID!
+    name: String!
+    slug: String!
+    updated_at: DateTime!
+    user: User!
+}
 
 type Contractor {
     created_at: DateTime!

@@ -13,6 +13,42 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/system/Users.js:77
-#~ msgid "Users"
-#~ msgstr ""
+#: src/components/hr/Employees.js:13
+msgid "Employees"
+msgstr ""
+
+#: src/components/system/Users.js:56
+msgid "Error"
+msgstr ""
+
+#: src/components/system/Users.js:55
+msgid "Loading..."
+msgstr ""
+
+#: src/components/auth/Logout.js:20
+msgid "Log out"
+msgstr ""
+
+#: src/components/auth/MobileLogout.js:22
+msgid "Out"
+msgstr ""
+
+#: src/components/Login.js:90
+#: src/components/Login.js:92
+msgid "Password"
+msgstr ""
+
+#: src/components/Login.js:75
+#: src/components/Login.js:77
+msgid "Username"
+msgstr ""
+
+#: src/components/system/Users.js:79
+msgid "Users"
+msgstr ""
+
+#: src/components/navigation/ProfileLink.js:26
+msgid "View profile"
+msgstr ""
+
+
