@@ -4,10 +4,14 @@
  Copyright (c) 2020. Aiku.io
  */
 
-import {LOGIN, LOGOUT} from "./actionTypes";
+import {LOGIN, LOGOUT, UPDATE_LANGUAGE} from "./actionTypes";
 
 export const login = (credentials) => ({
     type: LOGIN, credentials
 })
 
 export const logout = () => ({type: LOGOUT})
+
+export const update_language = (language) => ({
+    type: UPDATE_LANGUAGE, language
+})

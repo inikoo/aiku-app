@@ -8,7 +8,7 @@ import { login } from '../actions';
 import Alert from "./alerts/Alert";
 import { I18n } from "@lingui/react"
 import { t } from "@lingui/macro"
-import {Trans} from '@lingui/react';
+import { Trans } from '@lingui/macro';
 
 
 

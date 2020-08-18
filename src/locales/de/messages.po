@@ -6,48 +6,12 @@ msgstr ""
 "X-Generator: POEditor.com\n"
 "Project-Id-Version: Aiku\n"
 "Language: de\n"
-
-#: src/components/hr/Employees.js:13
-#: src/routes/modules.js:177
-#: src/routes/modules.js:211
-msgid "Employees"
-msgstr "Mitarbeiter"
-
-#: src/components/system/Users.js:56
-msgid "Error"
-msgstr "Fehler"
-
-#: src/components/system/Users.js:55
-msgid "Loading..."
-msgstr "Laden..."
-
-#: src/components/auth/Logout.js:20
-msgid "Log out"
-msgstr "Abmelden"
-
-#: src/components/auth/MobileLogout.js:22
-msgid "Out"
-msgstr "Aus"
-
-#: src/components/Login.js:76
-#: src/components/Login.js:78
-msgid "Password"
-msgstr "Kennwort"
-
-#: src/components/Login.js:61
-#: src/components/Login.js:63
-msgid "Username"
-msgstr "Benutzername"
-
-#: src/components/system/Users.js:79
-#: src/routes/modules.js:89
-#: src/routes/modules.js:207
-msgid "Users"
-msgstr "Benutzer"
-
-#: src/components/navigation/ProfileLink.js:26
-msgid "View profile"
-msgstr "Profil anzeigen"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
 #: src/routes/modules.js:225
 msgid "Account"
@@ -117,6 +81,16 @@ msgstr "Liefern"
 msgid "Delivery notes (All)"
 msgstr "Lieferscheine (Alle)"
 
+#: src/components/hr/Employees.js:13
+#: src/routes/modules.js:177
+#: src/routes/modules.js:211
+msgid "Employees"
+msgstr "Mitarbeiter"
+
+#: src/components/system/Users.js:56
+msgid "Error"
+msgstr "Fehler"
+
 #: src/routes/modules.js:175
 msgid "Human resources"
 msgstr "Humanressourcen"
@@ -145,9 +119,17 @@ msgstr "Probleme"
 msgid "Lists"
 msgstr "Listen"
 
+#: src/components/system/Users.js:55
+msgid "Loading..."
+msgstr "Laden..."
+
 #: src/routes/modules.js:125
 msgid "Locations"
 msgstr "Standorte"
+
+#: src/components/auth/Logout.js:20
+msgid "Log out"
+msgstr "Abmelden"
 
 #: src/routes/modules.js:47
 msgid "Mailroom"
@@ -167,9 +149,18 @@ msgstr "Bietet an"
 msgid "Orders"
 msgstr "Aufträge"
 
+#: src/components/auth/MobileLogout.js:22
+msgid "Out"
+msgstr "Aus"
+
 #: src/routes/modules.js:143
 msgid "Part's families"
 msgstr "Teile Familien"
+
+#: src/components/Login.js:76
+#: src/components/Login.js:78
+msgid "Password"
+msgstr "Kennwort"
 
 #: src/routes/modules.js:193
 msgid "Payments (All)"
@@ -241,9 +232,24 @@ msgstr "Lieferanten"
 msgid "Timesheets"
 msgstr "Arbeitszeittabellen"
 
+#: src/components/Login.js:61
+#: src/components/Login.js:63
+msgid "Username"
+msgstr "Benutzername"
+
+#: src/components/system/Users.js:79
+#: src/routes/modules.js:89
+#: src/routes/modules.js:207
+msgid "Users"
+msgstr "Benutzer"
+
 #: src/routes/modules.js:209
 msgid "Users (All)"
 msgstr "Benutzer (alle)"
+
+#: src/components/navigation/ProfileLink.js:26
+msgid "View profile"
+msgstr "Profil anzeigen"
 
 #: src/routes/modules.js:119
 #: src/routes/modules.js:123
@@ -261,4 +267,3 @@ msgstr "Websites"
 #: src/routes/modules.js:91
 msgid "Workshop"
 msgstr "Werkstatt"
-

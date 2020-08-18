@@ -7,7 +7,7 @@
 import React from 'react';
 import TableMultiline from "../ui/lists/tables/TableMultiline";
 import {useQuery, gql} from '@apollo/client';
-import {Trans} from '@lingui/react';
+import { Trans } from '@lingui/macro';
 
 import AvatarCell from "../ui/lists/tables/cells/AvatarCell";
 import TwoLineCell from "../ui/lists/tables/cells/TwoLineCell";

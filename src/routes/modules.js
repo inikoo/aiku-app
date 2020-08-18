@@ -21,7 +21,7 @@ import {
 
 
 } from "@fortawesome/pro-regular-svg-icons";
-import {Trans} from '@lingui/react';
+import { Trans } from '@lingui/macro';
 
 const modules = [
 

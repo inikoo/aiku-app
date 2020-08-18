@@ -9,7 +9,7 @@ import {logout} from "../../actions";
 import {connect} from "react-redux";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSignOut} from "@fortawesome/pro-regular-svg-icons";
-import {Trans} from '@lingui/react';
+import { Trans } from '@lingui/macro';
 
 
 let Logout = ({logout}) => {

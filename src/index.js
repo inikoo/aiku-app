@@ -15,7 +15,7 @@ import {logger} from 'redux-logger';
 import reducer from './reducers';
 import Aiku from './Aiku';
 import rootSaga from './sagas';
-import { I18nProvider } from '@lingui/react'
+import I18nLoader from "./components/helpers/I18nLoader";
 
 const sagaMiddleware = createSagaMiddleware();
 //import * as serviceWorker from './serviceWorker';
@@ -26,9 +26,9 @@ const store = createStore(reducer, applyMiddleware(sagaMiddleware, logger),);
 
 sagaMiddleware.run(rootSaga);
 render(<React.StrictMode><Provider store={store}>
-    <I18nProvider language="en">
+    <I18nLoader >
         <Aiku/>
-    </I18nProvider>
+    </I18nLoader>
 </Provider></React.StrictMode>, document.getElementById('root'),);
 
 //if (module.hot) { module.hot.accept(Aiku);}

@@ -5,7 +5,7 @@
  */
 
 import React from 'react';
-import {Trans} from '@lingui/react';
+import { Trans } from '@lingui/macro';
 
 
 const Employees = () => {

@@ -29,3 +29,7 @@ src/assets/main.css
 package-lock.json
 .graphqlconfig
 src/locales/_build/*
+
+src/locales/_build/
+src/locales/**/*.js
+yarn.lock
