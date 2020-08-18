@@ -36,6 +36,11 @@ const USERS = gql`
                         slug
                         name
                     }
+                    ... on Admin {
+                        id
+                        slug
+                        name
+                    }
                 }
             }
         }
