@@ -13,7 +13,77 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: src/routes/modules.js:225
+msgid "Account"
+msgstr "Account"
+
+#: src/routes/modules.js:189
+msgid "Accounting"
+msgstr "Accounting"
+
+#: src/routes/modules.js:157
+#: src/routes/modules.js:217
+msgid "Agents"
+msgstr "Agents"
+
+#: src/routes/modules.js:85
+msgid "Analytics"
+msgstr "Analytics"
+
+#: src/routes/modules.js:65
+#: src/routes/modules.js:75
+msgid "Categories"
+msgstr "Categories"
+
+#: src/routes/modules.js:183
+msgid "Clocking-in Machines"
+msgstr "Clocking-in Machines"
+
+#: src/routes/modules.js:179
+#: src/routes/modules.js:213
+msgid "Contractors"
+msgstr "Contractors"
+
+#: src/routes/modules.js:99
+msgid "Control panel"
+msgstr "Control panel"
+
+#: src/routes/modules.js:195
+msgid "Credit vault (All)"
+msgstr "Credit vault (All)"
+
+#: src/routes/modules.js:32
+#: src/routes/modules.js:34
+msgid "Customers"
+msgstr "Customers"
+
+#: src/routes/modules.js:51
+msgid "Customers notifications"
+msgstr "Customers notifications"
+
+#: src/routes/modules.js:29
+#: src/routes/modules.js:61
+#: src/routes/modules.js:121
+#: src/routes/modules.js:139
+#: src/routes/modules.js:153
+msgid "Dashboard"
+msgstr "Dashboard"
+
+#: src/routes/modules.js:227
+msgid "Data sets"
+msgstr "Data sets"
+
+#: src/routes/modules.js:107
+msgid "Delivering"
+msgstr "Delivering"
+
+#: src/routes/modules.js:109
+msgid "Delivery notes (All)"
+msgstr "Delivery notes (All)"
+
 #: src/components/hr/Employees.js:13
+#: src/routes/modules.js:177
+#: src/routes/modules.js:211
 msgid "Employees"
 msgstr "Employees"
 
@@ -21,34 +91,179 @@ msgstr "Employees"
 msgid "Error"
 msgstr "Error"
 
+#: src/routes/modules.js:175
+msgid "Human resources"
+msgstr "Human resources"
+
+#: src/routes/modules.js:38
+msgid "Insights"
+msgstr "Insights"
+
+#: src/routes/modules.js:137
+msgid "Inventory"
+msgstr "Inventory"
+
+#: src/routes/modules.js:141
+msgid "Inventory (Parts)"
+msgstr "Inventory (Parts)"
+
+#: src/routes/modules.js:191
+msgid "Invoices (All)"
+msgstr "Invoices (All)"
+
+#: src/routes/modules.js:131
+msgid "Issues"
+msgstr "Issues"
+
+#: src/routes/modules.js:36
+msgid "Lists"
+msgstr "Lists"
+
 #: src/components/system/Users.js:55
 msgid "Loading..."
 msgstr "Loading..."
+
+#: src/routes/modules.js:125
+msgid "Locations"
+msgstr "Locations"
 
 #: src/components/auth/Logout.js:20
 msgid "Log out"
 msgstr "Log out"
 
+#: src/routes/modules.js:47
+msgid "Mailroom"
+msgstr "Mailroom"
+
+#: src/routes/modules.js:49
+msgid "Marketing"
+msgstr "Marketing"
+
+#: src/routes/modules.js:73
+#: src/routes/modules.js:77
+msgid "Offers"
+msgstr "Offers"
+
+#: src/routes/modules.js:97
+#: src/routes/modules.js:101
+msgid "Orders"
+msgstr "Orders"
+
 #: src/components/auth/MobileLogout.js:22
 msgid "Out"
 msgstr "Out"
 
-#: src/components/Login.js:90
-#: src/components/Login.js:92
+#: src/routes/modules.js:143
+msgid "Part's families"
+msgstr "Part's families"
+
+#: src/components/Login.js:76
+#: src/components/Login.js:78
 msgid "Password"
 msgstr "Password"
 
-#: src/components/Login.js:75
-#: src/components/Login.js:77
+#: src/routes/modules.js:193
+msgid "Payments (All)"
+msgstr "Payments (All)"
+
+#: src/routes/modules.js:111
+msgid "Pending deliveries"
+msgstr "Pending deliveries"
+
+#: src/routes/modules.js:167
+msgid "Production"
+msgstr "Production"
+
+#: src/routes/modules.js:127
+msgid "Production deliveries"
+msgstr "Production deliveries"
+
+#: src/routes/modules.js:59
+#: src/routes/modules.js:63
+#: src/routes/modules.js:159
+msgid "Products"
+msgstr "Products"
+
+#: src/routes/modules.js:40
+msgid "Prospects"
+msgstr "Prospects"
+
+#: src/routes/modules.js:161
+msgid "Purchase orders/Deliveries"
+msgstr "Purchase orders/Deliveries"
+
+#: src/routes/modules.js:201
+msgid "Reports"
+msgstr "Reports"
+
+#: src/routes/modules.js:129
+msgid "Returns"
+msgstr "Returns"
+
+#: src/routes/modules.js:67
+#: src/routes/modules.js:223
+#: src/routes/modules.js:229
+msgid "Settings"
+msgstr "Settings"
+
+#: src/routes/modules.js:113
+msgid "Shipping companies"
+msgstr "Shipping companies"
+
+#: src/components/Login.js:94
+msgid "Sign in"
+msgstr "Sign in"
+
+#: src/routes/modules.js:53
+msgid "Staff notifications"
+msgstr "Staff notifications"
+
+#: src/routes/modules.js:145
+msgid "Stock History"
+msgstr "Stock History"
+
+#: src/routes/modules.js:151
+#: src/routes/modules.js:155
+#: src/routes/modules.js:215
+msgid "Suppliers"
+msgstr "Suppliers"
+
+#: src/routes/modules.js:181
+msgid "Timesheets"
+msgstr "Timesheets"
+
+#: src/components/Login.js:61
+#: src/components/Login.js:63
 msgid "Username"
 msgstr "Username"
 
 #: src/components/system/Users.js:79
+#: src/routes/modules.js:89
+#: src/routes/modules.js:207
 msgid "Users"
 msgstr "Users"
+
+#: src/routes/modules.js:209
+msgid "Users (All)"
+msgstr "Users (All)"
 
 #: src/components/navigation/ProfileLink.js:26
 msgid "View profile"
 msgstr "View profile"
 
+#: src/routes/modules.js:119
+#: src/routes/modules.js:123
+msgid "Warehouse"
+msgstr "Warehouse"
 
+#: src/routes/modules.js:87
+msgid "Web pages"
+msgstr "Web pages"
+
+#: src/routes/modules.js:83
+msgid "Websites"
+msgstr "Websites"
+
+#: src/routes/modules.js:91
+msgid "Workshop"
+msgstr "Workshop"

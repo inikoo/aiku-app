@@ -8,7 +8,7 @@ import React from 'react';
 import UserAvatar from 'react-user-avatar';
 import {connect} from 'react-redux'
 import {Link} from "react-router-dom";
-import { Trans } from '@lingui/macro';
+import {Trans} from '@lingui/react';
 
 const ProfileLink = ({profileName}) => {
 
