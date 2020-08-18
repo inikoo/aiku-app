@@ -1,17 +1,53 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2020-08-16 01:21+0800\n"
-"Mime-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: @lingui/cli\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: Aiku\n"
 "Language: es\n"
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Plural-Forms: \n"
+
+#: src/components/hr/Employees.js:13
+#: src/routes/modules.js:177
+#: src/routes/modules.js:211
+msgid "Employees"
+msgstr "Empleados"
+
+#: src/components/system/Users.js:56
+msgid "Error"
+msgstr "Error"
+
+#: src/components/system/Users.js:55
+msgid "Loading..."
+msgstr "Cargando..."
+
+#: src/components/auth/Logout.js:20
+msgid "Log out"
+msgstr "Desconecta."
+
+#: src/components/auth/MobileLogout.js:22
+msgid "Out"
+msgstr "Fuera"
+
+#: src/components/Login.js:76
+#: src/components/Login.js:78
+msgid "Password"
+msgstr "Contraseña"
+
+#: src/components/Login.js:61
+#: src/components/Login.js:63
+msgid "Username"
+msgstr "Nombre de usuario"
+
+#: src/components/system/Users.js:79
+#: src/routes/modules.js:89
+#: src/routes/modules.js:207
+msgid "Users"
+msgstr "Usuarios"
+
+#: src/components/navigation/ProfileLink.js:26
+msgid "View profile"
+msgstr "Ver perfil"
 
 #: src/routes/modules.js:225
 msgid "Account"
@@ -81,16 +117,6 @@ msgstr ""
 msgid "Delivery notes (All)"
 msgstr ""
 
-#: src/components/hr/Employees.js:13
-#: src/routes/modules.js:177
-#: src/routes/modules.js:211
-msgid "Employees"
-msgstr ""
-
-#: src/components/system/Users.js:56
-msgid "Error"
-msgstr ""
-
 #: src/routes/modules.js:175
 msgid "Human resources"
 msgstr ""
@@ -119,16 +145,8 @@ msgstr ""
 msgid "Lists"
 msgstr ""
 
-#: src/components/system/Users.js:55
-msgid "Loading..."
-msgstr ""
-
 #: src/routes/modules.js:125
 msgid "Locations"
-msgstr ""
-
-#: src/components/auth/Logout.js:20
-msgid "Log out"
 msgstr ""
 
 #: src/routes/modules.js:47
@@ -149,17 +167,8 @@ msgstr ""
 msgid "Orders"
 msgstr ""
 
-#: src/components/auth/MobileLogout.js:22
-msgid "Out"
-msgstr ""
-
 #: src/routes/modules.js:143
 msgid "Part's families"
-msgstr ""
-
-#: src/components/Login.js:76
-#: src/components/Login.js:78
-msgid "Password"
 msgstr ""
 
 #: src/routes/modules.js:193
@@ -232,23 +241,8 @@ msgstr ""
 msgid "Timesheets"
 msgstr ""
 
-#: src/components/Login.js:61
-#: src/components/Login.js:63
-msgid "Username"
-msgstr ""
-
-#: src/components/system/Users.js:79
-#: src/routes/modules.js:89
-#: src/routes/modules.js:207
-msgid "Users"
-msgstr ""
-
 #: src/routes/modules.js:209
 msgid "Users (All)"
-msgstr ""
-
-#: src/components/navigation/ProfileLink.js:26
-msgid "View profile"
 msgstr ""
 
 #: src/routes/modules.js:119
@@ -267,3 +261,4 @@ msgstr ""
 #: src/routes/modules.js:91
 msgid "Workshop"
 msgstr ""
+
