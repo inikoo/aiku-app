@@ -21,16 +21,16 @@ const TopHeaderLink = (props) => {
 }
 
 
-const TopNav = () => {
+const TopNav = (props) => {
 
 
     return ( <div className="flex items-center px-2 lg:px-0">
         <div className="hidden lg:block lg:ml-0">
             <div className="flex">
-                <TopHeaderLink to="/dashboard" text="Dashboard"/>
-                <TopHeaderLink to="/team" text="Team" />
-                <TopHeaderLink to="/projects" text="Projects"/>
-                <TopHeaderLink to="/calendar" text="Calendar"/>
+                {props.subModules.map((obj, key) => (
+                    <TopHeaderLink key={key} to={obj.path} text={obj.text} icon={obj.icon}/>
+                ))
+                }
             </div>
 
         </div>
@@ -40,3 +40,5 @@ const TopNav = () => {
 };
 
 export default TopNav;
+
+//<TopHeaderLink to="/dashboard" text="Dashboard"/>

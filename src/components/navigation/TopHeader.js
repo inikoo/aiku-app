@@ -2,21 +2,19 @@ import React from 'react';
 import Breadcrumbs from "./Breadcrumbs";
 import useBreadcrumbs from "use-react-router-breadcrumbs";
 import TopNav from "./TopNav";
-
+import routes from "../../routes/routes";
+import {subModules} from "../../routes/modules";
 
 
 const TopHeader = (props) => {
 
-    const breadcrumbs = useBreadcrumbs();
+    const breadcrumbs = useBreadcrumbs(routes);
     const numberBreadcrumbs = breadcrumbs.length - 1;
 
 
     if (numberBreadcrumbs <= 0) {
         return ''
     }
-
-    console.log(breadcrumbs);
-
 
 
 
@@ -29,7 +27,9 @@ const TopHeader = (props) => {
         <div className=" px-0 sm:px-4 ">
             <div className="relative flex items-center justify-between h-12">
 
-               <TopNav breadcrumbs={breadcrumbs} />
+                <TopNav subModules={subModules[breadcrumbs[1].breadcrumb['props'].module]} />
+
+
 
 
                 <div className="flex-1 flex justify-center px-2 lg:ml-6 lg:justify-end">

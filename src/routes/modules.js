@@ -204,32 +204,22 @@ const modules = [
     },
 
     {
-        id: 'users', path: "/system/users", text: <Trans>Users</Trans>, icon: faUsersClass, subModules: [
+        id: 'system', path: "/system", text: <Trans>System</Trans>, icon: faUsersClass, subModules: [
+
+            {path: '/system', text: <Trans> System</Trans>, icon: faUsersClass},
 
             {path: '/system/users', text: <Trans> Users (All)</Trans>, icon: faUsersClass},
 
-            {path: '/system/users/employee', text: <Trans>Employees</Trans>, icon: faUserHeadset},
+            {path: '/system/roles', text: <Trans>Roles/Permissions</Trans>, icon: faUsersClass},
 
-            {path: '/system/users/contractors', text: <Trans>Contractors</Trans>, icon: faUserHardHat},
+            {path: '/system/logs', text: <Trans>Logs</Trans>, icon: faUsersClass},
 
-            {path: '/system/users/suppliers', text: <Trans>Suppliers</Trans>, icon: faHandHoldingBox},
+            {path: '/system/settings', text: <Trans>Settings</Trans>, icon: faStar},
 
-            {path: '/system/users/agents', text: <Trans>Agents</Trans>, icon: faUserSecret},
 
-        ]
-    },
-
-    {
-        id: 'settings', path: "/settings", text: <Trans>Settings</Trans>, icon: faSlidersH, subModules: [
-
-            {path: '/settings', text: <Trans>Account</Trans>, icon: faStar},
-
-            {path: '/settings/data_sets', text: <Trans>Data sets</Trans>, icon: faAlignLeft},
-
-            {path: '/settings/setting', text: <Trans>Settings</Trans>, icon: faCog},
 
         ]
-    },
+    }
 
 
 

@@ -4,6 +4,7 @@
  Copyright (c) 2020. Aiku.io
  */
 
+
 import Dashboard from "../components/dashboard/Dashboard";
 import HumanResources from "../components/hr/HumanResources";
 import HRCalendar from "../components/hr/HRCalendar";
@@ -27,15 +28,20 @@ import Website from "../components/store/Website";
 import Mailroom from "../components/store/Mailroom";
 import Profile from "../components/profile/Profile";
 import Users from "../components/system/Users";
-import User from "../components/system/UserId";
+import User from "../components/system/User";
 import Roles from "../components/system/Roles";
 import Role from "../components/system/Role";
+import System from "../components/system/System";
+import Logs from "../components/system/Logs";
+import {Trans} from '@lingui/macro';
+import React from "react";
+
 
 export default [
 
-    {path: "/", name: "Dashboard", Component: Dashboard},
+    {path: "/", breadcrumb: () => <Trans>Home</Trans>, name: "Dashboard", Component: Dashboard},
 
-    {path: "/stores", name: "Stores", Component: Stores,module: 'stores'},
+    {path: "/stores", name: "Stores", Component: Stores, module: 'stores'},
 
     {path: "/store/:storeID", name: "Store", Component: Store},
 
@@ -55,7 +61,7 @@ export default [
 
     {path: "/store/:storeID/mailroom", name: "Mailroom", Component: Mailroom},
 
-    {path: "/hr", name: "Human resources", Component: HumanResources},
+    {path: "/hr", breadcrumb: () => <Trans>Human resources</Trans>, module:'hr' ,Component: HumanResources},
 
     {path: "/hr/calender", name: "Calendar", Component: HRCalendar},
 
@@ -69,18 +75,23 @@ export default [
 
     {path: "/hr/employee/:employeeID/timesheets", name: "Timesheets", Component: Timesheets},
 
-    {path: "/hr/employee/:employeeID/timesheet/:timesheetID", name: "Timesheet", Component: Timesheet},
+    {path: "/hr/employee/:employeeID/timesheet/:timesheetID",  Component: Timesheet},
 
-    {path: "/hr/contractors", name: "Contractors", Component: Contractors}, {path: "/hr/contractor/:contractorID", name: "Contractor", Component: Contractor},
+    {path: "/hr/contractors", name: "Contractors", Component: Contractors},
 
-    {path: "/system/users", name: "Users", Component: Users}, {path: "/system/users", name: "Users", Component: Users},
+    {path: "/hr/contractor/:contractorID", name: "Contractor", Component: Contractor},
+
+    {path: "/system", breadcrumb: () => <Trans>System</Trans> ,Component: System, module:'system' },
+
+    {path: "/system/users", breadcrumb: () => <Trans>Users</Trans>, Component: Users},
 
     {path: "/system/user/:userID", name: "User", Component: User},
 
     {path: "/system/roles", name: "Roles", Component: Roles},
 
-    {path: "/system/role/:userID", name: "User", Component: Role},
+    {path: "/system/role/:roleID", name: "Role", Component: Role},
 
+    {path: "/system/logs", name: "Logs", Component: Logs},
 
     {path: "/profile", name: "Profile", Component: Profile},
 
