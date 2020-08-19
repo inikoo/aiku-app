@@ -104,9 +104,11 @@ const modules = [
     {
         id: 'orders', path: "/orders", text: <Trans>Orders</Trans>, icon: faShoppingCart, subModules: [
 
-            {path: '/orders', text: <Trans>Control panel</Trans>, icon: faStream},
+            {path: '/orders', text: <Trans>Orders Dashboard</Trans>, icon: faTachometerAlt},
 
-            {path: '/orders/order', text: <Trans>Orders</Trans>, icon: faShoppingCart},
+            {path: '/orders/control_panel', text: <Trans>Control panel</Trans>, icon: faStream},
+
+            {path: '/orders/orders', text: <Trans>Orders</Trans>, icon: faShoppingCart},
 
         ]
     },
@@ -114,7 +116,9 @@ const modules = [
     {
         id: 'delivering', path: "/delivering", text: <Trans>Delivering</Trans>, icon: faConveyorBeltAlt, subModules: [
 
-            {path: '/delivering', text: <Trans>Delivery notes (All)</Trans>, icon: faTruck},
+            {path: '/delivering', text: <Trans>Delivering Dashboard</Trans>, icon: faTachometerAlt},
+
+            {path: '/delivering/notes', text: <Trans>Delivery notes (All)</Trans>, icon: faTruck},
 
             {path: '/delivering/pending_delivery_notes', text: <Trans>Pending deliveries</Trans>, icon: faStream},
 
@@ -126,13 +130,13 @@ const modules = [
     {
         id: 'warehouse', path: "/warehouse", text: <Trans>Warehouse</Trans>, icon: faWarehouseAlt, subModules: [
 
-            {path: '/warehouse', text: <Trans>Dashboard</Trans>, icon: faTachometerAlt},
+            {path: '/warehouse', text: <Trans>Warehouse Dashboard</Trans>, icon: faTachometerAlt},
 
             {path: '/warehouse/warehouse_details', text: <Trans>Warehouse</Trans>, icon: faWarehouseAlt},
 
             {path: '/warehouse/locations', text: <Trans>Locations</Trans>, icon: faPallet},
 
-            {path: '/warehouse/production_deliveries', text: <Trans>Production deliveries</Trans>, icon: faIndustry},
+            {path: '/warehouse/production_deliveries', text: <Trans>Production Deliveries</Trans>, icon: faIndustry},
 
             {path: '/warehouse/returns', text: <Trans>Returns</Trans>, icon: faBackspace},
 
@@ -144,7 +148,7 @@ const modules = [
     {
         id: 'inventory', path: "/inventory", text: <Trans>Inventory</Trans>, icon: faBox, subModules: [
 
-            {path: '/inventory', text: <Trans>Dashboard</Trans>, icon: faTachometerAlt},
+            {path: '/inventory', text: <Trans>Inventory Dashboard</Trans>, icon: faTachometerAlt},
 
             {path: '/inventory/inventory_parts', text: <Trans>Inventory (Parts)</Trans>, icon: faBoxes},
 
@@ -158,7 +162,7 @@ const modules = [
     {
         id: 'suppliers', path: "/suppliers", text: <Trans>Suppliers</Trans>, icon: faHandHoldingBox, subModules: [
 
-            {path: '/suppliers', text: <Trans>Dashboard</Trans>, icon: faTachometerAlt},
+            {path: '/suppliers', text: <Trans>Suppliers Dashboard</Trans>, icon: faTachometerAlt},
 
             {path: '/suppliers/suppliers', text: <Trans>Suppliers</Trans>, icon: faHandHoldingBox},
 
@@ -182,9 +186,11 @@ const modules = [
     {
         id: 'hr', path: "/hr", text: <Trans>Human resources</Trans>, icon: faClipboardUser, subModules: [
 
-            {path: '/hr', text: <Trans>Human resources</Trans>, icon: faUserHeadset},
+            {path: '/hr', text: <Trans>Human resources dashboard</Trans>, icon: faTachometerAlt},
 
             {path: '/hr/employees', text: <Trans>Employees</Trans>, icon: faUserHardHat},
+
+            {path: '/hr/contractors', text: <Trans>Contractors</Trans>, icon: faUserHardHat},
 
             {path: '/hr/attendance', text: <Trans>Attendance</Trans>, icon: faStopwatch},
 
