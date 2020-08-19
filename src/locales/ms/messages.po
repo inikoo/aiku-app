@@ -1,59 +1,101 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2020-08-19 14:54+0800\n"
-"Mime-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: @lingui/cli\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: Aiku\n"
 "Language: ms\n"
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Plural-Forms: \n"
+
+#: src/components/hr/Employees.js:13
+#: src/routes/modules.js:177
+#: src/routes/modules.js:211
+msgid "Employees"
+msgstr "Pekerja"
+
+#: src/components/system/Users.js:56
+msgid "Error"
+msgstr "Ralat"
+
+#: src/components/system/Users.js:55
+msgid "Loading..."
+msgstr "Memuat ..."
+
+#: src/components/auth/Logout.js:20
+msgid "Log out"
+msgstr "Log keluar"
+
+#: src/components/auth/MobileLogout.js:22
+msgid "Out"
+msgstr "Keluar"
+
+#: src/components/Login.js:76
+#: src/components/Login.js:78
+msgid "Password"
+msgstr "Kata Laluan"
+
+#: src/components/Login.js:61
+#: src/components/Login.js:63
+msgid "Username"
+msgstr "Nama pengguna"
+
+#: src/components/system/Users.js:79
+#: src/routes/modules.js:89
+#: src/routes/modules.js:207
+msgid "Users"
+msgstr "Pengguna"
+
+#: src/components/navigation/ProfileLink.js:26
+msgid "View profile"
+msgstr "Lihat profil"
+
+#: src/routes/modules.js:225
+msgid "Account"
+msgstr "Akaun"
 
 #: src/routes/modules.js:189
 msgid "Accounting"
-msgstr ""
+msgstr "Perakaunan"
 
 #: src/routes/modules.js:157
+#: src/routes/modules.js:217
 msgid "Agents"
-msgstr ""
+msgstr "Ejen"
 
 #: src/routes/modules.js:85
 msgid "Analytics"
-msgstr ""
+msgstr "Analisis"
 
 #: src/routes/modules.js:65
 #: src/routes/modules.js:75
 msgid "Categories"
-msgstr ""
+msgstr "Kategori"
 
 #: src/routes/modules.js:183
 msgid "Clocking-in Machines"
-msgstr ""
+msgstr "Mesin Clock-in"
 
 #: src/routes/modules.js:179
+#: src/routes/modules.js:213
 msgid "Contractors"
-msgstr ""
+msgstr "Kontraktor"
 
 #: src/routes/modules.js:99
 msgid "Control panel"
-msgstr ""
+msgstr "Panel kawalan"
 
 #: src/routes/modules.js:195
 msgid "Credit vault (All)"
-msgstr ""
+msgstr "Bilik simpanan kredit (Semua)"
 
 #: src/routes/modules.js:32
 #: src/routes/modules.js:34
 msgid "Customers"
-msgstr ""
+msgstr "Pelanggan"
 
 #: src/routes/modules.js:51
 msgid "Customers notifications"
-msgstr ""
+msgstr "Pemberitahuan pelanggan"
 
 #: src/routes/modules.js:29
 #: src/routes/modules.js:61
@@ -61,215 +103,162 @@ msgstr ""
 #: src/routes/modules.js:139
 #: src/routes/modules.js:153
 msgid "Dashboard"
-msgstr ""
+msgstr "Papan Pemuka"
+
+#: src/routes/modules.js:227
+msgid "Data sets"
+msgstr "Kumpulan data"
 
 #: src/routes/modules.js:107
 msgid "Delivering"
-msgstr ""
+msgstr "Menyampaikan"
 
 #: src/routes/modules.js:109
 msgid "Delivery notes (All)"
-msgstr ""
-
-#: src/components/hr/Employees.js:13
-#: src/routes/modules.js:177
-msgid "Employees"
-msgstr ""
-
-#: src/components/system/Users.js:56
-msgid "Error"
-msgstr ""
-
-#: src/routes/routes.js:42
-msgid "Home"
-msgstr ""
+msgstr "Nota penghantaran (Semua)"
 
 #: src/routes/modules.js:175
-#: src/routes/routes.js:64
 msgid "Human resources"
-msgstr ""
+msgstr "Sumber Manusia"
 
 #: src/routes/modules.js:38
 msgid "Insights"
-msgstr ""
+msgstr "Pandangan"
 
 #: src/routes/modules.js:137
 msgid "Inventory"
-msgstr ""
+msgstr "Persediaan"
 
 #: src/routes/modules.js:141
 msgid "Inventory (Parts)"
-msgstr ""
+msgstr "Inventori (Bahagian)"
 
 #: src/routes/modules.js:191
 msgid "Invoices (All)"
-msgstr ""
+msgstr "Invois (Semua)"
 
 #: src/routes/modules.js:131
 msgid "Issues"
-msgstr ""
+msgstr "Isu"
 
 #: src/routes/modules.js:36
 msgid "Lists"
-msgstr ""
-
-#: src/components/system/Users.js:55
-msgid "Loading..."
-msgstr ""
+msgstr "Senarai"
 
 #: src/routes/modules.js:125
 msgid "Locations"
-msgstr ""
-
-#: src/components/auth/Logout.js:20
-msgid "Log out"
-msgstr ""
-
-#: src/routes/modules.js:215
-msgid "Logs"
-msgstr ""
+msgstr "Lokasi"
 
 #: src/routes/modules.js:47
 msgid "Mailroom"
-msgstr ""
+msgstr "Bilik Mel"
 
 #: src/routes/modules.js:49
 msgid "Marketing"
-msgstr ""
+msgstr "Pemasaran"
 
 #: src/routes/modules.js:73
 #: src/routes/modules.js:77
 msgid "Offers"
-msgstr ""
+msgstr "Tawaran"
 
 #: src/routes/modules.js:97
 #: src/routes/modules.js:101
 msgid "Orders"
-msgstr ""
-
-#: src/components/auth/MobileLogout.js:22
-msgid "Out"
-msgstr ""
+msgstr "Pesanan"
 
 #: src/routes/modules.js:143
 msgid "Part's families"
-msgstr ""
-
-#: src/components/Login.js:76
-#: src/components/Login.js:78
-msgid "Password"
-msgstr ""
+msgstr "Keluarga bahagian"
 
 #: src/routes/modules.js:193
 msgid "Payments (All)"
-msgstr ""
+msgstr "Pembayaran (Semua)"
 
 #: src/routes/modules.js:111
 msgid "Pending deliveries"
-msgstr ""
+msgstr "Penghantaran belum selesai"
 
 #: src/routes/modules.js:167
 msgid "Production"
-msgstr ""
+msgstr "Pengeluaran"
 
 #: src/routes/modules.js:127
 msgid "Production deliveries"
-msgstr ""
+msgstr "Penghantaran pengeluaran"
 
 #: src/routes/modules.js:59
 #: src/routes/modules.js:63
 #: src/routes/modules.js:159
 msgid "Products"
-msgstr ""
+msgstr "Produk"
 
 #: src/routes/modules.js:40
 msgid "Prospects"
-msgstr ""
+msgstr "Prospek"
 
 #: src/routes/modules.js:161
 msgid "Purchase orders/Deliveries"
-msgstr ""
+msgstr "Pesanan pembelian / Penghantaran"
 
 #: src/routes/modules.js:201
 msgid "Reports"
-msgstr ""
+msgstr "Laporan"
 
 #: src/routes/modules.js:129
 msgid "Returns"
-msgstr ""
-
-#: src/routes/modules.js:213
-msgid "Roles/Permissions"
-msgstr ""
+msgstr "Pulang"
 
 #: src/routes/modules.js:67
-#: src/routes/modules.js:217
+#: src/routes/modules.js:223
+#: src/routes/modules.js:229
 msgid "Settings"
-msgstr ""
+msgstr "Tetapan"
 
 #: src/routes/modules.js:113
 msgid "Shipping companies"
-msgstr ""
+msgstr "Syarikat perkapalan"
 
 #: src/components/Login.js:94
 msgid "Sign in"
-msgstr ""
+msgstr "Log masuk"
 
 #: src/routes/modules.js:53
 msgid "Staff notifications"
-msgstr ""
+msgstr "Pemberitahuan kakitangan"
 
 #: src/routes/modules.js:145
 msgid "Stock History"
-msgstr ""
+msgstr "Sejarah Saham"
 
 #: src/routes/modules.js:151
 #: src/routes/modules.js:155
+#: src/routes/modules.js:215
 msgid "Suppliers"
-msgstr ""
-
-#: src/routes/modules.js:207
-#: src/routes/modules.js:209
-#: src/routes/routes.js:84
-msgid "System"
-msgstr ""
+msgstr "Pembekal"
 
 #: src/routes/modules.js:181
 msgid "Timesheets"
-msgstr ""
+msgstr "Jadual Waktu"
 
-#: src/components/Login.js:61
-#: src/components/Login.js:63
-msgid "Username"
-msgstr ""
-
-#: src/components/system/Users.js:79
-#: src/routes/modules.js:89
-#: src/routes/routes.js:86
-msgid "Users"
-msgstr ""
-
-#: src/routes/modules.js:211
+#: src/routes/modules.js:209
 msgid "Users (All)"
-msgstr ""
-
-#: src/components/navigation/ProfileLink.js:26
-msgid "View profile"
-msgstr ""
+msgstr "Pengguna (Semua)"
 
 #: src/routes/modules.js:119
 #: src/routes/modules.js:123
 msgid "Warehouse"
-msgstr ""
+msgstr "Gudang"
 
 #: src/routes/modules.js:87
 msgid "Web pages"
-msgstr ""
+msgstr "laman sesawang"
 
 #: src/routes/modules.js:83
 msgid "Websites"
-msgstr ""
+msgstr "Laman web"
 
 #: src/routes/modules.js:91
 msgid "Workshop"
-msgstr ""
+msgstr "Bengkel"
+
