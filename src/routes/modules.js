@@ -31,9 +31,11 @@ const modules = [
     {
         id: 'customers', path: "/customers", text: <Trans>Customers</Trans>, icon: faUsers, subModules: [
 
-            {path: '/customers', text: <Trans>Customers</Trans>, icon: faUsers},
+            {path: '/customers', text: <Trans>CRM</Trans>, icon: faUsers},
 
-            {path: '/customers/lists', text: <Trans>Lists</Trans>, icon: faList},
+            {path: '/customers/customer', text: <Trans>Customers</Trans>, icon: faList},
+
+            {path: '/customers/lists', text: <Trans>List</Trans>, icon: faList},
 
             {path: '/customers/insights', text: <Trans>Insights</Trans>, icon: faGraduationCap},
 
@@ -46,11 +48,13 @@ const modules = [
     {
         id: 'mailroom', path: "/mailroom", text: <Trans>Mailroom</Trans>, icon: faMailBulk, subModules: [
 
-            {path: '/mailroom', text: <Trans>Marketing</Trans>, icon: faBullhorn},
+            {path: '/mailroom', text: <Trans>Mailroom Dashboard</Trans>, icon: faBullhorn},
 
-            {path: '/mailroom/notifications', text: <Trans>Customers notifications</Trans>, icon: faUsers},
+            {path: '/mailroom/marketing', text: <Trans>Marketing</Trans>, icon: faBullhorn},
 
-            {path: '/mailroom/staff_notifications', text: <Trans>Staff notifications</Trans>, icon: faBell},
+            {path: '/mailroom/customers_notifications', text: <Trans>Customers notifications</Trans>, icon: faUsers},
+
+            {path: '/mailroom/staff_notifications', text: <Trans>Staffs notifications</Trans>, icon: faBell},
 
                     ]
     },
@@ -58,9 +62,9 @@ const modules = [
     {
         id: 'products', path: "/products", text: <Trans>Products</Trans>, icon: faStoreAlt, subModules: [
 
-            {path: '/products', text: <Trans>Dashboard</Trans>, icon: faTachometerAlt},
+            {path: '/products', text: <Trans>Products Dashboard</Trans>, icon: faTachometerAlt},
 
-            {path: '/products/product', text: <Trans>Products</Trans>, icon: faCube},
+            {path: '/products/productslist', text: <Trans>Products List</Trans>, icon: faCube},
 
             {path: '/products/categories', text: <Trans>Categories</Trans>, icon: faSitemap},
 
@@ -72,7 +76,9 @@ const modules = [
     {
         id: 'offers', path: "/offers", text: <Trans>Offers</Trans>, icon: faBadgePercent, subModules: [
 
-            {path: '/offers', text: <Trans>Categories</Trans>, icon: faSitemap},
+            {path: '/offers', text: <Trans>Offers Dashboard</Trans>, icon: faTachometerAlt},
+
+            {path: '/offers/categories', text: <Trans>Categories</Trans>, icon: faSitemap},
 
             {path: '/offers/offer', text: <Trans>Offers</Trans>, icon: faTags},
 
@@ -82,7 +88,9 @@ const modules = [
     {
         id: 'websites', path: "/websites", text: <Trans>Websites</Trans>, icon: faGlobe, subModules: [
 
-            {path: '/websites', text: <Trans>Analytics</Trans>, icon: faAnalytics},
+            {path: '/websites', text: <Trans>Websites Dashboard</Trans>, icon: faTachometerAlt},
+
+            {path: '/websites/analytics', text: <Trans>Analytics</Trans>, icon: faAnalytics},
 
             {path: '/websites/webpages', text: <Trans>Web pages</Trans>, icon: faBrowser},
 
@@ -172,7 +180,7 @@ const modules = [
     },
 
     {
-        id: 'hr', path: "/hr", text: <Trans>Human resources xx</Trans>, icon: faClipboardUser, subModules: [
+        id: 'hr', path: "/hr", text: <Trans>Human resources</Trans>, icon: faClipboardUser, subModules: [
 
             {path: '/hr', text: <Trans>Human resources</Trans>, icon: faUserHeadset},
 

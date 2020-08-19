@@ -43,6 +43,18 @@ import CustomersDashboard from "../components/Customers/CustomersDashboard";
 import Lists from "../components/Customers/lists";
 import Insights from "../components/Customers/insights";
 import Prospects from "../components/Customers/prospects";
+import MailroomDashboard from "../components/mailroom/MailroomDashboard";
+import Marketing from "../components/mailroom/Marketing";
+import CustomersNotifications from "../components/mailroom/CustomersNotifications";
+import StaffsNotifications from "../components/mailroom/StaffsNotifications";
+import ProductsDashboard from "../components/Products/ProductsDashboard";
+import ProductsList from "../components/Products/ProductsList";
+import Categories from "../components/Products/Categories";
+import Settings from "../components/Products/Settings";
+import OffersDashboard from "../components/Offers/OffersDashboard";
+import Offers from "../components/Offers/Offers";
+import OffersCategories from "../components/Offers/Categories";
+import Cus from "../components/Customers/cus";
 
 
 export default [
@@ -51,10 +63,28 @@ export default [
 
 
 // CUSTOMERS
-    {path: "/customers", breadcrumb: () => <Trans>Customers dashboard</Trans>, module:'customers' ,Component: CustomersDashboard},
+    {path: "/customers", breadcrumb: () => <Trans>CRM</Trans>, module:'customers' ,Component: CustomersDashboard},
+    {path: "/customers/customer", breadcrumb: () => <Trans>Customers</Trans>, module:'customers' ,Component: Cus},
     {path: "/customers/lists", breadcrumb: () => <Trans>Lists</Trans>, module:'customers' ,Component: Lists},
     {path: "/customers/insights", breadcrumb: () => <Trans>Insights</Trans>, module:'customers' ,Component: Insights},
     {path: "/customers/prospects", breadcrumb: () => <Trans>Prospects</Trans>, module:'customers' ,Component: Prospects},
+
+//MAILROOM
+    {path: "/mailroom", breadcrumb: () => <Trans>Mailroom dashboard</Trans>, module:'mailroom' ,Component: MailroomDashboard},
+    {path: "/mailroom/marketing", breadcrumb: () => <Trans>Marketing</Trans>, module:'mailroom' ,Component: Marketing},
+    {path: "/mailroom/customers_notifications", breadcrumb: () => <Trans>Customers Notifications</Trans>, module:'mailroom' ,Component: CustomersNotifications},
+    {path: "/mailroom/staff_notofications", breadcrumb: () => <Trans>Staffs Notifications</Trans>, module:'mailroom' ,Component: StaffsNotifications},
+
+//PRODUCTS
+    {path: "/products", breadcrumb: () => <Trans>Products dashboard</Trans>, module:'products' ,Component: ProductsDashboard},
+    {path: "/products/productslist", breadcrumb: () => <Trans>Products List</Trans>, module:'products' ,Component: ProductsList},
+    {path: "/products/categories", breadcrumb: () => <Trans>Categories</Trans>, module:'products' ,Component: Categories},
+    {path: "/products/settings", breadcrumb: () => <Trans>Settings</Trans>, module:'products' ,Component: Settings},
+
+//OFFERS
+    {path: "/offers", breadcrumb: () => <Trans>Offers dashboard</Trans>, module:'offers' ,Component: OffersDashboard},
+    {path: "/offers/categories", breadcrumb: () => <Trans>Categories</Trans>, module:'offers' ,Component: OffersCategories},
+    {path: "/products/offers", breadcrumb: () => <Trans>Offers</Trans>, module:'offers' ,Component: Offers},
 
 
 
@@ -65,23 +95,14 @@ export default [
 
 //STORES
     {path: "/stores", name: "Stores", Component: Stores, module: 'stores'},
-
     {path: "/store/:storeID", name: "Store", Component: Store},
-
     {path: "/store/:storeID/customers", name: "Customers", Component: Customers},
-
-    {path: "/store/:storeID/orders/:customerID", name: "Customer", Component: Customer},
-
+    {path: "/store/:storeID/orders/:customerID", name: "Customer", Component: Customers},
     {path: "/store/:storeID/orders", name: "Customers", Component: Orders},
-
     {path: "/store/:storeID/orders/:orderID", name: "Customers", Component: Order},
-
     {path: "/store/:storeID/products", name: "Products", Component: Products},
-
     {path: "/store/:storeID/product/:storeID", name: "Products", Component: Product},
-
     {path: "/store/:storeID/website", name: "Website", Component: Website},
-
     {path: "/store/:storeID/mailroom", name: "Mailroom", Component: Mailroom},
 
 
@@ -96,38 +117,24 @@ export default [
     {path: "/hr", breadcrumb: () => <Trans>Human resources</Trans>, module:'hr' ,Component: HumanResources},
     {path: "/hr/attendance",  breadcrumb: () => <Trans>Attendance</Trans>, Component: Attendance},
     {path: "/hr/calender", name: "Calendar", Component: HRCalendar},
-
     {path: "/hr/clocking-machines", name: "ClockingMachines", Component: ClockingMachines},
-
     {path: "/hr/clocking-machines/:clockingMachineID", name: "ClockingMachine", Component: ClockingMachine},
-
     {path: "/hr/employees", name: "Employees", Component: Employees},
-
     {path: "/hr/employee/:employeeID", name: "Employee", Component: Employee},
-
     {path: "/hr/employee/:employeeID/timesheets", name: "Timesheets", Component: Timesheets},
-
     {path: "/hr/employee/:employeeID/timesheet/:timesheetID",  Component: Timesheet},
-
     {path: "/hr/contractors", name: "Contractors", Component: Contractors},
-
     {path: "/hr/contractor/:contractorID", name: "Contractor", Component: Contractor},
 
 
 
 //SYSTEMS
     {path: "/system", breadcrumb: () => <Trans>System</Trans> ,Component: System, module:'system' },
-
     {path: "/system/users", breadcrumb: () => <Trans>Users</Trans>, Component: Users},
-
     {path: "/system/user/:userID", name: "User", Component: User},
-
     {path: "/system/roles", name: "Roles", Component: Roles},
-
     {path: "/system/role/:roleID", name: "Role", Component: Role},
-
     {path: "/system/logs", name: "Logs", Component: Logs},
-
     {path: "/profile", name: "Profile", Component: Profile},
 
 
