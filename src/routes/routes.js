@@ -39,11 +39,29 @@ import Attendance from "../components/hr/Attendance";
 import Suppliers from "../components/suppliers/suppliers";
 import Agents from "../components/suppliers/agents";
 import SuppliersDashboard from "../components/suppliers/supplierDashboard";
+import CustomersDashboard from "../components/Customers/CustomersDashboard";
+import Lists from "../components/Customers/lists";
+import Insights from "../components/Customers/insights";
+import Prospects from "../components/Customers/prospects";
 
 
 export default [
 
     {path: "/", breadcrumb: () => <Trans>Home</Trans>, name: "Dashboard", Component: Dashboard},
+
+
+// CUSTOMERS
+    {path: "/customers", breadcrumb: () => <Trans>Customers dashboard</Trans>, module:'customers' ,Component: CustomersDashboard},
+    {path: "/customers/lists", breadcrumb: () => <Trans>Lists</Trans>, module:'customers' ,Component: Lists},
+    {path: "/customers/insights", breadcrumb: () => <Trans>Insights</Trans>, module:'customers' ,Component: Insights},
+    {path: "/customers/prospects", breadcrumb: () => <Trans>Prospects</Trans>, module:'customers' ,Component: Prospects},
+
+
+
+
+
+
+
 
 //STORES
     {path: "/stores", name: "Stores", Component: Stores, module: 'stores'},

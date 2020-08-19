@@ -37,7 +37,7 @@ const modules = [
 
             {path: '/customers/insights', text: <Trans>Insights</Trans>, icon: faGraduationCap},
 
-            {path: '/prospects', text: <Trans>Prospects</Trans>, icon: faUserAlien},
+            {path: '/customers/prospects', text: <Trans>Prospects</Trans>, icon: faUserAlien},
 
         ]
     },
