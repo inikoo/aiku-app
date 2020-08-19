@@ -84,7 +84,7 @@ type Query {
         "The offset from which elements are returned."
         page: Int
     ): TenantPaginator
-    user(id: ID): User
+    user(handle: String): User
     users(
         "Limits number of fetched elements."
         first: Int = 100,

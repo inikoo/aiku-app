@@ -5,14 +5,13 @@
  */
 
 import React from 'react';
-import TableMultiline from "../ui/lists/tables/TableMultiline";
 
 const Roles = () => {
 
     return (
         <div>Roles
 
-            <TableMultiline/>
+
 
         </div>
     );

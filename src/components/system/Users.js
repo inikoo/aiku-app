@@ -11,6 +11,9 @@ import { Trans } from '@lingui/macro';
 
 import AvatarCell from "../ui/lists/tables/cells/AvatarCell";
 import TwoLineCell from "../ui/lists/tables/cells/TwoLineCell";
+import {Link} from "react-router-dom";
+import HeaderMetaActions from "../ui/headers/HeaderMetaActions";
+import {faPlus} from "@fortawesome/pro-solid-svg-icons";
 
 
 const USERS = gql`
@@ -58,29 +61,37 @@ function UsersTable() {
     const headers = ['User', 'title', 'status', 'role', ''];
 
     const users = data.users.data.map( obj => {
-        return [<AvatarCell name={obj["userable"].name} property={obj.handle}/>, <TwoLineCell main={obj["userable"].name} secondary={obj.handle}/>,
+        return [<Link to={ '/system/users/' + obj.handle}><AvatarCell name={obj["userable"].name} property={obj.handle}/></Link>, <TwoLineCell main={obj["userable"].name} secondary={obj.handle}/>,
 
         ]
     })
 
 
-    return <TableMultiline headers={headers} rows={users}/>
+    return <TableMultiline  headers={headers} rows={users}/>
 
 }
 
 
 const Users = () => {
 
+    const actions=[
+        {
+            'icon':faPlus,
+            'label':<Trans>Guest</Trans>,
+            'highlighted':false
+
+        }
+    ];
+
     return (<div>
 
-        <div className="mt-2 md:flex md:items-center md:justify-between mb-3">
-            <div className="flex-1 min-w-0">
-                <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:leading-9 sm:truncate">
-                    <Trans>Users</Trans>
-                </h2>
-            </div>
+        <HeaderMetaActions
+            title={<Trans>Users</Trans>}
+            metas={[]}
+            actions={actions}
 
-        </div>
+        />
+
 
         <UsersTable/>
 

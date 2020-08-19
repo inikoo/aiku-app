@@ -19,7 +19,6 @@ import Contractor from "../components/hr/ContractorId";
 import Stores from "../components/store/Stores";
 import Store from "../components/store/StoreId";
 import Customers from "../components/store/Customers";
-import Customer from "../components/store/CustomerId";
 import Orders from "../components/store/Orders";
 import Order from "../components/store/OrderId";
 import Products from "../components/store/Products";
@@ -131,11 +130,13 @@ export default [
 //SYSTEMS
     {path: "/system", breadcrumb: () => <Trans>System</Trans> ,Component: System, module:'system' },
     {path: "/system/users", breadcrumb: () => <Trans>Users</Trans>, Component: Users},
-    {path: "/system/user/:userID", name: "User", Component: User},
-    {path: "/system/roles", name: "Roles", Component: Roles},
-    {path: "/system/role/:roleID", name: "Role", Component: Role},
-    {path: "/system/logs", name: "Logs", Component: Logs},
-    {path: "/profile", name: "Profile", Component: Profile},
+    {path: "/system/users/:userHandle", breadcrumb: () => <Trans>User</Trans>, Component: User},
+    {path: "/system/roles", breadcrumb: () => <Trans>Roles</Trans>, Component: Roles},
+    {path: "/system/role/:roleID",  breadcrumb: () => <Trans>Role</Trans>, Component: Role},
+    {path: "/system/logs",  breadcrumb: () => <Trans>Logs</Trans>, Component: Logs},
+
+
+    {path: "/profile", breadcrumb: () => <Trans>Profile</Trans>, Component: Profile},
 
 
 ];

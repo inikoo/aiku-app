@@ -16,7 +16,7 @@ import {
     faBullhorn, faBell, faCube, faSitemap, faTags, faAnalytics, faBrowser, faDraftingCompass,
     faStream, faTruck, faTruckLoading, faPallet, faBackspace, faPoop, faBoxes, faScanner,
     faUserSecret, faHandReceiving, faClipboard, faUserHeadset, faUserHardHat, faChessClock, faStopwatch,
-    faFileInvoiceDollar, faCreditCard, faPiggyBank, faStar, faAlignLeft, faCog
+    faFileInvoiceDollar, faCreditCard, faPiggyBank, faStar
 
 
 
@@ -64,7 +64,7 @@ const modules = [
 
             {path: '/products', text: <Trans>Products Dashboard</Trans>, icon: faTachometerAlt},
 
-            {path: '/products/productslist', text: <Trans>Products List</Trans>, icon: faCube},
+            {path: '/products/list', text: <Trans>Products List</Trans>, icon: faCube},
 
             {path: '/products/categories', text: <Trans>Categories</Trans>, icon: faSitemap},
 
@@ -218,7 +218,7 @@ const modules = [
 
             {path: '/system/users', text: <Trans>Users</Trans>, icon: faUsersClass},
 
-            {path: '/system/roles', text: <Trans>Roles/Permissions</Trans>, icon: faUsersClass},
+            {path: '/system/roles', text: <Trans>Roles</Trans>, icon: faUsersClass},
 
             {path: '/system/logs', text: <Trans>Logs</Trans>, icon: faUsersClass},
 
