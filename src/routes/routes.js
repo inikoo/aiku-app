@@ -35,12 +35,17 @@ import System from "../components/system/System";
 import Logs from "../components/system/Logs";
 import {Trans} from '@lingui/macro';
 import React from "react";
+import Attendance from "../components/hr/Attendance";
+import Suppliers from "../components/suppliers/suppliers";
+import Agents from "../components/suppliers/agents";
+import SuppliersDashboard from "../components/suppliers/supplierDashboard";
 
 
 export default [
 
     {path: "/", breadcrumb: () => <Trans>Home</Trans>, name: "Dashboard", Component: Dashboard},
 
+//STORES
     {path: "/stores", name: "Stores", Component: Stores, module: 'stores'},
 
     {path: "/store/:storeID", name: "Store", Component: Store},
@@ -61,8 +66,17 @@ export default [
 
     {path: "/store/:storeID/mailroom", name: "Mailroom", Component: Mailroom},
 
-    {path: "/hr", breadcrumb: () => <Trans>Human resources</Trans>, module:'hr' ,Component: HumanResources},
 
+//SUPPLIERS
+    // eslint-disable-next-line no-undef
+    {path: "/suppliers", breadcrumb: () => <Trans>Suppliers dashboard</Trans>, module:'suppliers' ,Component: SuppliersDashboard},
+    {path: "/suppliers/suppliers", breadcrumb: () => <Trans>Suppliers</Trans>, module:'suppliers' ,Component: Suppliers},
+    {path: "/suppliers/agents", breadcrumb: () => <Trans>Agents</Trans>, module:'suppliers' ,Component: Agents},
+
+
+// HR
+    {path: "/hr", breadcrumb: () => <Trans>Human resources</Trans>, module:'hr' ,Component: HumanResources},
+    {path: "/hr/attendance",  breadcrumb: () => <Trans>Attendance</Trans>, Component: Attendance},
     {path: "/hr/calender", name: "Calendar", Component: HRCalendar},
 
     {path: "/hr/clocking-machines", name: "ClockingMachines", Component: ClockingMachines},
@@ -81,6 +95,9 @@ export default [
 
     {path: "/hr/contractor/:contractorID", name: "Contractor", Component: Contractor},
 
+
+
+//SYSTEMS
     {path: "/system", breadcrumb: () => <Trans>System</Trans> ,Component: System, module:'system' },
 
     {path: "/system/users", breadcrumb: () => <Trans>Users</Trans>, Component: Users},

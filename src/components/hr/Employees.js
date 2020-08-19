@@ -10,7 +10,7 @@ import { Trans } from '@lingui/macro';
 
 const Employees = () => {
 
-    return (<Trans>Employees</Trans>);
+    return (<div>Here we will display table of employees</div>);
 
 
 };

@@ -152,7 +152,7 @@ const modules = [
 
             {path: '/suppliers', text: <Trans>Dashboard</Trans>, icon: faTachometerAlt},
 
-            {path: '/suppliers/supplier', text: <Trans>Suppliers</Trans>, icon: faHandHoldingBox},
+            {path: '/suppliers/suppliers', text: <Trans>Suppliers</Trans>, icon: faHandHoldingBox},
 
             {path: '/suppliers/agents', text: <Trans>Agents</Trans>, icon: faUserSecret},
 
@@ -172,13 +172,13 @@ const modules = [
     },
 
     {
-        id: 'hr', path: "/hr", text: <Trans>Human resources</Trans>, icon: faClipboardUser, subModules: [
+        id: 'hr', path: "/hr", text: <Trans>Human resources xx</Trans>, icon: faClipboardUser, subModules: [
 
-            {path: '/hr', text: <Trans>Employees</Trans>, icon: faUserHeadset},
+            {path: '/hr', text: <Trans>Human resources</Trans>, icon: faUserHeadset},
 
-            {path: '/hr/contractors', text: <Trans>Contractors</Trans>, icon: faUserHardHat},
+            {path: '/hr/employees', text: <Trans>Employees</Trans>, icon: faUserHardHat},
 
-            {path: '/hr/timesheet', text: <Trans>Timesheets</Trans>, icon: faStopwatch},
+            {path: '/hr/attendance', text: <Trans>Attendance</Trans>, icon: faStopwatch},
 
             {path: '/hr/clocking_machines', text: <Trans>Clocking-in Machines</Trans>, icon: faChessClock},
 
@@ -206,9 +206,9 @@ const modules = [
     {
         id: 'system', path: "/system", text: <Trans>System</Trans>, icon: faUsersClass, subModules: [
 
-            {path: '/system', text: <Trans> System</Trans>, icon: faUsersClass},
+            {path: '/system', text: <Trans>System</Trans>, icon: faUsersClass},
 
-            {path: '/system/users', text: <Trans> Users (All)</Trans>, icon: faUsersClass},
+            {path: '/system/users', text: <Trans>Users</Trans>, icon: faUsersClass},
 
             {path: '/system/roles', text: <Trans>Roles/Permissions</Trans>, icon: faUsersClass},
 
