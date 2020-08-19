@@ -14,15 +14,14 @@ msgstr ""
 "Plural-Forms: \n"
 
 #: src/routes/modules.js:225
-msgid "Account"
-msgstr "Account"
+#~ msgid "Account"
+#~ msgstr "Account"
 
 #: src/routes/modules.js:189
 msgid "Accounting"
 msgstr "Accounting"
 
 #: src/routes/modules.js:157
-#: src/routes/modules.js:217
 msgid "Agents"
 msgstr "Agents"
 
@@ -40,7 +39,6 @@ msgid "Clocking-in Machines"
 msgstr "Clocking-in Machines"
 
 #: src/routes/modules.js:179
-#: src/routes/modules.js:213
 msgid "Contractors"
 msgstr "Contractors"
 
@@ -70,8 +68,8 @@ msgid "Dashboard"
 msgstr "Dashboard"
 
 #: src/routes/modules.js:227
-msgid "Data sets"
-msgstr "Data sets"
+#~ msgid "Data sets"
+#~ msgstr "Data sets"
 
 #: src/routes/modules.js:107
 msgid "Delivering"
@@ -83,7 +81,6 @@ msgstr "Delivery notes (All)"
 
 #: src/components/hr/Employees.js:13
 #: src/routes/modules.js:177
-#: src/routes/modules.js:211
 msgid "Employees"
 msgstr "Employees"
 
@@ -91,7 +88,12 @@ msgstr "Employees"
 msgid "Error"
 msgstr "Error"
 
+#: src/routes/routes.js:42
+msgid "Home"
+msgstr "Home"
+
 #: src/routes/modules.js:175
+#: src/routes/routes.js:64
 msgid "Human resources"
 msgstr "Human resources"
 
@@ -130,6 +132,10 @@ msgstr "Locations"
 #: src/components/auth/Logout.js:20
 msgid "Log out"
 msgstr "Log out"
+
+#: src/routes/modules.js:215
+msgid "Logs"
+msgstr "Logs"
 
 #: src/routes/modules.js:47
 msgid "Mailroom"
@@ -200,9 +206,12 @@ msgstr "Reports"
 msgid "Returns"
 msgstr "Returns"
 
+#: src/routes/modules.js:213
+msgid "Roles/Permissions"
+msgstr "Roles/Permissions"
+
 #: src/routes/modules.js:67
-#: src/routes/modules.js:223
-#: src/routes/modules.js:229
+#: src/routes/modules.js:217
 msgid "Settings"
 msgstr "Settings"
 
@@ -224,9 +233,14 @@ msgstr "Stock History"
 
 #: src/routes/modules.js:151
 #: src/routes/modules.js:155
-#: src/routes/modules.js:215
 msgid "Suppliers"
 msgstr "Suppliers"
+
+#: src/routes/modules.js:207
+#: src/routes/modules.js:209
+#: src/routes/routes.js:84
+msgid "System"
+msgstr "System"
 
 #: src/routes/modules.js:181
 msgid "Timesheets"
@@ -239,11 +253,11 @@ msgstr "Username"
 
 #: src/components/system/Users.js:79
 #: src/routes/modules.js:89
-#: src/routes/modules.js:207
+#: src/routes/routes.js:86
 msgid "Users"
 msgstr "Users"
 
-#: src/routes/modules.js:209
+#: src/routes/modules.js:211
 msgid "Users (All)"
 msgstr "Users (All)"
 
