@@ -9,7 +9,7 @@ import React from 'react';
 
 const Suppliers = () => {
 
-    return (<div>Suppliers xxxxx</div>);
+    return (<div>Suppliers</div>);
 
 
 };

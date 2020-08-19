@@ -9,7 +9,7 @@ import React from 'react';
 
 const SuppliersDashboard = () => {
 
-    return (<div>SuppliersDashboard</div>);
+    return (<div>Suppliers Dashboard</div>);
 
 
 };
