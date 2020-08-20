@@ -6,7 +6,7 @@
 
 import React, {useState} from 'react';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-import Login from './components/Login';
+import Login from './components/auth/Login';
 import MobileSideNav from "./components/navigation/MobileSideNav";
 import SideNav from "./components/navigation/SideNav";
 import TopHeader from "./components/navigation/TopHeader";

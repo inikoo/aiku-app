@@ -26,7 +26,14 @@ const Rows = (props) => {
 
 }
 
-const TableMultiline = (props) => {
+const Table = (props) => {
+
+    if(props.paginatorInfo.total===0){
+        if(props.ifEmpty=== undefined){
+            return '';
+        }
+       return props.ifEmpty
+    }
 
     return (<div className="flex flex-col mt-5">
         <div className="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
@@ -51,4 +58,4 @@ const TableMultiline = (props) => {
 
 };
 
-export default TableMultiline;
+export default Table;

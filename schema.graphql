@@ -15,6 +15,22 @@ type Admin {
     user: User!
 }
 
+type ClockingMachine {
+    created_at: DateTime!
+    id: ID!
+    name: String!
+    slug: String!
+    updated_at: DateTime!
+}
+
+"A paginated list of ClockingMachine items."
+type ClockingMachinePaginator {
+    "A list of ClockingMachine items."
+    data: [ClockingMachine!]!
+    "Pagination information about the list of items."
+    paginatorInfo: PaginatorInfo!
+}
+
 type Contractor {
     created_at: DateTime!
     id: ID!
@@ -33,6 +49,14 @@ type Employee {
     status: String!
     updated_at: DateTime!
     user: User!
+}
+
+"A paginated list of Employee items."
+type EmployeePaginator {
+    "A list of Employee items."
+    data: [Employee!]!
+    "Pagination information about the list of items."
+    paginatorInfo: PaginatorInfo!
 }
 
 "Pagination information about the corresponding list of items."
@@ -76,7 +100,20 @@ type PaginatorInfo {
 }
 
 type Query {
-    employee(id: ID): Employee
+    clocking_machine(slug: String): ClockingMachine
+    clocking_machines(
+        "Limits number of fetched elements."
+        first: Int = 100,
+        "The offset from which elements are returned."
+        page: Int
+    ): ClockingMachinePaginator
+    employee(slug: String): Employee
+    employees(
+        "Limits number of fetched elements."
+        first: Int = 100,
+        "The offset from which elements are returned."
+        page: Int
+    ): EmployeePaginator
     tenant(id: ID): Tenant
     tenants(
         "Limits number of fetched elements."

@@ -71,8 +71,6 @@ function UserShowcase(props) {
             break;
 
     }
-
-
     return (<HeaderMetaActions
         title={data.user.handle}
         metas={metas}
@@ -91,9 +89,9 @@ const User = () => {
 
     return (<div>
 
-            <UserShowcase userHandle={userHandle}/>
+        <UserShowcase userHandle={userHandle}/>
 
-        </div>);
+    </div>);
 };
 
 export default User;

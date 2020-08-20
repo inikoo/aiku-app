@@ -1,11 +1,17 @@
+/*
+ Author: Raul A Perusquía-Flores (raul@aiku.io)
+ Created: Fri, 21 Aug 2020 00:30:15 Malaysia Time, Kuala Lumpur, Malaysia
+ Copyright (c) 2020. Aiku.io
+ */
+
 import React from 'react';
 import {Redirect} from 'react-router-dom';
-import {ReactComponent as LoginLogo} from "../cerebro.svg";
+import {ReactComponent as LoginLogo} from "../../cerebro.svg";
 
 import { connect } from 'react-redux';
-import { login } from '../actions';
+import { login } from '../../actions';
 
-import Alert from "./alerts/Alert";
+import Alert from "../ui/alerts/Alert";
 import { I18n } from "@lingui/react"
 import { t } from "@lingui/macro"
 import { Trans } from '@lingui/macro';

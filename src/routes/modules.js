@@ -15,7 +15,7 @@ import {
     faUsers, faUsersClass, faWarehouseAlt, faList, faGraduationCap, faUserAlien,
     faBullhorn, faBell, faCube, faSitemap, faTags, faAnalytics, faBrowser, faDraftingCompass,
     faStream, faTruck, faTruckLoading, faPallet, faBackspace, faPoop, faBoxes, faScanner,
-    faUserSecret, faHandReceiving, faClipboard, faUserHeadset, faUserHardHat, faChessClock, faStopwatch,
+    faUserSecret, faHandReceiving, faClipboard, faUserHardHat, faStopwatch,
     faFileInvoiceDollar, faCreditCard, faPiggyBank, faStar
 
 
@@ -186,15 +186,12 @@ const modules = [
     {
         id: 'hr', path: "/hr", text: <Trans>Human resources</Trans>, icon: faClipboardUser, subModules: [
 
-            {path: '/hr', text: <Trans>Human resources dashboard</Trans>, icon: faTachometerAlt},
+            {path: '/hr', text: <Trans>Human resources</Trans>, icon: faTachometerAlt},
 
             {path: '/hr/employees', text: <Trans>Employees</Trans>, icon: faUserHardHat},
 
-            {path: '/hr/contractors', text: <Trans>Contractors</Trans>, icon: faUserHardHat},
-
             {path: '/hr/attendance', text: <Trans>Attendance</Trans>, icon: faStopwatch},
 
-            {path: '/hr/clocking_machines', text: <Trans>Clocking-in Machines</Trans>, icon: faChessClock},
 
         ]
     },

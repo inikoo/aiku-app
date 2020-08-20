@@ -5,12 +5,12 @@
  */
 
 import React from 'react';
-import TableMultiline from "../ui/lists/tables/TableMultiline";
+import Table from "../ui/tables/Table";
 import {useQuery, gql} from '@apollo/client';
-import { Trans } from '@lingui/macro';
+import {Trans} from '@lingui/macro';
 
-import AvatarCell from "../ui/lists/tables/cells/AvatarCell";
-import TwoLineCell from "../ui/lists/tables/cells/TwoLineCell";
+import AvatarCell from "../ui/tables/cells/AvatarCell";
+import TwoLineCell from "../ui/tables/cells/TwoLineCell";
 import {Link} from "react-router-dom";
 import HeaderMetaActions from "../ui/headers/HeaderMetaActions";
 import {faPlus} from "@fortawesome/pro-solid-svg-icons";
@@ -52,48 +52,39 @@ const USERS = gql`
 `;
 
 
-function UsersTable() {
+function EmployeesTable() {
 
     const {loading, error, data} = useQuery(USERS);
     if (loading) return <p><Trans>Loading...</Trans></p>;
     if (error) return <p><Trans>Error</Trans> :(</p>;
 
-    const headers = ['User', 'title', 'status', 'role', ''];
+    const res = data['employees'];
+    const headers = [<Trans>User</Trans>, <Trans>title</Trans>, <Trans>Status</Trans>, <Trans>Role</Trans>, ''];
 
-    const users = data.users.data.map( obj => {
-        return [<Link to={ '/system/users/' + obj.handle}><AvatarCell name={obj["userable"].name} property={obj.handle}/></Link>, <TwoLineCell main={obj["userable"].name} secondary={obj.handle}/>,
+    const users = res.data.map(obj => {
+        return [<Link to={'/system/users/' + obj.handle}><AvatarCell name={obj["userable"].name} property={obj.handle}/></Link>, <TwoLineCell main={obj["userable"].name} secondary={obj.handle}/>,
 
         ]
     })
 
-
-    return <TableMultiline  headers={headers} rows={users}/>
+    return <Table paginatorInfo={res.paginatorInfo} headers={headers} rows={users}/>
 
 }
 
 
 const Users = () => {
 
-    const actions=[
-        {
-            'icon':faPlus,
-            'label':<Trans>Guest</Trans>,
-            'highlighted':false
-
-        }
-    ];
+    const actions = [{
+        'icon': faPlus, 'label': <Trans>Guest</Trans>, 'highlighted': false
+    }];
 
     return (<div>
-
         <HeaderMetaActions
             title={<Trans>Users</Trans>}
             metas={[]}
             actions={actions}
-
         />
-
-
-        <UsersTable/>
+        <EmployeesTable/>
 
     </div>);
 };

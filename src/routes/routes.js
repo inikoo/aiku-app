@@ -9,13 +9,11 @@ import Dashboard from "../components/dashboard/Dashboard";
 import HumanResources from "../components/hr/HumanResources";
 import HRCalendar from "../components/hr/HRCalendar";
 import ClockingMachines from "../components/hr/ClockingMachines";
-import ClockingMachine from "../components/hr/ClockingMachineID";
+import ClockingMachine from "../components/hr/ClockingMachine";
 import Employees from "../components/hr/Employees";
-import Employee from "../components/hr/EmployeeId";
+import Employee from "../components/hr/Employee";
 import Timesheets from "../components/hr/Timesheets";
 import Timesheet from "../components/hr/TimesheetId";
-import Contractors from "../components/hr/Contractors";
-import Contractor from "../components/hr/ContractorId";
 import Stores from "../components/store/Stores";
 import Store from "../components/store/StoreId";
 import Customers from "../components/store/Customers";
@@ -38,30 +36,30 @@ import Attendance from "../components/hr/Attendance";
 import Suppliers from "../components/suppliers/suppliers";
 import Agents from "../components/suppliers/agents";
 import SuppliersDashboard from "../components/suppliers/supplierDashboard";
-import CustomersDashboard from "../components/Customers/CustomersDashboard";
-import Lists from "../components/Customers/lists";
-import Insights from "../components/Customers/insights";
-import Prospects from "../components/Customers/prospects";
+import CustomersDashboard from "../components/customers/CustomersDashboard";
+import Lists from "../components/customers/lists";
+import Insights from "../components/customers/insights";
+import Prospects from "../components/customers/prospects";
 import MailroomDashboard from "../components/mailroom/MailroomDashboard";
 import Marketing from "../components/mailroom/Marketing";
 import CustomersNotifications from "../components/mailroom/CustomersNotifications";
 import StaffsNotifications from "../components/mailroom/StaffsNotifications";
-import ProductsDashboard from "../components/Products/ProductsDashboard";
-import ProductsList from "../components/Products/ProductsList";
-import Categories from "../components/Products/Categories";
-import Settings from "../components/Products/Settings";
-import OffersDashboard from "../components/Offers/OffersDashboard";
-import Offers from "../components/Offers/Offers";
-import OffersCategories from "../components/Offers/Categories";
-import Cus from "../components/Customers/cus";
+import ProductsDashboard from "../components/products/ProductsDashboard";
+import ProductsList from "../components/products/ProductsList";
+import Categories from "../components/products/Categories";
+import Settings from "../components/products/Settings";
+import OffersDashboard from "../components/offers/OffersDashboard";
+import Offers from "../components/offers/Offers";
+import OffersCategories from "../components/offers/Categories";
+import Cus from "../components/customers/cus";
 import WebsitesDashboard from "../components/websites/WebsitesDashboard";
 import Analytics from "../components/websites/Analytics";
 import WebPages from "../components/websites/WebPages";
 import WebsitesUsers from "../components/websites/WebsitesUsers";
 import Workshop from "../components/websites/Workshop";
-import OrdersDashboard from "../components/Orders/OrdersDashboard";
-import ControlPanel from "../components/Orders/ControlPanel";
-import OrdersList from "../components/Orders/OrdersList";
+import OrdersDashboard from "../components/orders/OrdersDashboard";
+import ControlPanel from "../components/orders/ControlPanel";
+import OrdersList from "../components/orders/OrdersList";
 import DeliveringDashboard from "../components/delivering/DeliveringDashboard";
 import DeliveryNotes from "../components/delivering/DeliveryNotes";
 import PendingDeliveryNotes from "../components/delivering/PendingDeliveryNotes";
@@ -78,6 +76,7 @@ import InventoryDashboard from "../components/inventory/InventoryDashboard";
 import InventoryParts from "../components/inventory/InventoryParts";
 import PartsFamilies from "../components/inventory/PartsFamilies";
 import StockHistory from "../components/inventory/StockHistory";
+import NewClockingMachine from "../components/hr/NewClockingMachine";
 
 
 export default [
@@ -100,7 +99,7 @@ export default [
 
 //PRODUCTS
     {path: "/products", breadcrumb: () => <Trans>Products dashboard</Trans>, module:'products' ,Component: ProductsDashboard},
-    {path: "/products/productslist", breadcrumb: () => <Trans>Products List</Trans>, module:'products' ,Component: ProductsList},
+    {path: "/products/lists", breadcrumb: () => <Trans>Products List</Trans>, module:'products' ,Component: ProductsList},
     {path: "/products/categories", breadcrumb: () => <Trans>Categories</Trans>, module:'products' ,Component: Categories},
     {path: "/products/settings", breadcrumb: () => <Trans>Settings</Trans>, module:'products' ,Component: Settings},
 
@@ -150,30 +149,6 @@ export default [
     {path: "/suppliers/orders", breadcrumb: () => <Trans>Purchase Orders/Deliveries</Trans>, module:'suppliers' ,Component: PurchaseOrders},
 
 
-// HR
-    {path: "/hr", breadcrumb: () => <Trans>Human resources</Trans>, module:'hr' ,Component: HumanResources},
-    {path: "/hr/attendance",  breadcrumb: () => <Trans>Attendance</Trans>, module:'hr', Component: Attendance},
-    {path: "/hr/calender", breadcrumb: () => <Trans>Calendar</Trans>, module:'hr', Component: HRCalendar},
-    {path: "/hr/clocking-machines", breadcrumb: () => <Trans>Clocking Machines</Trans>, module:'hr', Component: ClockingMachines},
-    {path: "/hr/clocking-machines/:clockingMachineID", breadcrumb: () => <Trans>Clocking Machines ID</Trans>, module:'hr', Component: ClockingMachine},
-    {path: "/hr/employees", breadcrumb: () => <Trans>Employee</Trans>, module:'hr', Component: Employees},
-    {path: "/hr/employee/:employeeID", breadcrumb: () => <Trans>Employee ID</Trans>, module:'hr', Component: Employee},
-    {path: "/hr/employee/:employeeID/timesheets", breadcrumb: () => <Trans>Timesheet</Trans>, module:'hr', Component: Timesheets},
-    {path: "/hr/employee/:employeeID/timesheet/:timesheetID", breadcrumb: () => <Trans>Timesheet ID</Trans>, module:'hr',  Component: Timesheet},
-    {path: "/hr/contractors", breadcrumb: () => <Trans>Contractor</Trans>, module:'hr', Component: Contractors},
-    {path: "/hr/contractor/:contractorID", breadcrumb: () => <Trans>Contractor ID</Trans>, module:'hr', Component: Contractor},
-
-
-
-//SYSTEMS
-    {path: "/system", breadcrumb: () => <Trans>System</Trans>, module:'system' ,Component: System},
-    {path: "/system/users", breadcrumb: () => <Trans>Users</Trans>, module:'system',  Component: Users},
-    {path: "/system/user/:userID", breadcrumb: () => <Trans>Users</Trans>, module:'system', Component: User},
-    {path: "/system/roles", breadcrumb: () => <Trans>Roles/Permissions</Trans>, module:'system', Component: Roles},
-    {path: "/system/role/:roleID", breadcrumb: () => <Trans>User ID</Trans>, module:'system', Component: Role},
-    {path: "/system/logs", breadcrumb: () => <Trans>Logs</Trans>, module:'system', Component: Logs},
-    {path: "/profile", breadcrumb: () => <Trans>Settings</Trans>, module:'system', Component: Profile},
-
 
     //STORES
     {path: "/stores", name: "Stores", Component: Stores, module: 'stores'},
@@ -199,14 +174,17 @@ export default [
     {path: "/hr", breadcrumb: () => <Trans>Human resources</Trans>, module:'hr' ,Component: HumanResources},
     {path: "/hr/attendance",  breadcrumb: () => <Trans>Attendance</Trans>, Component: Attendance},
     {path: "/hr/calender", name: "Calendar", Component: HRCalendar},
-    {path: "/hr/clocking-machines", name: "ClockingMachines", Component: ClockingMachines},
-    {path: "/hr/clocking-machines/:clockingMachineID", name: "ClockingMachine", Component: ClockingMachine},
-    {path: "/hr/employees", name: "Employees", Component: Employees},
-    {path: "/hr/employee/:employeeID", name: "Employee", Component: Employee},
-    {path: "/hr/employee/:employeeID/timesheets", name: "Timesheets", Component: Timesheets},
-    {path: "/hr/employee/:employeeID/timesheet/:timesheetID",  Component: Timesheet},
-    {path: "/hr/contractors", name: "Contractors", Component: Contractors},
-    {path: "/hr/contractor/:contractorID", name: "Contractor", Component: Contractor},
+    {path: "/hr/attendance/clocking-machines",  breadcrumb: () => <Trans>Clocking-machines</Trans>, Component: ClockingMachines},
+    {path: "/hr/attendance/clocking-machines/new",breadcrumb: () => <Trans>New clocking-machine</Trans>, Component: NewClockingMachine},
+
+    {path: "/hr/attendance/clocking-machines/:clockingMachineID",breadcrumb: () => <Trans>Clocking-machine</Trans>, Component: ClockingMachine},
+
+
+    {path: "/hr/employees",  breadcrumb: () => <Trans>Employees</Trans>, Component: Employees},
+    {path: "/hr/employees/:employeeSlug", breadcrumb: () => <Trans>Employee</Trans>, Component: Employee},
+
+    {path: "/hr/employees/:employeeSlug/timesheets", name: "Timesheets", Component: Timesheets},
+    {path: "/hr/employees/:employeeSlug/timesheet/:timesheetID",  Component: Timesheet},
 
 
 

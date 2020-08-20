@@ -14,7 +14,7 @@ const AvatarCell = (props) => {
         <div className="flex items-center">
             <div className="flex-shrink-0 h-10 w-10 text-white">
 
-                <UserAvatar size="40" name={props.name}/>
+                <UserAvatar size="40" name={props.slug}/>
 
             </div>
             <div className="ml-4">
