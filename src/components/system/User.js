@@ -12,7 +12,6 @@ import {useParams} from "react-router";
 import {
     faIdCardAlt, faPencilAlt
 } from '@fortawesome/pro-solid-svg-icons'
-import Alert from "../ui/alerts/Alert";
 import Input from "../ui/forms/fields/Input";
 import {i18nMark} from "@lingui/react";
 import Form from "../ui/forms/Form";
@@ -48,7 +47,9 @@ const USER = gql`
 
 function UserShowcase(props) {
 
-    const userHandle = props.userHandle;
+    let {userHandle} = useParams();
+
+    //  const userHandle = props.userHandle;
 
     const {loading, error, data} = useQuery(USER, {
         variables: {userHandle},
@@ -59,10 +60,14 @@ function UserShowcase(props) {
 
 
     let metas = [];
-    const actions = [{
-        'icon': faPencilAlt, 'label': <Trans>Edit</Trans>, 'highlighted': false
+    let actions = [];
 
-    }];
+    if (!props.editing) {
+        actions.push({
+            'icon': faPencilAlt, 'label': <Trans>Edit</Trans>, 'highlighted': false, handleClick: props.openEditView
+
+        });
+    }
 
     switch (data.user['userable'].__typename) {
         case 'Employee':
@@ -75,27 +80,54 @@ function UserShowcase(props) {
             break;
 
     }
-    return (<HeaderMetaActions
+
+
+    const formStructure = {
+        handleCancel: props.cancelEdit, inputGroups: [{
+            title: <Trans>Identification</Trans>, note: <Trans>Give your new clocking machine a identification name</Trans>, fields: [{
+                key: 'name', label: <Trans>Name</Trans>, inputComponent: <Input
+                    help={<Trans>Used to identify the location of the clocking-machine. E.g. Office or Production room</Trans>}
+                    placeholder={i18nMark('E.g. Main entrance, Office reception, etc ..')}
+                    requeriments={<Trans>Required</Trans>}
+
+                />
+            }],
+
+
+        }]
+    }
+
+
+    return (<><HeaderMetaActions
         title={data.user.handle}
         metas={metas}
         actions={actions}
 
-    />)
+    />
+        {props.editing ? <Form {...formStructure} /> : null}
+
+    </>)
 
 }
 
 
 const User = () => {
 
-    let {userHandle} = useParams();
+    const [editing, setEditing] = React.useState(false);
 
-    console.log(userHandle)
+    const openEditView = () => {
+        setEditing(true);
+    }
+    const cancelEdit = () => {
+        setEditing(false);
+    }
 
-    return (<div>
 
-        <UserShowcase userHandle={userHandle}/>
+    return (<>
 
-    </div>);
+        <UserShowcase editing={editing} openEditView={openEditView} cancelEdit={cancelEdit}/>
+
+    </>);
 };
 
 export default User;
