@@ -14,27 +14,26 @@ import {faPencilAlt} from '@fortawesome/pro-solid-svg-icons'
 
 const CLOCKING_MACHINE = gql`
     query ClockingMachine($clockingMachineSlug: String!) {
-        employee(slug: $clockingMachineSlug) {
+        clocking_machine(slug: $clockingMachineSlug) {
             id
             slug
             name
             created_at,
-            user {
-                id
-                handle
-            }
+           
 
         }
     }
 `;
 
 
-function ClockingMachineShowcase(props) {
+function ClockingMachineShowcase() {
 
-    const $clockingMachineSlug = props.$clockingMachineSlug;
+    let {clockingMachineSlug} = useParams();
+
+
 
     const {loading, error, data} = useQuery(CLOCKING_MACHINE, {
-        variables: {$clockingMachineSlug},
+        variables: {clockingMachineSlug},
 
     });
     if (loading) return <p><Trans>Loading...</Trans></p>;
@@ -47,10 +46,9 @@ function ClockingMachineShowcase(props) {
     }];
 
 
-    console.log(data['employee'].name)
 
     return (<HeaderMetaActions
-        title={data['employee'].name}
+        title={data['clocking_machine'].name}
         metas={[]}
         actions={actions}
 
@@ -61,14 +59,13 @@ function ClockingMachineShowcase(props) {
 
 const ClockingMachine = () => {
 
-    let {employeeSlug} = useParams();
 
 
-    return (<div>
+    return (<>
 
-        <ClockingMachineShowcase employeeSlug={employeeSlug}/>
+        <ClockingMachineShowcase />
 
-    </div>);
+    </>);
 };
 
 export default ClockingMachine;

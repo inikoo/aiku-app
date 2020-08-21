@@ -64,7 +64,6 @@ function UsersTable() {
     const headers = [<Trans>User</Trans>, <Trans>title</Trans>, <Trans>Status</Trans>, <Trans>Role</Trans>, ''];
 
 
-console.log(res.data)
 
     const users = res.data.map(obj => {
         return [

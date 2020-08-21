@@ -49,7 +49,6 @@ function UserShowcase(props) {
 
     let {userHandle} = useParams();
 
-    //  const userHandle = props.userHandle;
 
     const {loading, error, data} = useQuery(USER, {
         variables: {userHandle},

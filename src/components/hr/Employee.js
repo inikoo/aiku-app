@@ -23,15 +23,17 @@ const EMPLOYEE = gql`
                 id
                 handle
             }
-          
+
         }
     }
 `;
 
 
-function EmployeeShowcase(props) {
+function EmployeeShowcase() {
 
-    const employeeSlug = props.employeeSlug;
+
+    const {employeeSlug} = useParams();
+
 
     const {loading, error, data} = useQuery(EMPLOYEE, {
         variables: {employeeSlug},
@@ -41,9 +43,8 @@ function EmployeeShowcase(props) {
     if (error) return <p><Trans>Error</Trans> :(</p>;
 
 
-
-    if(data['employee']===null){
-        return (<Alert type="error" text={<Trans >{employeeSlug} not found</Trans>} />)
+    if (data['employee'] === null) {
+        return (<Alert type="error" text={<Trans>{employeeSlug} not found</Trans>}/>)
     }
 
     const actions = [{
@@ -66,12 +67,10 @@ function EmployeeShowcase(props) {
 
 const Employee = () => {
 
-    let {employeeSlug} = useParams();
-
 
     return (<div>
 
-        <EmployeeShowcase employeeSlug={employeeSlug}/>
+        <EmployeeShowcase/>
 
     </div>);
 };

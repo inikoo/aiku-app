@@ -178,7 +178,7 @@ export default [
     {path: "/hr/attendance/clocking-machines",  breadcrumb: () => <Trans>Clocking-machines</Trans>, Component: ClockingMachines},
     {path: "/hr/attendance/clocking-machines/new",breadcrumb: () => <Trans>New clocking-machine</Trans>, Component: NewClockingMachine},
 
-    {path: "/hr/attendance/clocking-machines/:clockingMachineID",breadcrumb: () => <Trans>Clocking-machine</Trans>, Component: ClockingMachine},
+    {path: "/hr/attendance/clocking-machines/:clockingMachineSlug",breadcrumb: () => <Trans>Clocking-machine</Trans>, Component: ClockingMachine},
 
 
     {path: "/hr/employees",  breadcrumb: () => <Trans>Employees</Trans>, Component: Employees},
