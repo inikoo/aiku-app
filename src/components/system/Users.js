@@ -14,6 +14,8 @@ import TwoLineCell from "../ui/tables/cells/TwoLineCell";
 import {Link} from "react-router-dom";
 import HeaderMetaActions from "../ui/headers/HeaderMetaActions";
 import {faPlus} from "@fortawesome/pro-solid-svg-icons";
+import Alert from "../ui/alerts/Alert";
+import {useHistory} from "react-router";
 
 
 const USERS = gql`
@@ -72,15 +74,20 @@ console.log(res.data)
         ]
     })
 
-    return <Table paginatorInfo={res.paginatorInfo} headers={headers} rows={users}/>
+    return <Table ifEmpty={<Alert type='info' text={<Trans>No employees found</Trans>} />} paginatorInfo={res.paginatorInfo} headers={headers} rows={users}/>
 
 }
 
 
 const Users = () => {
 
+    const history = useHistory();
+
     const actions = [{
-        'icon': faPlus, 'label': <Trans>Guest</Trans>, 'highlighted': false
+        'icon': faPlus,
+        'label': <Trans>Guest</Trans>,
+        'highlighted': false,
+        'handleClick': ()=> {history.push("/system/users/new")}
     }];
 
     return (<div>

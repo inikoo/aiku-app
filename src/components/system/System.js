@@ -9,7 +9,7 @@ import React from 'react';
 const System = () => {
 
     return (
-        <div>XXXXXX</div>
+        <div>System Dashboard</div>
     );
 };
 

@@ -53,7 +53,7 @@ function ClockingMachinesTable() {
 
 
 
-    return <Table ifEmpty={<Alert type='info' text={<Trans>No clocking machines</Trans>} />}  paginatorInfo={res.paginatorInfo} headers={headers} rows={clockingMachines}/>
+    return <Table ifEmpty={<Alert type='info' text={<Trans>No clocking machines found</Trans>} />}  paginatorInfo={res.paginatorInfo} headers={headers} rows={clockingMachines}/>
 
 }
 
@@ -64,7 +64,9 @@ const ClockingMachines = () => {
 
 
     const actions = [{
-        'icon': faPlus, 'label': <Trans>Clocking Machine</Trans>, 'highlighted': false,
+        'icon': faPlus,
+        'label': <Trans>Clocking Machine</Trans>,
+        'highlighted': false,
         'handleClick': ()=> {history.push("/hr/attendance/clocking-machines/new")}
     }];
 

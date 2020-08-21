@@ -77,6 +77,10 @@ import InventoryParts from "../components/inventory/InventoryParts";
 import PartsFamilies from "../components/inventory/PartsFamilies";
 import StockHistory from "../components/inventory/StockHistory";
 import NewClockingMachine from "../components/hr/NewClockingMachine";
+import NewEmployee from "../components/hr/NewEmployee";
+import NewSupplier from "../components/suppliers/NewSupplier";
+import NewUser from "../components/system/NewUser";
+import NewRoles from "../components/system/NewRole";
 
 
 export default [
@@ -144,6 +148,7 @@ export default [
     // eslint-disable-next-line no-undef
     {path: "/suppliers", breadcrumb: () => <Trans>Suppliers dashboard</Trans>, module:'suppliers' ,Component: SuppliersDashboard},
     {path: "/suppliers/suppliers", breadcrumb: () => <Trans>Suppliers</Trans>, module:'suppliers' ,Component: Suppliers},
+    {path: "/suppliers/suppliers/new", breadcrumb: () => <Trans>New Suppliers</Trans>, module:'suppliers' ,Component: NewSupplier },
     {path: "/suppliers/agents", breadcrumb: () => <Trans>Agents</Trans>, module:'suppliers' ,Component: Agents},
     {path: "/suppliers/products", breadcrumb: () => <Trans>Products</Trans>, module:'suppliers' ,Component: SuppliersProducts},
     {path: "/suppliers/orders", breadcrumb: () => <Trans>Purchase Orders/Deliveries</Trans>, module:'suppliers' ,Component: PurchaseOrders},
@@ -163,11 +168,7 @@ export default [
     {path: "/store/:storeID/mailroom", name: "Mailroom", Component: Mailroom},
 
 
-//SUPPLIERS
-    // eslint-disable-next-line no-undef
-    {path: "/suppliers", breadcrumb: () => <Trans>Suppliers dashboard</Trans>, module:'suppliers' ,Component: SuppliersDashboard},
-    {path: "/suppliers/suppliers", breadcrumb: () => <Trans>Suppliers</Trans>, module:'suppliers' ,Component: Suppliers},
-    {path: "/suppliers/agents", breadcrumb: () => <Trans>Agents</Trans>, module:'suppliers' ,Component: Agents},
+
 
 
 // HR
@@ -181,7 +182,9 @@ export default [
 
 
     {path: "/hr/employees",  breadcrumb: () => <Trans>Employees</Trans>, Component: Employees},
+    {path: "/hr/employees/new",breadcrumb: () => <Trans>New employee</Trans>, Component: NewEmployee},
     {path: "/hr/employees/:employeeSlug", breadcrumb: () => <Trans>Employee</Trans>, Component: Employee},
+
 
     {path: "/hr/employees/:employeeSlug/timesheets", name: "Timesheets", Component: Timesheets},
     {path: "/hr/employees/:employeeSlug/timesheet/:timesheetID",  Component: Timesheet},
@@ -191,8 +194,10 @@ export default [
 //SYSTEMS
     {path: "/system", breadcrumb: () => <Trans>System</Trans> ,Component: System, module:'system' },
     {path: "/system/users", breadcrumb: () => <Trans>Users</Trans>, Component: Users},
+    {path: "/system/users/new", breadcrumb: () => <Trans>New Users</Trans>, Component: NewUser},
     {path: "/system/users/:userHandle", breadcrumb: () => <Trans>User</Trans>, Component: User},
     {path: "/system/roles", breadcrumb: () => <Trans>Roles</Trans>, Component: Roles},
+    {path: "/system/roles/new", breadcrumb: () => <Trans>Roles</Trans>, Component: NewRoles},
     {path: "/system/role/:roleID",  breadcrumb: () => <Trans>Role</Trans>, Component: Role},
     {path: "/system/logs",  breadcrumb: () => <Trans>Logs</Trans>, Component: Logs},
 
