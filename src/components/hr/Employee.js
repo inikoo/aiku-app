@@ -9,8 +9,10 @@ import {gql, useQuery} from "@apollo/client";
 import {Trans} from "@lingui/macro";
 import HeaderMetaActions from "../ui/headers/HeaderMetaActions";
 import {useParams} from "react-router";
-import {faPencilAlt} from '@fortawesome/pro-solid-svg-icons'
-import Alert from "../ui/alerts/Alert";
+import {faIdCardAlt, faPencilAlt} from '@fortawesome/pro-solid-svg-icons'
+import Input from "../ui/forms/fields/Input";
+import {i18nMark} from "@lingui/react";
+import Form from "../ui/forms/Form";
 
 const EMPLOYEE = gql`
     query Employee($employeeSlug: String!) {
@@ -29,10 +31,10 @@ const EMPLOYEE = gql`
 `;
 
 
-function EmployeeShowcase() {
+function EmployeeShowcase(props) {
 
 
-    const {employeeSlug} = useParams();
+    let {employeeSlug} = useParams();
 
 
     const {loading, error, data} = useQuery(EMPLOYEE, {
@@ -43,36 +45,79 @@ function EmployeeShowcase() {
     if (error) return <p><Trans>Error</Trans> :(</p>;
 
 
-    if (data['employee'] === null) {
-        return (<Alert type="error" text={<Trans>{employeeSlug} not found</Trans>}/>)
+    let metas = [];
+    let actions = [];
+
+    if (!props.editing) {
+        actions.push({
+            'icon': faPencilAlt, 'label': <Trans>Edit</Trans>, 'highlighted': false, handleClick: props.openEditView
+
+        });
     }
 
-    const actions = [{
-        'icon': faPencilAlt, 'label': <Trans>Edit</Trans>, 'highlighted': false
 
-    }];
+    switch (data.user['employee'].__typename) {
+        case 'Employee':
+            metas.push({
+                'icon': faIdCardAlt, 'label': <Trans>{data.user['employee'].name} (Employee)</Trans>
+            });
+            break;
+        default:
+            //
+            break;
+
+    }
+
+
+
+    const formStructure = {
+        handleCancel: props.cancelEdit, inputGroups: [{
+            title: <Trans>Identification</Trans>, note: <Trans>Give your new clocking machine a identification name</Trans>, fields: [{
+                key: 'name', label: <Trans>Name</Trans>, inputComponent: <Input
+                    help={<Trans>Used to identify the location of the clocking-machine. E.g. Office or Production room</Trans>}
+                    placeholder={i18nMark('E.g. Main entrance, Office reception, etc ..')}
+                    requeriments={<Trans>Required</Trans>}
+
+                />
+            }],
+
+
+        }]
+    }
+
 
 
     console.log(data['employee'])
 
-    return (<HeaderMetaActions
+    return (<><HeaderMetaActions
         title={data['employee'].name}
         metas={[]}
         actions={actions}
 
-    />)
+    />
 
+    {props.editing ? <Form {...formStructure} /> : null}
+
+    </>)
 }
 
 
 const Employee = () => {
 
+    const [editing, setEditing] = React.useState(false);
 
-    return (<div>
+    const openEditView = () => {
+        setEditing(true);
+    }
+    const cancelEdit = () => {
+        setEditing(false);
+    }
 
-        <EmployeeShowcase/>
+    return (<>
 
-    </div>);
+        <EmployeeShowcase editing={editing} openEditView={openEditView} cancelEdit={cancelEdit}/>
+
+    </>);
 };
 
 export default Employee;

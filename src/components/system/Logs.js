@@ -62,17 +62,11 @@ function LogsTable() {
 
 const Logs = () => {
 
-    const history = useHistory();
-
-    const actions = [{
-
-    }];
-
     return (<div>
         <HeaderMetaActions
             title={<Trans>Logs</Trans>}
             metas={[]}
-            actions={actions}
+            actions={[]}
         />
         <LogsTable/>
 

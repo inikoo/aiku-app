@@ -9,9 +9,7 @@ import {gql, useQuery} from "@apollo/client";
 import {Trans} from "@lingui/macro";
 import HeaderMetaActions from "../ui/headers/HeaderMetaActions";
 import {useParams} from "react-router";
-import {
-    faIdCardAlt, faPencilAlt
-} from '@fortawesome/pro-solid-svg-icons'
+import {faIdCardAlt, faPencilAlt} from '@fortawesome/pro-solid-svg-icons'
 import Input from "../ui/forms/fields/Input";
 import {i18nMark} from "@lingui/react";
 import Form from "../ui/forms/Form";

@@ -81,6 +81,7 @@ import NewEmployee from "../components/hr/NewEmployee";
 import NewSupplier from "../components/suppliers/NewSupplier";
 import NewUser from "../components/system/NewUser";
 import NewRoles from "../components/system/NewRole";
+import SystemSettings from "../components/system/SystemSettings";
 
 
 export default [
@@ -200,6 +201,7 @@ export default [
     {path: "/system/roles/new", breadcrumb: () => <Trans>Roles</Trans>, Component: NewRoles},
     {path: "/system/role/:roleID",  breadcrumb: () => <Trans>Role</Trans>, Component: Role},
     {path: "/system/logs",  breadcrumb: () => <Trans>Logs</Trans>, Component: Logs},
+    {path: "/system/settings",  breadcrumb: () => <Trans>Settings</Trans>, Component: SystemSettings},
 
 
     {path: "/profile", breadcrumb: () => <Trans>Profile</Trans>, Component: Profile},
