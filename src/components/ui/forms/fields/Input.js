@@ -10,11 +10,11 @@ import React from 'react';
 const Input = (props) => {
 
     return (<div>
-        <label htmlFor="email" className="block text-sm font-medium leading-5 text-gray-700">{props.label}</label>
+        <label htmlFor={props.key} className="block text-sm font-medium leading-5 text-gray-700">{props.label}</label>
         <div className="mt-1 relative rounded-md shadow-sm">
-            <input id="email" className="form-input block w-full sm:text-sm sm:leading-5" placeholder="you@example.com" aria-describedby="email-description"/>
+            <input id={props.key} className="form-input block w-full sm:text-sm sm:leading-5" placeholder={props.placeholder} aria-describedby="`$(props.key)-description`"/>
         </div>
-        <p className="mt-2 text-sm text-gray-500" id="email-description">Make your password short and easy to guess.</p>
+        <p className="mt-2 text-sm text-gray-500" id="`$(props.key)-description`">{props.help}</p>
     </div>);
 
 
