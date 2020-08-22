@@ -9,7 +9,12 @@ import {Trans} from '@lingui/macro';
 
 const TopHeader = (props) => {
 
+
     const breadcrumbs = useBreadcrumbs(routes);
+
+    console.log(breadcrumbs)
+
+
     const numberBreadcrumbs = breadcrumbs.length - 1;
 
     if (numberBreadcrumbs <= 0) {

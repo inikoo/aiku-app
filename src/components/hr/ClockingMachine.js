@@ -10,7 +10,7 @@ import {gql, useQuery} from "@apollo/client";
 import {Trans} from "@lingui/macro";
 import HeaderMetaActions from "../ui/headers/HeaderMetaActions";
 import {useParams} from "react-router";
-import {faPencilAlt, faIdCardAlt} from '@fortawesome/pro-solid-svg-icons'
+import {faPencilAlt} from '@fortawesome/pro-solid-svg-icons'
 import Input from "../ui/forms/fields/Input";
 import {i18nMark} from "@lingui/react";
 import Form from "../ui/forms/Form";
@@ -22,7 +22,7 @@ const CLOCKING_MACHINE = gql`
             slug
             name
             created_at,
-           
+
 
         }
     }
@@ -34,7 +34,6 @@ function ClockingMachineShowcase(props) {
     let {clockingMachineSlug} = useParams();
 
 
-
     const {loading, error, data} = useQuery(CLOCKING_MACHINE, {
         variables: {clockingMachineSlug},
 
@@ -43,7 +42,6 @@ function ClockingMachineShowcase(props) {
     if (error) return <p><Trans>Error</Trans> :(</p>;
 
 
-    let metas = [];
     let actions = [];
 
     if (!props.editing) {
@@ -53,26 +51,15 @@ function ClockingMachineShowcase(props) {
         });
     }
 
-    switch (data.user['clocking_machine'].__typename) {
-        case 'Employee':
-            metas.push({
-                'icon': faIdCardAlt, 'label': <Trans>{data.user['clocking_machine'].name} (Employee)</Trans>
-            });
-            break;
-        default:
-            //
-            break;
-
-    }
-
 
     const formStructure = {
         handleCancel: props.cancelEdit, inputGroups: [{
-            title: <Trans>Identification</Trans>, note: <Trans>Give your new clocking machine a identification name</Trans>, fields: [{
+            key: 'id', title: <Trans>Identification</Trans>, note: <Trans>Give your new clocking machine a identification name</Trans>, fields: [{
                 key: 'name', label: <Trans>Name</Trans>, inputComponent: <Input
                     help={<Trans>Used to identify the location of the clocking-machine. E.g. Office or Production room</Trans>}
                     placeholder={i18nMark('E.g. Main entrance, Office reception, etc ..')}
                     requeriments={<Trans>Required</Trans>}
+                    value={data['clocking_machine'].name}
 
                 />
             }],
@@ -80,13 +67,6 @@ function ClockingMachineShowcase(props) {
 
         }]
     }
-
-
-
-
-
-
-
 
     return (<><HeaderMetaActions
         title={data['clocking_machine'].name}
@@ -113,7 +93,6 @@ const ClockingMachine = () => {
     const cancelEdit = () => {
         setEditing(false);
     }
-
 
 
     return (<>

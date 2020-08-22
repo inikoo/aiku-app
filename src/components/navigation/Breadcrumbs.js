@@ -7,7 +7,6 @@
 import React from "react";
 import {NavLink} from "react-router-dom";
 
-
 const Breadcrumb = (props) => {
 
     if (props.last) {
@@ -34,7 +33,7 @@ const Breadcrumbs = (props) => {
         <nav className="hidden sm:flex items-center text-sm leading-5 font-medium">
             {breadcrumbs.map(({
                                   match, breadcrumb
-                              }, key) => (<Breadcrumb to={match.url} label={breadcrumb} index={key} last={numberBreadcrumbs === key}/>))}
+                              }, key) => (<Breadcrumb key={key} to={match.url} label={breadcrumb} index={key} last={numberBreadcrumbs === key}/>))}
         </nav>
     </div>);
 }

@@ -16,7 +16,7 @@ const Input = (props) => {
         </div>
 
         <div className="mt-1 max-w-lg rounded-md shadow-sm">
-            <input id={props.key} className="form-input block w-full sm:text-sm sm:leading-5" placeholder={props.placeholder} aria-describedby="`$(props.key)-description`"/>
+            <input id={props.key} value={props.value} className="form-input block w-full sm:text-sm sm:leading-5" placeholder={props.placeholder} aria-describedby="`$(props.key)-description`"/>
         </div>
         <p className="mt-2 text-sm text-gray-500" id="`$(props.key)-description`">{props.help}</p>
     </>);

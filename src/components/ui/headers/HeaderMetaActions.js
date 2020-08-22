@@ -58,7 +58,7 @@ const HeaderMetaActions = (props) => {
 
 
         <div className="mt-5 flex lg:mt-0 lg:ml-4">
-            {props.actions.map((args) => (<Action {...args}  />))}
+            {props.actions.map((args,index) => (<Action key={index}  {...args}  />))}
 
 
 
@@ -87,7 +87,7 @@ const HeaderMetaActions = (props) => {
                 */}
                 <div className="origin-top-right absolute right-0 mt-2 -mr-1 w-48 rounded-md shadow-lg" aria-labelledby="mobile-menu" role="menu">
         <div className="py-1 rounded-md bg-white shadow-xs">
-          <a href="#" className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out" role="menuitem">Edit</a>
+          <button  className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out" role="menuitem">Edit</button>
         </div>
       </div>
     </span>
