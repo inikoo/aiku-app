@@ -6,12 +6,10 @@
 
 import React from 'react';
 import {Trans} from "@lingui/macro";
+import { useForm, FormProvider } from "react-hook-form";
 
 
 const Fields = (props) => {
-
-
-    console.log(props.fields)
 
 
     return props.fields.map((field) => (<>
@@ -56,7 +54,11 @@ const InputGroups = (props) => {
 
 const Form = (props) => {
 
-    return (<form>
+    const methods = useForm();
+    const onSubmit = data => console.log(data);
+
+    return ( <FormProvider {...methods} >
+        <form  onSubmit={methods.handleSubmit(onSubmit)}>
         <div>
             <InputGroups inputGroups={props.inputGroups}/>
         </div>
@@ -76,9 +78,10 @@ const Form = (props) => {
                 </span>
             </div>
         </div>
-    </form>);
+    </form></FormProvider>);
 
 
 };
+
 
 export default Form;

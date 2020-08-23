@@ -55,7 +55,9 @@ function ClockingMachineShowcase(props) {
     const formStructure = {
         handleCancel: props.cancelEdit, inputGroups: [{
             key: 'id', title: <Trans>Identification</Trans>, note: <Trans>Give your new clocking machine a identification name</Trans>, fields: [{
-                key: 'name', label: <Trans>Name</Trans>, inputComponent: <Input
+                key: 'name', label: <Trans>Name</Trans>,
+                inputComponent: <Input
+                    name='name'
                     help={<Trans>Used to identify the location of the clocking-machine. E.g. Office or Production room</Trans>}
                     placeholder={i18nMark('E.g. Main entrance, Office reception, etc ..')}
                     requeriments={<Trans>Required</Trans>}
