@@ -6,7 +6,7 @@
 
 
 import React from 'react';
-import {gql, useQuery} from "@apollo/client";
+import {gql, useMutation, useQuery} from "@apollo/client";
 import {Trans} from "@lingui/macro";
 import HeaderMetaActions from "../ui/headers/HeaderMetaActions";
 import {useParams} from "react-router";
@@ -27,11 +27,19 @@ const CLOCKING_MACHINE = gql`
         }
     }
 `;
-
+const UPDATE_CLOCKING_MACHINE = gql`
+    mutation UpdateClockingMachine($id: ID!, $name: String!) {
+        updateClockingMachine(id: $id, name: $name) {
+            id
+            name
+        }
+    }
+`;
 
 function ClockingMachineShowcase(props) {
 
     let {clockingMachineSlug} = useParams();
+    const [updateTodo] = useMutation(UPDATE_CLOCKING_MACHINE);
 
 
     const {loading, error, data} = useQuery(CLOCKING_MACHINE, {
@@ -53,16 +61,23 @@ function ClockingMachineShowcase(props) {
 
 
     const formStructure = {
-        handleCancel: props.cancelEdit, inputGroups: [{
-            key: 'id', title: <Trans>Identification</Trans>, note: <Trans>Give your new clocking machine a identification name</Trans>, fields: [{
+        handleCancel: props.cancelEdit, handleSubmit: updateTodo, modelID: {name: 'id', value: data['clocking_machine'].id}, inputGroups: [{
+            key: 'identification', title: <Trans>Identification</Trans>, note: <Trans>Give your new clocking machine a identification name</Trans>,
+
+            fields: [{
                 key: 'name', label: <Trans>Name</Trans>,
+
                 inputComponent: <Input
                     name='name'
-                    help={<Trans>Used to identify the location of the clocking-machine. E.g. Office or Production room</Trans>}
+                    help={<Trans>Used to identify the location of the clocking-machine</Trans>}
                     placeholder={i18nMark('E.g. Main entrance, Office reception, etc ..')}
-                    requeriments={<Trans>Required</Trans>}
+                    hint='&nbsp;'
                     value={data['clocking_machine'].name}
-
+                    register={{
+                        required: <Trans>This is required.</Trans>, maxLength: {
+                            value: 100, message: <Trans>This input exceed {100} characters.</Trans>
+                        }
+                    }}
                 />
             }],
 
