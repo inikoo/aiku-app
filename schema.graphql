@@ -66,8 +66,10 @@ type Mutation {
     deleteClockingMachine(id: ID!): ClockingMachine
     deleteUser(id: ID!): User
     updateClockingMachine(id: ID!, name: String): ClockingMachine
+    updatePassword(id: ID!, password: String!): User!
+    updatePin(id: ID!, pin: String!): User!
     updateTenant(id: ID!, name: String): Tenant
-    updateUser(handle: String, id: ID!, password: String): User
+    updateUser(handle: String, id: ID!, status: Boolean): User
 }
 
 "Pagination information about the corresponding list of items."
