@@ -10,16 +10,34 @@ import HeaderMetaActions from "../ui/headers/HeaderMetaActions";
 import Form from "../ui/forms/Form";
 import Input from "../ui/forms/fields/Input";
 import { i18nMark} from "@lingui/react";
+import {useHistory} from "react-router";
+import {gql, useMutation} from "@apollo/client";
 
 
-
+const CREATE_CLOCKING_MACHINE = gql`
+    mutation CreateClockingMachine( $name: String!) {
+        createClockingMachine( name: $name) {
+            name
+        }
+    }
+`;
 
 const NewClockingMachine = () => {
 
+    let history = useHistory();
+    const [createClockingMachine] = useMutation(CREATE_CLOCKING_MACHINE);
 
+
+    const cancelEdit = () => {
+        history.goBack()
+    }
 
 
     const formStructure = {
+
+        handleCancel: cancelEdit, handleSubmit: createClockingMachine,
+
+
         inputGroups: [{
             title: <Trans>Identification</Trans>,
 
@@ -30,9 +48,15 @@ const NewClockingMachine = () => {
             fields: [{
                 key: 'name', label: <Trans>Name</Trans>, inputComponent:
                     <Input
+                        name='name'
                         help={<Trans>Used to identify the location of the clocking-machine. E.g. Office or Production room</Trans>}
                         placeholder={i18nMark('E.g. Main entrance, Office reception, etc ..')}
-                        requeriments={<Trans>Required</Trans>}
+                        hint='&nbsp;'
+                        register={{
+                            required: <Trans>This is required.</Trans>, maxLength: {
+                                value: 100, message: <Trans>This input exceed {100} characters.</Trans>
+                            }
+                        }}
 
                     />
             }]

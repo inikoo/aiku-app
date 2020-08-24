@@ -5,7 +5,7 @@ const httpLink = createHttpLink({
     uri: '/graphql',
 });
 
-const authLink = setContext((_, { headers }) => {
+const authLink = setContext((_, {headers}) => {
 
 
     function getCookie(name) {
@@ -16,16 +16,22 @@ const authLink = setContext((_, { headers }) => {
 
     return {
         headers: {
-            ...headers,
-            'X-XSRF-TOKEN': decodeURIComponent(getCookie('XSRF-TOKEN'))
+            ...headers, 'X-XSRF-TOKEN': decodeURIComponent(getCookie('XSRF-TOKEN'))
         }
     }
 });
 
-const apolloClient = new ApolloClient({
-    link: authLink.concat(httpLink),
 
-    cache: new InMemoryCache()
+const apolloClient = new ApolloClient({
+    link: authLink.concat(httpLink), cache: new InMemoryCache(),
+
+    defaultOptions: {
+        watchQuery: {
+            fetchPolicy: 'network-only', errorPolicy: 'ignore',
+        }, query: {
+            fetchPolicy: 'network-only', errorPolicy: 'all',
+        },
+    },
 });
 
 

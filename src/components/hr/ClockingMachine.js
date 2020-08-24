@@ -39,7 +39,7 @@ const UPDATE_CLOCKING_MACHINE = gql`
 function ClockingMachineShowcase(props) {
 
     let {clockingMachineSlug} = useParams();
-    const [updateTodo] = useMutation(UPDATE_CLOCKING_MACHINE);
+    const [updateClockingMachine] = useMutation(UPDATE_CLOCKING_MACHINE);
 
 
     const {loading, error, data} = useQuery(CLOCKING_MACHINE, {
@@ -61,7 +61,9 @@ function ClockingMachineShowcase(props) {
 
 
     const formStructure = {
-        handleCancel: props.cancelEdit, handleSubmit: updateTodo, modelID: {name: 'id', value: data['clocking_machine'].id}, inputGroups: [{
+        handleCancel: props.cancelEdit, handleSubmit: updateClockingMachine, modelID: {name: 'id', value: data['clocking_machine'].id},
+
+        inputGroups: [{
             key: 'identification', title: <Trans>Identification</Trans>, note: <Trans>Give your new clocking machine a identification name</Trans>,
 
             fields: [{
