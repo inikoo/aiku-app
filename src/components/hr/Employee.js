@@ -90,7 +90,7 @@ function EmployeeShowcase(props) {
 
             key: 'identification',
 
-            title: <Trans>Credentials</Trans>,
+            title: <Trans>Personal Information</Trans>,
 
             note: <Trans></Trans>,
 
@@ -99,12 +99,12 @@ function EmployeeShowcase(props) {
                 {
                 key: 'slug',
 
-                label: <Trans>Username</Trans>,
+                label: <Trans>Name</Trans>,
 
                 inputComponent: <Input
 
                     name= 'slug'
-                    placeholder={i18nMark('username')}
+                    placeholder={i18nMark('Name')}
                     hint='&nbsp;'
                     value={data['employee'].handle}
                     register={{
@@ -114,7 +114,127 @@ function EmployeeShowcase(props) {
                     }}
 
                 />
-            }
+            },
+
+                {
+                    key: 'slug',
+
+                    label: <Trans>Date of birth</Trans>,
+
+                    inputComponent: <Input
+
+                        name= 'slug'
+                        placeholder={i18nMark('DOB')}
+                        hint='&nbsp;'
+                        value={data['employee'].handle}
+                        register={{
+                            required: <Trans>This is required.</Trans>, maxLength: {
+                                value: 100, message: <Trans>This input exceed {100} characters.</Trans>
+                            }
+                        }}
+
+                    />
+                },
+
+                {
+                    key: 'slug',
+
+                    label: <Trans>National ID</Trans>,
+
+                    inputComponent: <Input
+
+                        name= 'slug'
+                        placeholder={i18nMark('National ID')}
+                        hint='&nbsp;'
+                        value={data['employee'].handle}
+                        register={{
+                            required: <Trans>This is required.</Trans>, maxLength: {
+                                value: 100, message: <Trans>This input exceed {100} characters.</Trans>
+                            }
+                        }}
+
+                    />
+                },
+
+                {
+                    key: 'slug',
+
+                    label: <Trans>Email</Trans>,
+
+                    inputComponent: <Input
+
+                        name= 'slug'
+                        placeholder={i18nMark('Email')}
+                        hint='&nbsp;'
+                        value={data['employee'].handle}
+                        register={{
+                            required: <Trans>This is required.</Trans>, maxLength: {
+                                value: 100, message: <Trans>This input exceed {100} characters.</Trans>
+                            }
+                        }}
+
+                    />
+                },
+
+                {
+                    key: 'slug',
+
+                    label: <Trans>Contact Number</Trans>,
+
+                    inputComponent: <Input
+
+                        name= 'slug'
+                        placeholder={i18nMark('Contact Number')}
+                        hint='&nbsp;'
+                        value={data['employee'].handle}
+                        register={{
+                            required: <Trans>This is required.</Trans>, maxLength: {
+                                value: 100, message: <Trans>This input exceed {100} characters.</Trans>
+                            }
+                        }}
+
+                    />
+                },
+
+                {
+                    key: 'slug',
+
+                    label: <Trans>Address</Trans>,
+
+                    inputComponent: <Input
+
+                        name= 'slug'
+                        placeholder={i18nMark('Address')}
+                        hint='&nbsp;'
+                        value={data['employee'].handle}
+                        register={{
+                            required: <Trans>This is required.</Trans>, maxLength: {
+                                value: 100, message: <Trans>This input exceed {100} characters.</Trans>
+                            }
+                        }}
+
+                    />
+                },
+
+                {
+                    key: 'slug',
+
+                    label: <Trans>Next of kin</Trans>,
+
+                    inputComponent: <Input
+
+                        name= 'slug'
+                        placeholder={i18nMark('Next of kin')}
+                        hint='&nbsp;'
+                        value={data['employee'].handle}
+                        register={{
+                            required: <Trans>This is required.</Trans>, maxLength: {
+                                value: 100, message: <Trans>This input exceed {100} characters.</Trans>
+                            }
+                        }}
+
+                    />
+                }
             ],
 
 
