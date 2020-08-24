@@ -66,6 +66,8 @@ type Mutation {
     deleteClockingMachine(id: ID!): ClockingMachine
     deleteUser(id: ID!): User
     updateClockingMachine(id: ID!, name: String): ClockingMachine
+    updateMyPassword(password: String!): User!
+    updateMyPin(pin: String!): User!
     updatePassword(id: ID!, password: String!): User!
     updatePin(id: ID!, pin: String!): User!
     updateTenant(id: ID!, name: String): Tenant
@@ -127,6 +129,7 @@ type Query {
         "The offset from which elements are returned."
         page: Int
     ): EmployeePaginator
+    me: User
     roles(
         "Limits number of fetched elements."
         first: Int = 100,

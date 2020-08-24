@@ -45,7 +45,7 @@ const USER = gql`
 `;
 
 const UPDATE_USER = gql`
-    mutation UpdateUser($id: ID!, $handle: String!,, $status: Boolean!) {
+    mutation UpdateUser($id: ID!, $handle: String!, $status: Boolean!) {
         updateUser(id: $id, handle: $handle, status: $status) {
             id
             handle
