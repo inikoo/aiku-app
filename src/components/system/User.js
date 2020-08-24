@@ -13,12 +13,14 @@ import {faIdCardAlt, faPencilAlt} from '@fortawesome/pro-solid-svg-icons'
 import Input from "../ui/forms/fields/Input";
 import {i18nMark} from "@lingui/react";
 import Form from "../ui/forms/Form";
+import Toggle from "../ui/forms/fields/Toggle";
 
 const USER = gql`
     query User($userHandle: String!) {
         user(handle: $userHandle) {
             id
             handle
+            status
             created_at
             userable {
                 __typename
@@ -43,10 +45,11 @@ const USER = gql`
 `;
 
 const UPDATE_USER = gql`
-    mutation UpdateUser($id: ID!, $handle: String!) {
-        updateUser(id: $id, handle: $handle) {
+    mutation UpdateUser($id: ID!, $handle: String!,, $status: Boolean!) {
+        updateUser(id: $id, handle: $handle, status: $status) {
             id
             handle
+            status
         }
     }
 `;
@@ -69,26 +72,24 @@ function UserShowcase(props) {
     let metas = [];
     let actions = [];
 
-    if (!props.editing) {
+    if (!props.editing && !props.editingPassword && !props.editingPin  ) {
         actions.push({
             'icon': faPencilAlt, 'label': <Trans>Edit</Trans>, 'highlighted': false, handleClick: props.openEditView
 
         });
-    }
 
-    if (!props.editing) {
         actions.push({
             'icon': faPencilAlt, 'label': <Trans>Change Password</Trans>, 'highlighted': false, handleClick: props.openEditViewPassword
 
         });
-    }
 
-    if (!props.editing) {
         actions.push({
             'icon': faPencilAlt, 'label': <Trans>Change Pin</Trans>, 'highlighted': false, handleClick: props.openEditViewPin
 
         });
+
     }
+
 
 
 
@@ -107,8 +108,16 @@ function UserShowcase(props) {
 
     }
 
+    const postProcess= (obj)=> {
+        for (const [key, value] of Object.entries(obj)) {
+            if(key==='status'){obj[key]=(value === 'true');}
+        }
+        return obj
+    }
 
     const formStructure = {
+
+        postProcess: postProcess,
 
         handleCancel: props.cancelEdit,
 
@@ -121,11 +130,22 @@ function UserShowcase(props) {
 
             key: 'identification',
 
-            title: <Trans>Credentials</Trans>,
 
-            note: <Trans></Trans>,
 
             fields: [
+
+                {
+                    key: 'status',
+
+                    label: <Trans>Active</Trans>,
+
+                    inputComponent: <Toggle
+
+                        name='status'
+                        value={data['user'].status}
+
+                    />
+                },
 
                 {
                 key: 'handle',
@@ -147,6 +167,8 @@ function UserShowcase(props) {
                     }}
                 />
             },
+
+
 
             ],
 
@@ -170,7 +192,6 @@ function UserShowcase(props) {
 
             title: <Trans>Change Password</Trans>,
 
-            note: <Trans></Trans>,
 
             fields: [
 
@@ -214,7 +235,6 @@ function UserShowcase(props) {
 
             title: <Trans>Change Pin</Trans>,
 
-            note: <Trans></Trans>,
 
             fields: [
 

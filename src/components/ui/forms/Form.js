@@ -55,14 +55,18 @@ const InputGroups = (props) => {
 const Form = (props) => {
 
     const methods = useForm();
-    const onSubmit = data => (
+    const onSubmit = function (data) {
+
+        if (props.postProcess !== undefined) {
+            data = props.postProcess(data)
+        }
         props.handleSubmit({variables: data})
 
-    );
+    }
 
     return (<FormProvider {...methods} >
         <form onSubmit={methods.handleSubmit(onSubmit)}>
-            {props.modelID!==undefined && <input type='hidden' name={props.modelID.name} defaultValue={props.modelID.value} ref={methods.register}/>}
+            {props.modelID !== undefined && <input type='hidden' name={props.modelID.name} defaultValue={props.modelID.value} ref={methods.register}/>}
             <div>
                 <InputGroups inputGroups={props.inputGroups}/>
             </div>
