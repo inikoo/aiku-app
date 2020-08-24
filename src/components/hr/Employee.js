@@ -5,7 +5,7 @@
  */
 
 import React from 'react';
-import {gql, useQuery} from "@apollo/client";
+import {gql, useMutation, useQuery} from "@apollo/client";
 import {Trans} from "@lingui/macro";
 import HeaderMetaActions from "../ui/headers/HeaderMetaActions";
 import {useParams} from "react-router";
@@ -30,11 +30,20 @@ const EMPLOYEE = gql`
     }
 `;
 
+const UPDATE_EMPLOYEE = gql`
+    mutation UpdateUser($id: ID!, $employeeSlug: String!) {
+        updateUser(id: $id, slug: $employeeSlug) {
+            id
+            slug
+        }
+    }
+`;
 
 function EmployeeShowcase(props) {
 
 
     let {employeeSlug} = useParams();
+    const [updateEmployee] = useMutation(UPDATE_EMPLOYEE);
 
 
     const {loading, error, data} = useQuery(EMPLOYEE, {
@@ -55,11 +64,11 @@ function EmployeeShowcase(props) {
         });
     }
 
-
-    switch (data.user['employee'].__typename) {
+    console.log(data['employee'])
+    switch (data.employee['user'].__typename) {
         case 'Employee':
             metas.push({
-                'icon': faIdCardAlt, 'label': <Trans>{data.user['employee'].name} (Employee)</Trans>
+                'icon': faIdCardAlt, 'label': <Trans>{data.employee['user'].name} (Employee)</Trans>
             });
             break;
         default:
@@ -71,15 +80,42 @@ function EmployeeShowcase(props) {
 
 
     const formStructure = {
-        handleCancel: props.cancelEdit, inputGroups: [{
-            title: <Trans>Identification</Trans>, note: <Trans>Give your new clocking machine a identification name</Trans>, fields: [{
-                key: 'name', label: <Trans>Name</Trans>, inputComponent: <Input
-                    help={<Trans>Used to identify the location of the clocking-machine. E.g. Office or Production room</Trans>}
-                    placeholder={i18nMark('E.g. Main entrance, Office reception, etc ..')}
-                    requeriments={<Trans>Required</Trans>}
+        handleCancel: props.cancelEdit,
+
+        handleSubmit: updateEmployee,
+
+        modelID: {name: 'id', value: data['employee'].id},
+
+        inputGroups: [{
+
+            key: 'identification',
+
+            title: <Trans>Credentials</Trans>,
+
+            note: <Trans></Trans>,
+
+            fields: [
+
+                {
+                key: 'slug',
+
+                label: <Trans>Username</Trans>,
+
+                inputComponent: <Input
+
+                    name= 'slug'
+                    placeholder={i18nMark('username')}
+                    hint='&nbsp;'
+                    value={data['employee'].handle}
+                    register={{
+                        required: <Trans>This is required.</Trans>, maxLength: {
+                            value: 100, message: <Trans>This input exceed {100} characters.</Trans>
+                        }
+                    }}
 
                 />
-            }],
+            }
+            ],
 
 
         }]
@@ -87,7 +123,7 @@ function EmployeeShowcase(props) {
 
 
 
-    console.log(data['employee'])
+
 
     return (<><HeaderMetaActions
         title={data['employee'].name}
