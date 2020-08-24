@@ -60,18 +60,44 @@ type EmployeePaginator {
     paginatorInfo: PaginatorInfo!
 }
 
+type Location {
+    code: String!
+    created_at: DateTime!
+    id: ID!
+    updated_at: DateTime!
+    warehouse: Warehouse!
+    warehouse_area: WarehouseArea!
+}
+
+"A paginated list of Location items."
+type LocationPaginator {
+    "A list of Location items."
+    data: [Location!]!
+    "Pagination information about the list of items."
+    paginatorInfo: PaginatorInfo!
+}
+
 type Mutation {
     createClockingMachine(name: String!): ClockingMachine!
+    createLocation(code: String!): Location!
     createUser(handle: String!, name: String!, password: String!): User!
+    createWarehouse(name: String!): Warehouse!
+    createWarehouseArea(name: String!): WarehouseArea!
     deleteClockingMachine(id: ID!): ClockingMachine
+    deleteLocation(id: ID!): Location
     deleteUser(id: ID!): User
+    deleteWarehouse(id: ID!): Warehouse
+    deleteWarehouseArea(id: ID!): WarehouseArea
     updateClockingMachine(id: ID!, name: String): ClockingMachine
+    updateLocation(code: String, id: ID!): Location
     updateMyPassword(password: String!): User!
     updateMyPin(pin: String!): User!
     updatePassword(id: ID!, password: String!): User!
     updatePin(id: ID!, pin: String!): User!
     updateTenant(id: ID!, name: String): Tenant
     updateUser(handle: String, id: ID!, status: Boolean): User
+    updateWarehouse(id: ID!, name: String): Warehouse
+    updateWarehouseArea(id: ID!, name: String): WarehouseArea
 }
 
 "Pagination information about the corresponding list of items."
@@ -129,6 +155,13 @@ type Query {
         "The offset from which elements are returned."
         page: Int
     ): EmployeePaginator
+    location(code: String): Location
+    locations(
+        "Limits number of fetched elements."
+        first: Int = 100,
+        "The offset from which elements are returned."
+        page: Int
+    ): LocationPaginator
     me: User
     roles(
         "Limits number of fetched elements."
@@ -150,6 +183,20 @@ type Query {
         "The offset from which elements are returned."
         page: Int
     ): UserPaginator
+    warehouse(slug: String): Warehouse
+    warehouse_area(slug: String): WarehouseArea
+    warehouse_areas(
+        "Limits number of fetched elements."
+        first: Int = 100,
+        "The offset from which elements are returned."
+        page: Int
+    ): WarehouseAreaPaginator
+    warehouses(
+        "Limits number of fetched elements."
+        first: Int = 100,
+        "The offset from which elements are returned."
+        page: Int
+    ): WarehousePaginator
 }
 
 type Tenant {
@@ -180,6 +227,41 @@ type User {
 type UserPaginator {
     "A list of User items."
     data: [User!]!
+    "Pagination information about the list of items."
+    paginatorInfo: PaginatorInfo!
+}
+
+type Warehouse {
+    created_at: DateTime!
+    id: ID!
+    name: String!
+    slug: String!
+    updated_at: DateTime!
+    warehouse_areas: [WarehouseArea!]!
+}
+
+type WarehouseArea {
+    created_at: DateTime!
+    id: ID!
+    locations: [Location!]!
+    name: String!
+    slug: String!
+    updated_at: DateTime!
+    warehouse: Warehouse!
+}
+
+"A paginated list of WarehouseArea items."
+type WarehouseAreaPaginator {
+    "A list of WarehouseArea items."
+    data: [WarehouseArea!]!
+    "Pagination information about the list of items."
+    paginatorInfo: PaginatorInfo!
+}
+
+"A paginated list of Warehouse items."
+type WarehousePaginator {
+    "A list of Warehouse items."
+    data: [Warehouse!]!
     "Pagination information about the list of items."
     paginatorInfo: PaginatorInfo!
 }
