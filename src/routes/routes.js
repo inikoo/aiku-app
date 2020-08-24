@@ -82,6 +82,10 @@ import NewSupplier from "../components/suppliers/NewSupplier";
 import NewUser from "../components/system/NewUser";
 import NewRoles from "../components/system/NewRole";
 import SystemSettings from "../components/system/SystemSettings";
+import Warehouses from "../components/warehouse/Warehouses";
+import NewWarehouse from "../components/warehouse/NewWarehouse";
+import Areas from "../components/warehouse/Areas";
+import Area from "../components/warehouse/Area";
 
 
 export default [
@@ -133,7 +137,18 @@ export default [
 
 //WAREHOUSE
     {path: "/warehouse", breadcrumb: () => <Trans>Warehouse Dashboard</Trans>, module:'warehouse' ,Component: WarehouseDashboard},
-    {path: "/warehouse/warehouse_details",  breadcrumb: () => <Trans>Warehouse</Trans>, module:'warehouse', Component: Warehouse},
+    {path: "/warehouse/warehouses", breadcrumb: () => <Trans>Warehouse</Trans>, module:'warehouse' ,Component: Warehouses},
+    {path: "/warehouse/warehouses/new", breadcrumb: () => <Trans>New Warehouse</Trans>, module:'warehouse' ,Component: NewWarehouse},
+
+
+    {path: "/warehouse/:warehouseSlug",breadcrumb: () => <Trans>Warehouse</Trans>, module:'warehouse', Component: Warehouse},
+  //  {path: "/warehouse/:warehouseSlug/area",breadcrumb: () => <Trans>Area</Trans>, module:'warehouse', Component: Areas},
+   // {path: "/warehouse/:warehouseSlug/area/:areSlug",breadcrumb: () => <Trans>Area</Trans>, module:'warehouse', Component: Area},
+
+
+
+
+
     {path: "/warehouse/locations", breadcrumb: () => <Trans>Locations</Trans>, module:'warehouse', Component: Locations},
     {path: "/warehouse/production_deliveries", breadcrumb: () => <Trans>Production Deliveries</Trans>, module:'warehouse', Component: ProductionDeliveries},
     {path: "/warehouse/returns", breadcrumb: () => <Trans>Returns</Trans>, module:'warehouse', Component: Returns},
