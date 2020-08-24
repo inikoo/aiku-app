@@ -27,7 +27,7 @@ const Toggle = (props) => {
     return (<>
 
 
-        <input name={props.name} defaultValue={props.value} ref={register()}/>
+        <input name={props.name} type="hidden" value={isOn}  onChange={handleToggling.bind()} ref={register()}/>
         <span onClick={handleToggling} role="checkbox" tabIndex="0" aria-checked={isOn}
               className={`${isOn ? 'bg-indigo-600' : 'bg-gray-200'} relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:shadow-outline`}>
 

@@ -168,6 +168,7 @@ type User {
     created_at: DateTime!
     handle: String!
     id: ID!
+    status: Boolean!
     updated_at: DateTime!
     userable: Userable!
 }
