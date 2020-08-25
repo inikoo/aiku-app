@@ -7,7 +7,8 @@
 import React from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {Trans} from "@lingui/macro";
-
+import { I18n } from "@lingui/react"
+import { t } from "@lingui/macro"
 
 const Meta = (props) => {
     return (<div className="mt-2 flex items-center text-sm leading-5 text-gray-500 sm:mr-6">
@@ -21,10 +22,10 @@ const Meta = (props) => {
 const Action = (props) => {
 
 
-
     if(props.highlighted){
-        return(<span className="sm:ml-3 shadow-sm rounded-md">
-      <button onClick={props.handleClick} type="button" className="inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline-indigo focus:border-indigo-700 active:bg-indigo-700 transition duration-150 ease-in-out">
+        return(<span className="ml-5 sm:ml-3 shadow-sm rounded-md">
+      <button onClick={props.handleClick} type="button"
+              className="ml-10 inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline-indigo focus:border-indigo-700 active:bg-indigo-700 transition duration-150 ease-in-out">
           <FontAwesomeIcon className="-ml-1 mr-2 h-5 w-5" icon={props.icon}/>
           {props.label}
       </button>
@@ -32,15 +33,31 @@ const Action = (props) => {
         )
     }
 
-    return (<span className="hidden sm:block shadow-sm rounded-md">
-      <button type="button" onClick={props.handleClick}
-              className="inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-700 bg-white hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:text-gray-800 active:bg-gray-50 transition duration-150 ease-in-out">
+    if(props.white){
+        return(<span className="ml-5 sm:ml-3 shadow-sm rounded-md">
+      <button onClick={props.handleClick} type="button"
+              className="inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline-indigo focus:border-indigo-700 active:bg-indigo-700 transition duration-150 ease-in-out">
+          <FontAwesomeIcon className="-ml-1 mr-2 h-5 w-5" icon={props.icon}/>
+          {props.label}
+      </button>
+    </span>
+        )
+    }
+
+    return (
+        <I18n>
+            {({ i18n }) => (
+        <span className="ml-5 hidden sm:block shadow-sm rounded-md">
+      <button type="button" onClick={props.handleClick}  title={i18n._(t`${props.tooltip}`)}
+              className="inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-50 focus:outline-none focus:border-indigo-300 focus:shadow-outline-indigo active:bg-indigo-200 transition ease-in-out duration-150">
+
          <FontAwesomeIcon
              className="-ml-1 mr-2 h-5 w-5 text-gray-500 "
              icon={props.icon}/>
           {props.label}
       </button>
-    </span>)
+    </span>  )}
+        </I18n>)
 }
 
 const HeaderMetaActions = (props) => {
@@ -48,7 +65,7 @@ const HeaderMetaActions = (props) => {
     return (
         <div className="mb-5 lg:flex lg:items-center lg:justify-between pt-4">
         <div className="flex-1 min-w-0">
-            <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:leading-9 sm:truncate">
+            <h2 className="header text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:leading-9 sm:truncate">
                 {props.title}
             </h2>
             <div className="mt-1 flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap">

@@ -20,7 +20,7 @@ import {
 
 
 
-} from "@fortawesome/pro-regular-svg-icons";
+} from "@fortawesome/pro-light-svg-icons"
 import { Trans } from '@lingui/macro';
 
 const modules = [

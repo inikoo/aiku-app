@@ -15,10 +15,8 @@ import Footer from "./components/navigation/Footer";
 import {login} from "./actions";
 import {connect} from "react-redux";
 import routes from "./routes/routes";
-import { ApolloProvider} from '@apollo/client';
+import {ApolloProvider} from '@apollo/client';
 import apolloClient from "./services/apolloClient";
-
-
 
 
 let Aiku = ({loggedIn}) => {
@@ -39,39 +37,37 @@ let Aiku = ({loggedIn}) => {
         return (<Router>
             <ApolloProvider client={apolloClient}>
 
-            <div className="h-screen flex overflow-hidden bg-gray-100">
-                <MobileSideNav hideMobileSideNav={hideMobileSideNav} mobileSideNavIsOpen={mobileSideNavIsOpen} />
+                <div className="h-screen flex overflow-hidden bg-cool-gray-50">
+                    <MobileSideNav hideMobileSideNav={hideMobileSideNav} mobileSideNavIsOpen={mobileSideNavIsOpen}/>
+                    <SideNav/>
+                    <div className="flex flex-col w-0 flex-1 overflow-hidden">
+
+                        <main className="flex-1 relative z-0 overflow-y-auto focus:outline-none" tabIndex="0">
+                            <div className="pb-6 ">
+
+                                <TopHeader mobileSideNavIsOpen={mobileSideNavIsOpen} showMobileSideNav={showMobileSideNav}/>
+
+                                <div className="max-w-full mx-auto px-4 sm:px-6 md:px-8">
+                                    <Switch>
+
+                                        {routes.map(({path, name, Component}, key) => (<Route
+                                            exact
+                                            path={path}
+                                            key={key}
+                                            render={props => {
+                                                return (<Component {...props} />);
+                                            }}
+                                        />))}
 
 
-                <SideNav />
-                <div className="flex flex-col w-0 flex-1 overflow-hidden">
-
-                    <main className="flex-1 relative z-0 overflow-y-auto focus:outline-none" tabIndex="0">
-                        <div className=" pb-6 ">
-
-                            <TopHeader mobileSideNavIsOpen={mobileSideNavIsOpen} showMobileSideNav={showMobileSideNav}/>
-
-                            <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-                                <Switch>
-
-                                    {routes.map(({path, name, Component}, key) => (<Route
-                                        exact
-                                        path={path}
-                                        key={key}
-                                        render={props => {
-                                            return (<Component {...props} />);
-                                        }}
-                                    />))}
-
-
-                                </Switch>
+                                    </Switch>
+                                </div>
                             </div>
-                        </div>
-                    </main>
-                    <Footer/>
+                        </main>
+                        <Footer/>
 
+                    </div>
                 </div>
-            </div>
             </ApolloProvider>
         </Router>);
     }

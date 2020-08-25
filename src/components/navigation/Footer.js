@@ -13,7 +13,7 @@ const Footer = () => {
 
     return (
 
-        <footer className="flex justify-end bg-gray-800 h-6 text-gray-300">
+        <footer className="light-font flex justify-end bg-gray-800 h-6 text-gray-300">
 
                     <button className="mr-5 group flex items-center  ">
                     <FontAwesomeIcon

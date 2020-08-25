@@ -8,12 +8,13 @@ import React from 'react';
 import {gql, useMutation, useQuery} from "@apollo/client";
 import {Trans} from "@lingui/macro";
 import HeaderMetaActions from "../ui/headers/HeaderMetaActions";
-import {useParams} from "react-router";
-import {faIdCardAlt, faPencilAlt} from '@fortawesome/pro-solid-svg-icons'
+import {useHistory, useLocation, useParams} from "react-router";
+import {faIdCardAlt, faPencilAlt, faKey, faTh} from '@fortawesome/pro-solid-svg-icons'
 import Input from "../ui/forms/fields/Input";
 import {i18nMark} from "@lingui/react";
 import Form from "../ui/forms/Form";
 import Toggle from "../ui/forms/fields/Toggle";
+import Tabs from "../navigation/Tabs";
 
 const USER = gql`
     query User($userHandle: String!) {
@@ -72,28 +73,32 @@ function UserShowcase(props) {
     let metas = [];
     let actions = [];
 
-    if (!props.editing && !props.editingPassword && !props.editingPin  ) {
+
+
+    if (!props.editing && !props.editingPassword && !props.editingPin) {
         actions.push({
             'icon': faPencilAlt, 'label': <Trans>Edit</Trans>, 'highlighted': false, handleClick: props.openEditView
 
         });
 
+
         actions.push({
-            'icon': faPencilAlt, 'label': <Trans>Change Password</Trans>, 'highlighted': false, handleClick: props.openEditViewPassword
+            'icon': faKey, 'label': <Trans>Password</Trans>, 'tooltip': 'Change Password', 'highlighted': false, handleClick: props.openEditViewPassword
 
         });
 
         actions.push({
-            'icon': faPencilAlt, 'label': <Trans>Change Pin</Trans>, 'highlighted': false, handleClick: props.openEditViewPin
+            'icon': faTh, 'label': <Trans>PIN</Trans>, 'tooltip': 'Edit PIN', 'highlighted': false, handleClick: props.openEditViewPin
 
         });
+
 
     }
 
+    if (props.editing && !props.editingPassword && !props.editingPin) {
 
 
-
-
+    }
 
 
     switch (data.user['userable'].__typename) {
@@ -108,9 +113,11 @@ function UserShowcase(props) {
 
     }
 
-    const postProcess= (obj)=> {
+    const postProcess = (obj) => {
         for (const [key, value] of Object.entries(obj)) {
-            if(key==='status'){obj[key]=(value === 'true');}
+            if (key === 'status') {
+                obj[key] = (value === 'true');
+            }
         }
         return obj
     }
@@ -131,7 +138,6 @@ function UserShowcase(props) {
             key: 'identification',
 
 
-
             fields: [
 
                 {
@@ -148,26 +154,25 @@ function UserShowcase(props) {
                 },
 
                 {
-                key: 'handle',
+                    key: 'handle',
 
-                label: <Trans>Username
+                    label: <Trans>Username
 
-                </Trans>,
+                    </Trans>,
 
-                inputComponent: <Input
+                    inputComponent: <Input
 
-                    name='handle'
-                    placeholder={i18nMark('username')}
-                    hint='&nbsp;'
-                    value={data['user'].handle}
-                    register={{
-                        required: <Trans>This is required.</Trans>, maxLength: {
-                            value: 100, message: <Trans>This input exceed {100} characters.</Trans>
-                        }
-                    }}
-                />
-            },
-
+                        name='handle'
+                        placeholder={i18nMark('username')}
+                        hint='&nbsp;'
+                        value={data['user'].handle}
+                        register={{
+                            required: <Trans>This is required.</Trans>, maxLength: {
+                                value: 100, message: <Trans>This input exceed {100} characters.</Trans>
+                            }
+                        }}
+                    />
+                },
 
 
             ],
@@ -266,9 +271,6 @@ function UserShowcase(props) {
     }
 
 
-
-
-
     return (<><HeaderMetaActions
         title={data.user.handle}
         metas={metas}
@@ -277,7 +279,7 @@ function UserShowcase(props) {
     />
         {props.editing ? <Form {...formStructure} /> : null}
         {props.editingPassword ? <Form {...formPasswordStructure} /> : null}
-        {props.editingPin? <Form {...formPinStructure} /> : null}
+        {props.editingPin ? <Form {...formPinStructure} /> : null}
 
     </>)
 
@@ -285,6 +287,9 @@ function UserShowcase(props) {
 
 
 const User = () => {
+
+    let history = useHistory();
+    let location = useLocation();
 
     const [editing, setEditing] = React.useState(false);
 
@@ -314,13 +319,33 @@ const User = () => {
     }
 
 
+
+    const tabs= [{permissions: {label: 'Permissions'}}, {logs: {label: 'Logs'}}, {history: {label: 'History'}}];
+
+
+    const [currentTab, setCurrentTab] = React.useState( (location.hash===''?Object.keys(tabs[0])[0]: location.hash.substring(1)));
+
+    const changeTab = (tab) => {
+
+        history.replace({ hash: tab })
+        setCurrentTab(tab);
+    }
+
+    const tabsData = {
+        currentTab: currentTab, changeTab: changeTab, tabs: tabs
+    }
+
+
     return (<>
 
         <UserShowcase editing={editing} openEditView={openEditView} cancelEdit={cancelEdit}
 
-        editingPassword={editingPassword} openEditViewPassword={openEditViewPassword} cancelEditPassword={cancelEditPassword}
+                      editingPassword={editingPassword} openEditViewPassword={openEditViewPassword} cancelEditPassword={cancelEditPassword}
 
                       editingPin={editingPin} openEditViewPin={openEditViewPin} cancelEditPin={cancelEditPin}/>
+
+
+        <Tabs {...tabsData}/>
 
 
     </>);

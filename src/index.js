@@ -8,7 +8,8 @@
 import React from 'react';
 import createSagaMiddleware from 'redux-saga';
 import {render} from 'react-dom';
-import './assets/main.css'
+import './index.css'
+import './assets/tailwind.css'
 import {createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
 import {logger} from 'redux-logger';

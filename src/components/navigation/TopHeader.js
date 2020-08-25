@@ -9,12 +9,7 @@ import {Trans} from '@lingui/macro';
 
 const TopHeader = (props) => {
 
-
     const breadcrumbs = useBreadcrumbs(routes);
-
-    console.log(breadcrumbs)
-
-
     const numberBreadcrumbs = breadcrumbs.length - 1;
 
     if (numberBreadcrumbs <= 0) {
@@ -36,11 +31,8 @@ const TopHeader = (props) => {
 
                     <TopNav subModules={subModules[module]}/>
 
-
                     <div className=" px-0 sm:px-4 ">
                         <div className="relative flex items-center justify-between h-12">
-
-
                             <div className="flex-1 flex justify-center px-2 lg:ml-6 lg:justify-end">
                                 <div className="max-w-lg w-full lg:max-w-xs">
                                     <label htmlFor="search" className="sr-only"><Trans>Search</Trans></label>

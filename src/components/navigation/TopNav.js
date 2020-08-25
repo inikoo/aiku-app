@@ -15,7 +15,7 @@ const TopHeaderLink = (props) => {
 
     return (<Link to={props.to}
                   className={`${props.selected ? 'text-white bg-gray-900' : 'text-gray-300 hover:text-white hover:bg-gray-700 focus:text-white'} 
-                flex block px-2 py-2 text-base leading-6 font-medium rounded-md focus:outline-none transition ease-in-out duration-150 focus:bg-gray-700`}>
+                flex block px-2 py-2 text-base leading-6 font-medium rounded-md focus:outline-none transition ease-in-out duration-150 focus:bg-gray-700 ${props.class}  `}>
         {props.text}
     </Link>)
 }
@@ -25,7 +25,7 @@ const TopNav = (props) => {
 
 
     return ( <div className="flex items-center px-2 lg:px-0">
-        <div className="hidden lg:block lg:ml-0">
+        <div className="hidden lg:block lg:ml-0 light-font">
             <div className="flex">
                 {props.subModules.map((obj, key) => (
                     <TopHeaderLink key={key} to={obj.path} text={obj.text} icon={obj.icon}/>
@@ -41,4 +41,3 @@ const TopNav = (props) => {
 
 export default TopNav;
 
-//<TopHeaderLink to="/dashboard" text="Dashboard"/>
