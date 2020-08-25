@@ -1,6 +1,6 @@
 /*
  Author: Kohani (kohani@aiku.io)
- Created: Mon, 24 Aug 2020 16:15:53 Singapore Standard Time, Kuala Lumpur, Malaysia
+ Created: Tue, 25 Aug 2020 11:57:50 Singapore Standard Time, Kuala Lumpur, Malaysia
  Copyright (c) 2020. Aiku.io
  */
 
@@ -15,28 +15,19 @@ import {gql, useMutation} from "@apollo/client";
 import {faChessClockAlt} from "@fortawesome/pro-regular-svg-icons";
 
 
-const CREATE_WAREHOUSE = gql`
-    mutation CreateWarehouse( $name: String!) {
-        createWarehouse( name: $name) {
+const CREATE_WAREHOUSE_LOCATION = gql`
+    mutation CreateWarehouseLocation( $name: String!) {
+        createWarehouseLocation( name: $name) {
             name
         }
     }
 `;
 
-const NewWarehouse = () => {
+const NewWarehouseLocation = () => {
 
     const history = useHistory();
 
-    const actions = [
-        {
-            'icon': faChessClockAlt,
-            'label': <Trans>Area</Trans>,
-            'highlighted': false,
-            'handleClick': ()=> {history.push("/warehouse/warehouses/new/area")}
-
-        }];
-
-    const [createWarehouse] = useMutation(CREATE_WAREHOUSE);
+    const [createWarehouseLocation] = useMutation(CREATE_WAREHOUSE_LOCATION);
 
 
     const cancelEdit = () => {
@@ -46,13 +37,13 @@ const NewWarehouse = () => {
 
     const formStructure = {
 
-        handleCancel: cancelEdit, handleSubmit: createWarehouse,
+        handleCancel: cancelEdit, handleSubmit: createWarehouseLocation,
 
 
         inputGroups: [{
             title: <Trans>Identification</Trans>,
 
-            note: <Trans>Give your new warehouse a identification name</Trans>,
+            note: <Trans>Give your new warehouse location a identification name</Trans>,
 
 
 
@@ -60,8 +51,8 @@ const NewWarehouse = () => {
                 key: 'name', label: <Trans>Name</Trans>, inputComponent:
                     <Input
                         name='name'
-                        help={<Trans>Used to identify the warehouse.</Trans>}
-                        placeholder={i18nMark('name')}
+                        help={<Trans>Used to identify the warehouse location.</Trans>}
+                        placeholder={i18nMark('location')}
                         hint='&nbsp;'
                         register={{
                             required: <Trans>This is required.</Trans>, maxLength: {
@@ -77,9 +68,9 @@ const NewWarehouse = () => {
 
 
     return (<><HeaderMetaActions
-        title={<Trans>New Warehouse</Trans>}
+        title={<Trans>New Location</Trans>}
         metas={[]}
-        actions={actions}
+        actions={[]}
 
     />
         <Form {...formStructure} />
@@ -90,4 +81,4 @@ const NewWarehouse = () => {
 
 };
 
-export default NewWarehouse;
+export default NewWarehouseLocation;

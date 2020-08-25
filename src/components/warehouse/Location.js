@@ -1,6 +1,6 @@
 /*
  Author: Kohani (kohani@aiku.io)
- Created: Mon, 24 Aug 2020 17:06:23 Singapore Standard Time, Kuala Lumpur, Malaysia
+ Created: Tue, 25 Aug 2020 11:53:47 Singapore Standard Time, Kuala Lumpur, Malaysia
  Copyright (c) 2020. Aiku.io
  */
 
@@ -14,32 +14,32 @@ import Input from "../ui/forms/fields/Input";
 import {i18nMark} from "@lingui/react";
 import Form from "../ui/forms/Form";
 
-const WAREHOUSE_AREA = gql`
-    query WarehouseArea($WarehouseAreaSlug: String!) {
-        warehouse_area(slug: $WarehouseAreaSlug) {
+const WAREHOUSE_LOCATION = gql`
+    query WarehouseLocation($WarehouseLocationSlug: String!) {
+        warehouse_location(slug: $WarehouseLocationSlug) {
             id
             slug
             name
         }
     }
 `;
-const UPDATE_WAREHOUSE_AREA = gql`
-    mutation UpdateWarehouseArea($id: ID!, $name: String!) {
-        updateWarehouseArea(id: $id, name: $name) {
+const UPDATE_WAREHOUSE_LOCATION = gql`
+    mutation UpdateWarehouseLocation($id: ID!, $name: String!) {
+        updateWarehouseLocation(id: $id, name: $name) {
             id
             name
         }
     }
 `;
 
-function AreaShowcase(props) {
+function LocationShowcase(props) {
 
-    let {WarehouseAreaSlug} = useParams();
-    const [updateWarehouseArea] = useMutation(UPDATE_WAREHOUSE_AREA);
+    let {WarehouseLocationSlug} = useParams();
+    const [updateWarehouseLocation] = useMutation(UPDATE_WAREHOUSE_LOCATION);
 
 
-    const {loading, error, data} = useQuery(WAREHOUSE_AREA, {
-        variables: {WarehouseAreaSlug},
+    const {loading, error, data} = useQuery(WAREHOUSE_LOCATION, {
+        variables: {WarehouseLocationSlug},
 
     });
     if (loading) return <p><Trans>Loading...</Trans></p>;
@@ -58,7 +58,7 @@ function AreaShowcase(props) {
     const formStructure = {
         handleCancel: props.cancelEdit,
 
-        handleSubmit: updateWarehouseArea,
+        handleSubmit: updateWarehouseLocation,
 
         modelID: {name: 'id', value: data['area'].id},
 
@@ -67,7 +67,7 @@ function AreaShowcase(props) {
 
             title: <Trans>Identification</Trans>,
 
-            note: <Trans>Give your area a identification name</Trans>,
+            note: <Trans>Give your location a identification name</Trans>,
 
             fields: [{
                 key: 'name',
@@ -76,10 +76,10 @@ function AreaShowcase(props) {
 
                 inputComponent: <Input
                     name='name'
-                    help={<Trans>Used to identify the area</Trans>}
-                    placeholder={i18nMark('area')}
+                    help={<Trans>Used to identify the location</Trans>}
+                    placeholder={i18nMark('location')}
                     hint='&nbsp;'
-                    value={data['area'].name}
+                    value={data['location'].name}
                     register={{
                         required: <Trans>This is required.</Trans>, maxLength: {
                             value: 100, message: <Trans>This input exceed {100} characters.</Trans>
@@ -93,7 +93,7 @@ function AreaShowcase(props) {
     }
 
     return (<><HeaderMetaActions
-        title={data['area'].name}
+        title={data['location'].name}
         metas={[]}
         actions={actions}
 
@@ -106,7 +106,7 @@ function AreaShowcase(props) {
 }
 
 
-const Area = () => {
+const Location = () => {
 
 
     const [editing, setEditing] = React.useState(false);
@@ -121,9 +121,9 @@ const Area = () => {
 
     return (<>
 
-        <AreaShowcase editing={editing} openEditView={openEditView} cancelEdit={cancelEdit}/>
+        <LocationShowcase editing={editing} openEditView={openEditView} cancelEdit={cancelEdit}/>
 
     </>);
 };
 
-export default Area;
+export default Location;

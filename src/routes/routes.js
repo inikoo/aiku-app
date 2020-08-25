@@ -86,6 +86,8 @@ import Warehouses from "../components/warehouse/Warehouses";
 import NewWarehouse from "../components/warehouse/NewWarehouse";
 import Areas from "../components/warehouse/Areas";
 import Area from "../components/warehouse/Area";
+import NewArea from "../components/warehouse/NewArea";
+import NewLocation from "../components/warehouse/NewLocation";
 
 
 export default [
@@ -139,7 +141,10 @@ export default [
     {path: "/warehouse", breadcrumb: () => <Trans>Warehouse Dashboard</Trans>, module:'warehouse' ,Component: WarehouseDashboard},
     {path: "/warehouse/warehouses", breadcrumb: () => <Trans>Warehouse</Trans>, module:'warehouse' ,Component: Warehouses},
     {path: "/warehouse/warehouses/new", breadcrumb: () => <Trans>New Warehouse</Trans>, module:'warehouse' ,Component: NewWarehouse},
-
+    {path: "/warehouse/warehouses/new/area", breadcrumb: () => <Trans>Area</Trans>, module:'warehouse' ,Component: Areas},
+    {path: "/warehouse/warehouses/new/area/newArea", breadcrumb: () => <Trans>New Area</Trans>, module:'warehouse' ,Component: NewArea},
+    {path: "/warehouse/warehouses/new/area/newArea/location", breadcrumb: () => <Trans>Location</Trans>, module:'warehouse' ,Component: Locations},
+    {path: "/warehouse/warehouses/new/area/newArea/location/newLocation", breadcrumb: () => <Trans>New Location</Trans>, module:'warehouse' ,Component: NewLocation},
 
     {path: "/warehouse/:warehouseSlug",breadcrumb: () => <Trans>Warehouse</Trans>, module:'warehouse', Component: Warehouse},
   //  {path: "/warehouse/:warehouseSlug/area",breadcrumb: () => <Trans>Area</Trans>, module:'warehouse', Component: Areas},

@@ -16,9 +16,9 @@ import Alert from "../ui/alerts/Alert";
 import {useHistory} from "react-router";
 
 
-const AREA = gql`
-    query Area($areSlug: String!) {
-        area(slug: $areaSlug) {
+const WAREHOUSE_AREA = gql`
+    query WarehouseArea($WarehouseAreaSlug: String!) {
+        WarehouseArea(slug: $WwarehouseAreaSlug) {
             id
             slug
             name
@@ -32,15 +32,15 @@ const AREA = gql`
 
 function AreaTable() {
 
-    const {loading, error, data} = useQuery(AREA);
+    const {loading, error, data} = useQuery(WAREHOUSE_AREA);
     if (loading) return <p><Trans>Loading...</Trans></p>;
     if (error) return <p><Trans>Error</Trans> :(</p>;
 
-    const res = data['area'];
+    const res = data['WarehouseArea'];
     const headers = [<Trans>Name</Trans>];
 
     const area = res.data.map(obj => {
-        return [<Link to={'/warehouse/warehouses/:warehouseSlug/area' + obj.slug}>{obj.name}</Link>,
+        return [<Link to={'/warehouse/warehouses/new/area' + obj.slug}>{obj.name}</Link>,
 
         ]
     })
@@ -61,7 +61,7 @@ const Area = () => {
         'icon': faPlus,
         'label': <Trans>Area</Trans>,
         'highlighted': false,
-        'handleClick': ()=> {history.push("/warehouse/warehouses/:warehouseSlug/area/areaSlug")}
+        'handleClick': ()=> {history.push("/warehouse/warehouses/new/area/newArea")}
     }];
 
     return (<div>
