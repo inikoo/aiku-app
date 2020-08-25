@@ -17,14 +17,20 @@ import {useHistory} from "react-router";
 
 
 const WAREHOUSES = gql`
-    query Warehouses($warehousesSlug: String!) {
-        warehouses(slug: $warehousesSlug) {
-            id
-            slug
-            name
-            created_at,
+    query Warehouses {
+        warehouses(first: 100) {
+            paginatorInfo {
+                total
+                currentPage
+                lastPage
+            }
+            data {
+                id
+                slug
+                name
+                created_at
 
-
+            }
         }
     }
 `;
@@ -36,6 +42,7 @@ function WarehousesTable() {
     if (loading) return <p><Trans>Loading...</Trans></p>;
     if (error) return <p><Trans>Error</Trans> :(</p>;
 
+    console.log (data)
     const res = data['warehouses'];
     const headers = [<Trans>Name</Trans>];
 
