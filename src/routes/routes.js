@@ -84,7 +84,7 @@ import NewRoles from "../components/system/NewRole";
 import SystemSettings from "../components/system/SystemSettings";
 import Warehouses from "../components/distribution/Warehouses";
 import NewWarehouse from "../components/distribution/NewWarehouse";
-import Areas from "../components/distribution/AreasI";
+import Areas from "../components/distribution/Areas";
 import Area from "../components/distribution/Area";
 import NewArea from "../components/distribution/NewArea";
 import NewLocation from "../components/distribution/NewLocation";
