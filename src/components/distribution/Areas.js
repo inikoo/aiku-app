@@ -16,9 +16,9 @@ import Alert from "../ui/alerts/Alert";
 import {useHistory} from "react-router";
 
 
-const WAREHOUSE_AREA = gql`
-    query WarehouseArea($WarehouseAreaSlug: String!) {
-        WarehouseArea(slug: $WwarehouseAreaSlug) {
+const WAREHOUSE_AREAS = gql`
+    query WarehouseAreas($WarehouseAreasSlug: String!) {
+        WarehouseAreas(slug: $WwarehouseAreasSlug) {
             id
             slug
             name
@@ -30,16 +30,16 @@ const WAREHOUSE_AREA = gql`
 `;
 
 
-function AreaTable() {
+function AreasTable() {
 
-    const {loading, error, data} = useQuery(WAREHOUSE_AREA);
+    const {loading, error, data} = useQuery(WAREHOUSE_AREAS);
     if (loading) return <p><Trans>Loading...</Trans></p>;
     if (error) return <p><Trans>Error</Trans> :(</p>;
 
-    const res = data['WarehouseArea'];
+    const res = data['WarehouseAreas'];
     const headers = [<Trans>Name</Trans>];
 
-    const area = res.data.map(obj => {
+    const WarehouseAreas = res.data.map(obj => {
         return [<Link to={'/distribution/warehouses/new/area' + obj.slug}>{obj.name}</Link>,
 
         ]
@@ -47,33 +47,33 @@ function AreaTable() {
 
 
 
-    return <Table ifEmpty={<Alert type='info' text={<Trans>No area found</Trans>} />}  paginatorInfo={res.paginatorInfo} headers={headers} rows={area}/>
+    return <Table ifEmpty={<Alert type='info' text={<Trans>No area found</Trans>} />}  paginatorInfo={res.paginatorInfo} headers={headers} rows={WarehouseAreas}/>
 
 }
 
 
-const Area = () => {
+const Areas = () => {
 
     const history = useHistory();
 
 
     const actions = [{
         'icon': faPlus,
-        'label': <Trans>Area</Trans>,
+        'label': <Trans>Areas</Trans>,
         'highlighted': false,
         'handleClick': ()=> {history.push("/distribution/warehouses/new/area/newArea")}
     }];
 
     return (<div>
         <HeaderMetaActions
-            title={<Trans>Area</Trans>}
+            title={<Trans>Areas</Trans>}
             metas={[]}
             actions={actions}
         />
-        <AreaTable/>
+        <AreasTable/>
 
     </div>);
 };
 
-export default Area;
+export default Areas;
 

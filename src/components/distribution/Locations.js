@@ -16,9 +16,9 @@ import Alert from "../ui/alerts/Alert";
 import {useHistory} from "react-router";
 
 
-const WAREHOUSE_LOCATION = gql`
-    query WarehouseLocation($WarehouseLocationSlug: String!) {
-        WarehouseLocation(slug: $WarehouseLocationSlug) {
+const WAREHOUSE_LOCATIONS = gql`
+    query WarehouseLocations($WarehouseLocationsSlug: String!) {
+        WarehouseLocations(slug: $WarehouseLocationsSlug) {
             id
             slug
             name
@@ -30,16 +30,16 @@ const WAREHOUSE_LOCATION = gql`
 `;
 
 
-function LocationTable() {
+function LocationsTable() {
 
-    const {loading, error, data} = useQuery(WAREHOUSE_LOCATION);
+    const {loading, error, data} = useQuery(WAREHOUSE_LOCATIONS);
     if (loading) return <p><Trans>Loading...</Trans></p>;
     if (error) return <p><Trans>Error</Trans> :(</p>;
 
-    const res = data['WarehouseLocation'];
+    const res = data['WarehouseLocations'];
     const headers = [<Trans>Name</Trans>];
 
-    const area = res.data.map(obj => {
+    const WarehouseLocations = res.data.map(obj => {
         return [<Link to={'/distribution/warehouses/new/area/newArea/location' + obj.slug}>{obj.name}</Link>,
 
         ]
@@ -47,32 +47,32 @@ function LocationTable() {
 
 
 
-    return <Table ifEmpty={<Alert type='info' text={<Trans>No location found</Trans>} />}  paginatorInfo={res.paginatorInfo} headers={headers} rows={WarehouseLocation}/>
+    return <Table ifEmpty={<Alert type='info' text={<Trans>No location found</Trans>} />}  paginatorInfo={res.paginatorInfo} headers={headers} rows={WarehouseLocations}/>
 
 }
 
 
-const WarehouseLocation = () => {
+const WarehouseLocations = () => {
 
     const history = useHistory();
 
 
     const actions = [{
         'icon': faPlus,
-        'label': <Trans>Location</Trans>,
+        'label': <Trans>Locations</Trans>,
         'highlighted': false,
         'handleClick': ()=> {history.push("/distribution/warehouses/new/area/newArea/location/newLocation")}
     }];
 
     return (<div>
         <HeaderMetaActions
-            title={<Trans>Location</Trans>}
+            title={<Trans>Locations</Trans>}
             metas={[]}
             actions={actions}
         />
-        <LocationTable/>
+        <LocationsTable/>
 
     </div>);
 };
 
-export default WarehouseLocation;
+export default WarehouseLocations;

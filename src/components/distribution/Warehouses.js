@@ -16,9 +16,9 @@ import Alert from "../ui/alerts/Alert";
 import {useHistory} from "react-router";
 
 
-const WAREHOUSE = gql`
-    query Warehouse($warehouseSlug: String!) {
-        warehouse(slug: $warehouseSlug) {
+const WAREHOUSES = gql`
+    query Warehouses($warehousesSlug: String!) {
+        warehouses(slug: $warehousesSlug) {
             id
             slug
             name
@@ -30,16 +30,16 @@ const WAREHOUSE = gql`
 `;
 
 
-function WarehouseTable() {
+function WarehousesTable() {
 
-    const {loading, error, data} = useQuery(WAREHOUSE);
+    const {loading, error, data} = useQuery(WAREHOUSES);
     if (loading) return <p><Trans>Loading...</Trans></p>;
     if (error) return <p><Trans>Error</Trans> :(</p>;
 
-    const res = data['warehouse'];
+    const res = data['warehouses'];
     const headers = [<Trans>Name</Trans>];
 
-    const warehouse = res.data.map(obj => {
+    const warehouses = res.data.map(obj => {
         return [<Link to={'/distribution/warehouses' + obj.slug}>{obj.name}</Link>,
 
         ]
@@ -47,12 +47,12 @@ function WarehouseTable() {
 
 
 
-    return <Table ifEmpty={<Alert type='info' text={<Trans>No warehouse found</Trans>} />}  paginatorInfo={res.paginatorInfo} headers={headers} rows={warehouse}/>
+    return <Table ifEmpty={<Alert type='info' text={<Trans>No warehouse found</Trans>} />}  paginatorInfo={res.paginatorInfo} headers={headers} rows={warehouses}/>
 
 }
 
 
-const Warehouse = () => {
+const Warehouses = () => {
 
     const history = useHistory();
 
@@ -72,10 +72,10 @@ const Warehouse = () => {
             metas={[]}
             actions={actions}
         />
-        <WarehouseTable/>
+        <WarehousesTable/>
 
     </div>);
 };
 
-export default Warehouse;
+export default Warehouses;
 
