@@ -56,7 +56,35 @@ const UPDATE_USER = gql`
 `;
 
 
-function UserShowcase(props) {
+function UserShowcase() {
+
+
+    const [editing, setEditing] = React.useState(false);
+
+    const openEditView = () => {
+        setEditing(true);
+    }
+    const cancelEdit = () => {
+        setEditing(false);
+    }
+
+    const [editingPassword, setEditingPassword] = React.useState(false);
+
+    const openEditViewPassword = () => {
+        setEditingPassword(true);
+    }
+    const cancelEditPassword = () => {
+        setEditingPassword(false);
+    }
+
+    const [editingPin, setEditingPin] = React.useState(false);
+
+    const openEditViewPin = () => {
+        setEditingPin(true);
+    }
+    const cancelEditPin = () => {
+        setEditingPin(false);
+    }
 
     let {userHandle} = useParams();
     const [updateUser] = useMutation(UPDATE_USER);
@@ -74,28 +102,22 @@ function UserShowcase(props) {
     let actions = [];
 
 
-
-    if (!props.editing && !props.editingPassword && !props.editingPin) {
+    if (!editing && !editingPassword && !editingPin) {
         actions.push({
-            'icon': faPencilAlt, 'label': <Trans>Edit</Trans>, 'highlighted': false, handleClick: props.openEditView
+            'icon': faPencilAlt, 'label': <Trans>Edit</Trans>, 'highlighted': false, handleClick: openEditView
 
         });
 
 
         actions.push({
-            'icon': faKey, 'label': <Trans>Password</Trans>, 'tooltip': 'Change Password', 'highlighted': false, handleClick: props.openEditViewPassword
+            'icon': faKey, 'label': <Trans>Password</Trans>, 'tooltip': 'Change Password', 'highlighted': false, handleClick: openEditViewPassword
 
         });
 
         actions.push({
-            'icon': faTh, 'label': <Trans>PIN</Trans>, 'tooltip': 'Edit PIN', 'highlighted': false, handleClick: props.openEditViewPin
+            'icon': faTh, 'label': <Trans>PIN</Trans>, 'tooltip': 'Edit PIN', 'highlighted': false, handleClick: openEditViewPin
 
         });
-
-
-    }
-
-    if (props.editing && !props.editingPassword && !props.editingPin) {
 
 
     }
@@ -126,7 +148,7 @@ function UserShowcase(props) {
 
         postProcess: postProcess,
 
-        handleCancel: props.cancelEdit,
+        handleCancel: cancelEdit,
 
         handleSubmit: updateUser,
 
@@ -181,10 +203,9 @@ function UserShowcase(props) {
         }]
     }
 
-
     const formPasswordStructure = {
 
-        handleCancel: props.cancelEditPassword,
+        handleCancel: cancelEditPassword,
 
         handleSubmit: updateUser,
 
@@ -227,7 +248,7 @@ function UserShowcase(props) {
 
     const formPinStructure = {
 
-        handleCancel: props.cancelEditPin,
+        handleCancel: cancelEditPin,
 
         handleSubmit: updateUser,
 
@@ -277,9 +298,9 @@ function UserShowcase(props) {
         actions={actions}
 
     />
-        {props.editing ? <Form {...formStructure} /> : null}
-        {props.editingPassword ? <Form {...formPasswordStructure} /> : null}
-        {props.editingPin ? <Form {...formPinStructure} /> : null}
+        {editing ? <Form {...formStructure} /> : null}
+        {editingPassword ? <Form {...formPasswordStructure} /> : null}
+        {editingPin ? <Form {...formPinStructure} /> : null}
 
     </>)
 
@@ -288,55 +309,11 @@ function UserShowcase(props) {
 
 const User = () => {
 
-
-
-    const [editing, setEditing] = React.useState(false);
-
-    const openEditView = () => {
-        setEditing(true);
-    }
-    const cancelEdit = () => {
-        setEditing(false);
-    }
-
-    const [editingPassword, setEditingPassword] = React.useState(false);
-
-    const openEditViewPassword = () => {
-        setEditingPassword(true);
-    }
-    const cancelEditPassword = () => {
-        setEditingPassword(false);
-    }
-
-    const [editingPin, setEditingPin] = React.useState(false);
-
-    const openEditViewPin = () => {
-        setEditingPin(true);
-    }
-    const cancelEditPin = () => {
-        setEditingPin(false);
-    }
-
-
-
-    const tabs= [{permissions: {label: 'Permissions'}}, {logs: {label: 'Logs'}}, {history: {label: 'History'}}];
-
-
-
-
+    const tabs = [{permissions: {label: 'Permissions'}}, {logs: {label: 'Logs'}}, {history: {label: 'History'}}];
 
     return (<>
-
-        <UserShowcase editing={editing} openEditView={openEditView} cancelEdit={cancelEdit}
-
-                      editingPassword={editingPassword} openEditViewPassword={openEditViewPassword} cancelEditPassword={cancelEditPassword}
-
-                      editingPin={editingPin} openEditViewPin={openEditViewPin} cancelEditPin={cancelEditPin}/>
-
-
+        <UserShowcase/>
         <Tabs tabs={tabs}/>
-
-
     </>);
 };
 
