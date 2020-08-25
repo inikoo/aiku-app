@@ -8,13 +8,13 @@ import React from 'react';
 import {gql, useMutation, useQuery} from "@apollo/client";
 import {Trans} from "@lingui/macro";
 import HeaderMetaActions from "../ui/headers/HeaderMetaActions";
-import {useHistory, useLocation, useParams} from "react-router";
 import {faIdCardAlt, faPencilAlt, faKey, faTh} from '@fortawesome/pro-solid-svg-icons'
 import Input from "../ui/forms/fields/Input";
 import {i18nMark} from "@lingui/react";
 import Form from "../ui/forms/Form";
 import Toggle from "../ui/forms/fields/Toggle";
 import Tabs from "../navigation/Tabs";
+import {useParams} from "react-router";
 
 const USER = gql`
     query User($userHandle: String!) {
@@ -288,8 +288,7 @@ function UserShowcase(props) {
 
 const User = () => {
 
-    let history = useHistory();
-    let location = useLocation();
+
 
     const [editing, setEditing] = React.useState(false);
 
@@ -323,17 +322,7 @@ const User = () => {
     const tabs= [{permissions: {label: 'Permissions'}}, {logs: {label: 'Logs'}}, {history: {label: 'History'}}];
 
 
-    const [currentTab, setCurrentTab] = React.useState( (location.hash===''?Object.keys(tabs[0])[0]: location.hash.substring(1)));
 
-    const changeTab = (tab) => {
-
-        history.replace({ hash: tab })
-        setCurrentTab(tab);
-    }
-
-    const tabsData = {
-        currentTab: currentTab, changeTab: changeTab, tabs: tabs
-    }
 
 
     return (<>
@@ -345,7 +334,7 @@ const User = () => {
                       editingPin={editingPin} openEditViewPin={openEditViewPin} cancelEditPin={cancelEditPin}/>
 
 
-        <Tabs {...tabsData}/>
+        <Tabs tabs={tabs}/>
 
 
     </>);

@@ -7,6 +7,7 @@
 import React from 'react';
 import { I18n } from "@lingui/react"
 import { t } from "@lingui/macro"
+import {useHistory, useLocation} from "react-router";
 
 const Option = (props) => {
 
@@ -45,6 +46,24 @@ const Tab = (props) => {
 const Tabs = (props) => {
 
 
+    console.log(props)
+
+    let history = useHistory();
+    let location = useLocation();
+
+
+
+    const [currentTab, setCurrentTab] = React.useState( (location.hash===''?Object.keys(props.tabs[0])[0]: location.hash.substring(1)));
+
+    const changeTab = (tab) => {
+
+        history.replace({ hash: tab })
+        setCurrentTab(tab);
+    }
+
+
+
+
     return ( <div className="relative pb-5 border-b border-gray-200 space-y-4 sm:pb-0">
         <div className="space-y-3 md:flex md:items-center md:justify-between md:space-y-0">
 
@@ -66,7 +85,7 @@ const Tabs = (props) => {
                 <nav className="-mb-px flex space-x-8">
 
                     {props.tabs.map((tab) => (
-                       <Tab currentTab={props.currentTab} changeTab={props.changeTab} tab={tab}/>
+                       <Tab currentTab={currentTab} changeTab={changeTab} tab={tab}/>
                     ))}
 
 
