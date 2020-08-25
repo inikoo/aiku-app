@@ -1,6 +1,6 @@
 /*
  Author: Kohani (kohani@aiku.io)
- Created: Tue, 25 Aug 2020 11:19:18 Singapore Standard Time, Kuala Lumpur, Malaysia
+ Created: Mon, 24 Aug 2020 16:15:53 Singapore Standard Time, Kuala Lumpur, Malaysia
  Copyright (c) 2020. Aiku.io
  */
 
@@ -15,28 +15,28 @@ import {gql, useMutation} from "@apollo/client";
 import {faChessClockAlt} from "@fortawesome/pro-regular-svg-icons";
 
 
-const CREATE_WAREHOUSE_AREA = gql`
-    mutation CreateWarehouseArea( $name: String!) {
-        createWarehouseArea( name: $name) {
+const CREATE_WAREHOUSE = gql`
+    mutation CreateWarehouse( $name: String!) {
+        createWarehouse( name: $name) {
             name
         }
     }
 `;
 
-const NewWarehouseArea = () => {
+const NewWarehouse = () => {
 
     const history = useHistory();
 
     const actions = [
         {
             'icon': faChessClockAlt,
-            'label': <Trans>Location</Trans>,
+            'label': <Trans>Area</Trans>,
             'highlighted': false,
-            'handleClick': ()=> {history.push("/warehouse/warehouses/new/area/newArea/location")}
+            'handleClick': ()=> {history.push("/distribution/warehouses/new/area")}
 
         }];
 
-    const [createWarehouseArea] = useMutation(CREATE_WAREHOUSE_AREA);
+    const [createWarehouse] = useMutation(CREATE_WAREHOUSE);
 
 
     const cancelEdit = () => {
@@ -46,13 +46,13 @@ const NewWarehouseArea = () => {
 
     const formStructure = {
 
-        handleCancel: cancelEdit, handleSubmit: createWarehouseArea,
+        handleCancel: cancelEdit, handleSubmit: createWarehouse,
 
 
         inputGroups: [{
             title: <Trans>Identification</Trans>,
 
-            note: <Trans>Give your new warehouse area a identification name</Trans>,
+            note: <Trans>Give your new warehouse a identification name</Trans>,
 
 
 
@@ -60,7 +60,7 @@ const NewWarehouseArea = () => {
                 key: 'name', label: <Trans>Name</Trans>, inputComponent:
                     <Input
                         name='name'
-                        help={<Trans>Used to identify the warehouse area.</Trans>}
+                        help={<Trans>Used to identify the warehouse.</Trans>}
                         placeholder={i18nMark('name')}
                         hint='&nbsp;'
                         register={{
@@ -77,7 +77,7 @@ const NewWarehouseArea = () => {
 
 
     return (<><HeaderMetaActions
-        title={<Trans>New Area</Trans>}
+        title={<Trans>New Warehouse</Trans>}
         metas={[]}
         actions={actions}
 
@@ -90,4 +90,4 @@ const NewWarehouseArea = () => {
 
 };
 
-export default NewWarehouseArea;
+export default NewWarehouse;

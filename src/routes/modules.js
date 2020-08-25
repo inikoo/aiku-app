@@ -128,19 +128,19 @@ const modules = [
     },
 
     {
-        id: 'warehouse', path: "/warehouse", text: <Trans>Warehouse</Trans>, icon: faWarehouseAlt, subModules: [
+        id: 'warehouse', path: "/distribution", text: <Trans>Warehouse</Trans>, icon: faWarehouseAlt, subModules: [
 
-            {path: '/warehouse', text: <Trans>Warehouse Dashboard</Trans>, icon: faTachometerAlt},
+            {path: '/distribution', text: <Trans>Distribution</Trans>, icon: faTachometerAlt},
 
-            {path: '/warehouse/warehouse_details', text: <Trans>Warehouse</Trans>, icon: faWarehouseAlt},
+            {path: '/distribution/warehouses', text: <Trans>Warehouses</Trans>, icon: faWarehouseAlt},
 
-            {path: '/warehouse/locations', text: <Trans>Locations</Trans>, icon: faPallet},
+            {path: '/distribution/locations', text: <Trans>Locations</Trans>, icon: faPallet},
 
-            {path: '/warehouse/production_deliveries', text: <Trans>Production Deliveries</Trans>, icon: faIndustry},
+            {path: '/distribution/production_deliveries', text: <Trans>Production Deliveries</Trans>, icon: faIndustry},
 
-            {path: '/warehouse/returns', text: <Trans>Returns</Trans>, icon: faBackspace},
+            {path: '/distribution/returns', text: <Trans>Returns</Trans>, icon: faBackspace},
 
-            {path: '/warehouse/issues', text: <Trans>Issues</Trans>, icon: faPoop},
+            {path: '/distribution/issues', text: <Trans>Issues</Trans>, icon: faPoop},
 
         ]
     },

@@ -1,6 +1,6 @@
 /*
  Author: Kohani (kohani@aiku.io)
- Created: Mon, 24 Aug 2020 14:57:56 Singapore Standard Time, Kuala Lumpur, Malaysia
+ Created: Mon, 24 Aug 2020 16:28:35 Singapore Standard Time, Kuala Lumpur, Malaysia
  Copyright (c) 2020. Aiku.io
  */
 
@@ -16,9 +16,9 @@ import Alert from "../ui/alerts/Alert";
 import {useHistory} from "react-router";
 
 
-const WAREHOUSE = gql`
-    query Warehouse($warehouseSlug: String!) {
-        warehouse(slug: $warehouseSlug) {
+const WAREHOUSE_AREA = gql`
+    query WarehouseArea($WarehouseAreaSlug: String!) {
+        WarehouseArea(slug: $WwarehouseAreaSlug) {
             id
             slug
             name
@@ -30,52 +30,50 @@ const WAREHOUSE = gql`
 `;
 
 
-function WarehouseTable() {
+function AreaTable() {
 
-    const {loading, error, data} = useQuery(WAREHOUSE);
+    const {loading, error, data} = useQuery(WAREHOUSE_AREA);
     if (loading) return <p><Trans>Loading...</Trans></p>;
     if (error) return <p><Trans>Error</Trans> :(</p>;
 
-    const res = data['warehouse'];
+    const res = data['WarehouseArea'];
     const headers = [<Trans>Name</Trans>];
 
-    const warehouse = res.data.map(obj => {
-        return [<Link to={'/warehouse/warehouses' + obj.slug}>{obj.name}</Link>,
+    const area = res.data.map(obj => {
+        return [<Link to={'/distribution/warehouses/new/area' + obj.slug}>{obj.name}</Link>,
 
         ]
     })
 
 
 
-    return <Table ifEmpty={<Alert type='info' text={<Trans>No warehouse found</Trans>} />}  paginatorInfo={res.paginatorInfo} headers={headers} rows={warehouse}/>
+    return <Table ifEmpty={<Alert type='info' text={<Trans>No area found</Trans>} />}  paginatorInfo={res.paginatorInfo} headers={headers} rows={area}/>
 
 }
 
 
-const Warehouse = () => {
+const Area = () => {
 
     const history = useHistory();
 
 
     const actions = [{
         'icon': faPlus,
-        'label': <Trans>Warehouse</Trans>,
+        'label': <Trans>Area</Trans>,
         'highlighted': false,
-        'handleClick': ()=> {history.push("/warehouse/warehouses/new")},
-
+        'handleClick': ()=> {history.push("/distribution/warehouses/new/area/newArea")}
     }];
-
 
     return (<div>
         <HeaderMetaActions
-            title={<Trans>Warehouse</Trans>}
+            title={<Trans>Area</Trans>}
             metas={[]}
             actions={actions}
         />
-        <WarehouseTable/>
+        <AreaTable/>
 
     </div>);
 };
 
-export default Warehouse;
+export default Area;
 

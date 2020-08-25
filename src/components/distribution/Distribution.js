@@ -7,11 +7,11 @@
 import React from 'react';
 
 
-const WarehouseDashboard = () => {
+const Distribution = () => {
 
     return (<div>Warehouse Dashboard</div>);
 
 
 };
 
-export default WarehouseDashboard;
+export default Distribution;

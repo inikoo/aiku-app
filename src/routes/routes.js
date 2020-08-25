@@ -66,12 +66,12 @@ import PendingDeliveryNotes from "../components/delivering/PendingDeliveryNotes"
 import Shippers from "../components/delivering/Shippers";
 import SuppliersProducts from "../components/suppliers/SuppliersProducts";
 import PurchaseOrders from "../components/suppliers/PurchaseOrders";
-import Warehouse from "../components/warehouse/Warehouse";
-import Locations from "../components/warehouse/Locations";
-import ProductionDeliveries from "../components/warehouse/ProductionDeliveries";
-import Returns from "../components/warehouse/Returns";
-import Issues from "../components/warehouse/Isuues";
-import WarehouseDashboard from "../components/warehouse/WarehouseDashboard";
+import Warehouse from "../components/distribution/Warehouse";
+import Locations from "../components/distribution/Locations";
+import ProductionDeliveries from "../components/distribution/ProductionDeliveries";
+import Returns from "../components/distribution/Returns";
+import Issues from "../components/distribution/Isuues";
+import Distribution from "../components/distribution/Distribution";
 import InventoryDashboard from "../components/inventory/InventoryDashboard";
 import InventoryParts from "../components/inventory/InventoryParts";
 import PartsFamilies from "../components/inventory/PartsFamilies";
@@ -82,12 +82,12 @@ import NewSupplier from "../components/suppliers/NewSupplier";
 import NewUser from "../components/system/NewUser";
 import NewRoles from "../components/system/NewRole";
 import SystemSettings from "../components/system/SystemSettings";
-import Warehouses from "../components/warehouse/Warehouses";
-import NewWarehouse from "../components/warehouse/NewWarehouse";
-import Areas from "../components/warehouse/Areas";
-import Area from "../components/warehouse/Area";
-import NewArea from "../components/warehouse/NewArea";
-import NewLocation from "../components/warehouse/NewLocation";
+import Warehouses from "../components/distribution/Warehouses";
+import NewWarehouse from "../components/distribution/NewWarehouse";
+import Areas from "../components/distribution/AreasI";
+import Area from "../components/distribution/Area";
+import NewArea from "../components/distribution/NewArea";
+import NewLocation from "../components/distribution/NewLocation";
 
 
 export default [
@@ -138,26 +138,31 @@ export default [
     {path: "/delivering/shippers", breadcrumb: () => <Trans>Shipping Companies</Trans>, module:'delivering' ,Component: Shippers},
 
 //WAREHOUSE
-    {path: "/warehouse", breadcrumb: () => <Trans>Warehouse Dashboard</Trans>, module:'warehouse' ,Component: WarehouseDashboard},
-    {path: "/warehouse/warehouses", breadcrumb: () => <Trans>Warehouse</Trans>, module:'warehouse' ,Component: Warehouses},
-    {path: "/warehouse/warehouses/new", breadcrumb: () => <Trans>New Warehouse</Trans>, module:'warehouse' ,Component: NewWarehouse},
-    {path: "/warehouse/warehouses/new/area", breadcrumb: () => <Trans>Area</Trans>, module:'warehouse' ,Component: Areas},
-    {path: "/warehouse/warehouses/new/area/newArea", breadcrumb: () => <Trans>New Area</Trans>, module:'warehouse' ,Component: NewArea},
-    {path: "/warehouse/warehouses/new/area/newArea/location", breadcrumb: () => <Trans>Location</Trans>, module:'warehouse' ,Component: Locations},
-    {path: "/warehouse/warehouses/new/area/newArea/location/newLocation", breadcrumb: () => <Trans>New Location</Trans>, module:'warehouse' ,Component: NewLocation},
+    {path: "/distribution", breadcrumb: () => <Trans>Warehouse Dashboard</Trans>, module:'warehouse' ,Component: Distribution},
 
-    {path: "/warehouse/:warehouseSlug",breadcrumb: () => <Trans>Warehouse</Trans>, module:'warehouse', Component: Warehouse},
-  //  {path: "/warehouse/:warehouseSlug/area",breadcrumb: () => <Trans>Area</Trans>, module:'warehouse', Component: Areas},
-   // {path: "/warehouse/:warehouseSlug/area/:areSlug",breadcrumb: () => <Trans>Area</Trans>, module:'warehouse', Component: Area},
+    {path: "/distribution/warehouses", breadcrumb: () => <Trans>Warehouse</Trans>, module:'warehouse' ,Component: Warehouses},
+    {path: "/distribution/warehouses/new", breadcrumb: () => <Trans>New Warehouse</Trans>, module:'warehouse' ,Component: NewWarehouse},
+    {path: "/distribution/warehouses/:warehouseSlug",breadcrumb: () => <Trans>Warehouse</Trans>, module:'warehouse', Component: Warehouse},
+
+    {path: "/distribution/warehouses/:warehouseSlug/areas", breadcrumb: () => <Trans>Areas</Trans>, module:'warehouse' ,Component: Areas},
+    {path: "/distribution/warehouses/:warehouseSlug/areas/new", breadcrumb: () => <Trans>New Area</Trans>, module:'warehouse' ,Component: NewArea},
+    {path: "/distribution/warehouses/:warehouseSlug/areas/:warehouseAreaSlug", breadcrumb: () => <Trans>Area</Trans>, module:'warehouse' ,Component: Area},
 
 
+    {path: "/distribution/warehouses/:warehouseSlug/areas/:warehouseAreaSlug/locations", breadcrumb: () => <Trans>Locations</Trans>, module:'warehouse' ,Component: Locations},
+    {path: "/distribution/warehouses/:warehouseSlug/areas/:warehouseAreaSlug/locations/new", breadcrumb: () => <Trans>New Location</Trans>, module:'warehouse' ,Component: NewLocation},
+    {path: "/distribution/warehouses/:warehouseSlug/areas/:warehouseAreaSlug/locations/:locationCode", breadcrumb: () => <Trans>Location</Trans>, module:'warehouse' ,Component: Location},
 
 
 
-    {path: "/warehouse/locations", breadcrumb: () => <Trans>Locations</Trans>, module:'warehouse', Component: Locations},
-    {path: "/warehouse/production_deliveries", breadcrumb: () => <Trans>Production Deliveries</Trans>, module:'warehouse', Component: ProductionDeliveries},
-    {path: "/warehouse/returns", breadcrumb: () => <Trans>Returns</Trans>, module:'warehouse', Component: Returns},
-    {path: "/warehouse/issues", breadcrumb: () => <Trans>Issues</Trans>, module:'warehouse', Component: Issues},
+
+
+
+
+//    {path: "/distribution/locations", breadcrumb: () => <Trans>Locations</Trans>, module:'warehouse', Component: Locations},
+//    {path: "/distribution/production_deliveries", breadcrumb: () => <Trans>Production Deliveries</Trans>, module:'warehouse', Component: ProductionDeliveries},
+//    {path: "/distribution/returns", breadcrumb: () => <Trans>Returns</Trans>, module:'warehouse', Component: Returns},
+//    {path: "/distribution/issues", breadcrumb: () => <Trans>Issues</Trans>, module:'warehouse', Component: Issues},
 
 //INVENTORY
     {path: "/inventory", breadcrumb: () => <Trans>Inventory Dashboard</Trans>, module:'inventory' ,Component: InventoryDashboard},
