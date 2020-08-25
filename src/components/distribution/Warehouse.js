@@ -8,11 +8,12 @@ import React from 'react';
 import {gql, useMutation, useQuery} from "@apollo/client";
 import {Trans} from "@lingui/macro";
 import HeaderMetaActions from "../ui/headers/HeaderMetaActions";
-import {useParams} from "react-router";
+import {useHistory, useParams} from "react-router";
 import {faPencilAlt} from '@fortawesome/pro-solid-svg-icons'
 import Input from "../ui/forms/fields/Input";
 import {i18nMark} from "@lingui/react";
 import Form from "../ui/forms/Form";
+import {faChessClockAlt} from "@fortawesome/pro-regular-svg-icons";
 
 const WAREHOUSE = gql`
     query Warehouse($warehouseSlug: String!) {
@@ -37,6 +38,7 @@ const UPDATE_WAREHOUSE = gql`
 
 function WarehouseShowcase(props) {
 
+    const history = useHistory();
     let {warehouseSlug} = useParams();
     const [updateWarehouse] = useMutation(UPDATE_WAREHOUSE);
 
@@ -53,8 +55,16 @@ function WarehouseShowcase(props) {
 
     if (!props.editing) {
         actions.push({
-            'icon': faPencilAlt, 'label': <Trans>Edit</Trans>, 'highlighted': false, handleClick: props.openEditView
+            'icon': faPencilAlt, 'label': <Trans>Edit</Trans>, 'highlighted': false, handleClick: props.openEditView,
+        });
+    }
 
+    if (!props.editing) {
+        actions.push({
+            'icon': faChessClockAlt,
+            'label': <Trans>Areas</Trans>,
+            'highlighted': false,
+            'handleClick': ()=> {history.push("/distribution/warehouses/:warehouseSlug/areas")}
         });
     }
 

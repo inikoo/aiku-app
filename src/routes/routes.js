@@ -88,6 +88,7 @@ import Areas from "../components/distribution/Areas";
 import Area from "../components/distribution/Area";
 import NewArea from "../components/distribution/NewArea";
 import NewLocation from "../components/distribution/NewLocation";
+import JobPositions from "../components/hr/JobPositions";
 
 
 export default [
@@ -140,7 +141,7 @@ export default [
 //WAREHOUSE
     {path: "/distribution", breadcrumb: () => <Trans>Warehouse Dashboard</Trans>, module:'warehouse' ,Component: Distribution},
 
-    {path: "/distribution/warehouses", breadcrumb: () => <Trans>Warehouse</Trans>, module:'warehouse' ,Component: Warehouses},
+    {path: "/distribution/warehouses", breadcrumb: () => <Trans>Warehouses</Trans>, module:'warehouse' ,Component: Warehouses},
     {path: "/distribution/warehouses/new", breadcrumb: () => <Trans>New Warehouse</Trans>, module:'warehouse' ,Component: NewWarehouse},
     {path: "/distribution/warehouses/:warehouseSlug",breadcrumb: () => <Trans>Warehouse</Trans>, module:'warehouse', Component: Warehouse},
 
@@ -200,6 +201,7 @@ export default [
 // HR
     {path: "/hr", breadcrumb: () => <Trans>Human resources</Trans>, module:'hr' ,Component: HumanResources},
     {path: "/hr/attendance",  breadcrumb: () => <Trans>Attendance</Trans>, Component: Attendance},
+    {path: "/hr/jobPositions",  breadcrumb: () => <Trans>Job Positions</Trans>, Component: JobPositions},
     {path: "/hr/calender", name: "Calendar", Component: HRCalendar},
     {path: "/hr/attendance/clocking-machines",  breadcrumb: () => <Trans>Clocking-machines</Trans>, Component: ClockingMachines},
     {path: "/hr/attendance/clocking-machines/new",breadcrumb: () => <Trans>New clocking-machine</Trans>, Component: NewClockingMachine},

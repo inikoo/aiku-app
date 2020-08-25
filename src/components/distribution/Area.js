@@ -8,18 +8,20 @@ import React from 'react';
 import {gql, useMutation, useQuery} from "@apollo/client";
 import {Trans} from "@lingui/macro";
 import HeaderMetaActions from "../ui/headers/HeaderMetaActions";
-import {useParams} from "react-router";
 import {faPencilAlt} from '@fortawesome/pro-solid-svg-icons'
 import Input from "../ui/forms/fields/Input";
 import {i18nMark} from "@lingui/react";
 import Form from "../ui/forms/Form";
+import {useHistory, useParams} from "react-router";
+import {faChessClockAlt} from "@fortawesome/pro-regular-svg-icons";
 
 const WAREHOUSE_AREA = gql`
-    query WarehouseArea($WarehouseAreaSlug: String!) {
-        warehouse_area(slug: $WarehouseAreaSlug) {
+    query WarehouseArea($warehouseAreaSlug: String!) {
+        warehouse_area(slug: $warehouseAreaSlug) {
             id
             slug
             name
+            created_at,
         }
     }
 `;
@@ -32,14 +34,15 @@ const UPDATE_WAREHOUSE_AREA = gql`
     }
 `;
 
-function AreaShowcase(props) {
+function WarehouseAreaShowcase(props) {
 
-    let {WarehouseAreaSlug} = useParams();
+    const history = useHistory();
+    let {warehouseAreaSlug} = useParams();
     const [updateWarehouseArea] = useMutation(UPDATE_WAREHOUSE_AREA);
 
 
     const {loading, error, data} = useQuery(WAREHOUSE_AREA, {
-        variables: {WarehouseAreaSlug},
+        variables: {warehouseAreaSlug},
 
     });
     if (loading) return <p><Trans>Loading...</Trans></p>;
@@ -54,13 +57,23 @@ function AreaShowcase(props) {
         });
     }
 
+        if (!props.editing) {
+            actions.push({
+                'icon': faChessClockAlt,
+                'label': <Trans>Locations</Trans>,
+                'highlighted': false,
+                'handleClick': ()=> {history.push("/distribution/warehouses/:warehouseSlug/areas/:warehouseAreaSlug/locations")}
+            });
+        }
+
+
 
     const formStructure = {
         handleCancel: props.cancelEdit,
 
         handleSubmit: updateWarehouseArea,
 
-        modelID: {name: 'id', value: data['area'].id},
+        modelID: {name: 'id', value: data['warehouse_area'].id},
 
         inputGroups: [{
             key: 'identification',
@@ -79,7 +92,7 @@ function AreaShowcase(props) {
                     help={<Trans>Used to identify the area</Trans>}
                     placeholder={i18nMark('area')}
                     hint='&nbsp;'
-                    value={data['area'].name}
+                    value={data['warehouse_area'].name}
                     register={{
                         required: <Trans>This is required.</Trans>, maxLength: {
                             value: 100, message: <Trans>This input exceed {100} characters.</Trans>
@@ -93,7 +106,7 @@ function AreaShowcase(props) {
     }
 
     return (<><HeaderMetaActions
-        title={data['area'].name}
+        title={data['warehouse_area'].name}
         metas={[]}
         actions={actions}
 
@@ -106,7 +119,7 @@ function AreaShowcase(props) {
 }
 
 
-const Area = () => {
+const WarehouseArea = () => {
 
 
     const [editing, setEditing] = React.useState(false);
@@ -121,9 +134,9 @@ const Area = () => {
 
     return (<>
 
-        <AreaShowcase editing={editing} openEditView={openEditView} cancelEdit={cancelEdit}/>
+        <WarehouseAreaShowcase editing={editing} openEditView={openEditView} cancelEdit={cancelEdit}/>
 
     </>);
 };
 
-export default Area;
+export default WarehouseArea;

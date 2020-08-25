@@ -47,7 +47,7 @@ function WarehousesTable() {
     const headers = [<Trans>Name</Trans>];
 
     const warehouses = res.data.map(obj => {
-        return [<Link to={'/distribution/warehouses' + obj.slug}>{obj.name}</Link>,
+        return [<Link to={'/distribution/warehouses/' + obj.slug}>{obj.name}</Link>,
 
         ]
     })

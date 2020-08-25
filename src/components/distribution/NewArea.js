@@ -27,15 +27,6 @@ const NewWarehouseArea = () => {
 
     const history = useHistory();
 
-    const actions = [
-        {
-            'icon': faChessClockAlt,
-            'label': <Trans>Location</Trans>,
-            'highlighted': false,
-            'handleClick': ()=> {history.push("/distribution/warehouses/new/area/newArea/location")}
-
-        }];
-
     const [createWarehouseArea] = useMutation(CREATE_WAREHOUSE_AREA);
 
 
@@ -79,7 +70,7 @@ const NewWarehouseArea = () => {
     return (<><HeaderMetaActions
         title={<Trans>New Area</Trans>}
         metas={[]}
-        actions={actions}
+        actions={[]}
 
     />
         <Form {...formStructure} />

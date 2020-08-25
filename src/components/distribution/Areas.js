@@ -17,14 +17,20 @@ import {useHistory} from "react-router";
 
 
 const WAREHOUSE_AREAS = gql`
-    query WarehouseAreas($WarehouseAreasSlug: String!) {
-        WarehouseAreas(slug: $WwarehouseAreasSlug) {
-            id
-            slug
-            name
-            created_at,
+    query WarehouseAreas {
+        warehouse_areas(first: 100) {
+            paginatorInfo {
+                total
+                currentPage
+                lastPage
+            }
+            data {
+                id
+                slug
+                name
+                created_at
 
-
+            }
         }
     }
 `;
@@ -36,18 +42,18 @@ function AreasTable() {
     if (loading) return <p><Trans>Loading...</Trans></p>;
     if (error) return <p><Trans>Error</Trans> :(</p>;
 
-    const res = data['WarehouseAreas'];
+    const res = data['warehouse_areas'];
     const headers = [<Trans>Name</Trans>];
 
-    const WarehouseAreas = res.data.map(obj => {
-        return [<Link to={'/distribution/warehouses/new/area' + obj.slug}>{obj.name}</Link>,
+    const warehouseAreas = res.data.map(obj => {
+        return [<Link to={'/distribution/warehouses/:warehouseSlug/areas/' + obj.slug}>{obj.name}</Link>,
 
         ]
     })
 
 
 
-    return <Table ifEmpty={<Alert type='info' text={<Trans>No area found</Trans>} />}  paginatorInfo={res.paginatorInfo} headers={headers} rows={WarehouseAreas}/>
+    return <Table ifEmpty={<Alert type='info' text={<Trans>No area found</Trans>} />}  paginatorInfo={res.paginatorInfo} headers={headers} rows={warehouseAreas}/>
 
 }
 
@@ -59,9 +65,9 @@ const Areas = () => {
 
     const actions = [{
         'icon': faPlus,
-        'label': <Trans>Areas</Trans>,
+        'label': <Trans>Area</Trans>,
         'highlighted': false,
-        'handleClick': ()=> {history.push("/distribution/warehouses/new/area/newArea")}
+        'handleClick': ()=> {history.push("/distribution/warehouses/:warehouseSlug/areas/new")}
     }];
 
     return (<div>
