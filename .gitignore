@@ -33,4 +33,3 @@ src/locales/_build/*
 src/locales/_build/
 src/locales/**/*.js
 yarn.lock
-src/assets/tailwind.css
