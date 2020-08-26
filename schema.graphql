@@ -204,7 +204,8 @@ type Query {
         "Limits number of fetched elements."
         first: Int = 100,
         "The offset from which elements are returned."
-        page: Int
+        page: Int,
+        where: UserAuthLogsWhereWhereConditions
     ): UserAuthLogPaginator
     users(
         "Limits number of fetched elements."
@@ -273,7 +274,7 @@ type UserAuthLog {
     action: String!
     handle: String!
     ip: String!
-    time: DateTime!
+    time: String!
     user: [User]
 }
 
@@ -328,6 +329,38 @@ type WarehousePaginator {
     paginatorInfo: PaginatorInfo!
 }
 
+"The available SQL operators that are used to filter query results."
+enum SQLOperator {
+    "Whether a value is within a range of values (`BETWEEN`)"
+    BETWEEN
+    "Equal operator (`=`)"
+    EQ
+    "Greater than operator (`>`)"
+    GT
+    "Greater than or equal operator (`>=`)"
+    GTE
+    "Whether a value is within a set of values (`IN`)"
+    IN
+    "Whether a value is not null (`IS NOT NULL`)"
+    IS_NOT_NULL
+    "Whether a value is null (`IS NULL`)"
+    IS_NULL
+    "Simple pattern matching (`LIKE`)"
+    LIKE
+    "Less than operator (`<`)"
+    LT
+    "Less than or equal operator (`<=`)"
+    LTE
+    "Not equal operator (`!=`)"
+    NEQ
+    "Whether a value is not within a range of values (`NOT BETWEEN`)"
+    NOT_BETWEEN
+    "Whether a value is not within a set of values (`NOT IN`)"
+    NOT_IN
+    "Negation of simple pattern matching (`NOT LIKE`)"
+    NOT_LIKE
+}
+
 "The available directions for ordering a list of records."
 enum SortOrder {
     "Sort records in ascending order."
@@ -346,6 +379,11 @@ enum Trashed {
     WITHOUT
 }
 
+"Allowed column names for the `where` argument on the query `user_auth_logs`."
+enum UserAuthLogsWhereColumn {
+    USER_ID
+}
+
 "Allows ordering a list of records."
 input OrderByClause {
     "The column that is used for ordering."
@@ -354,9 +392,47 @@ input OrderByClause {
     order: SortOrder!
 }
 
+"Dynamic WHERE conditions for the `where` argument on the query `user_auth_logs`."
+input UserAuthLogsWhereWhereConditions {
+    "A set of conditions that requires all conditions to match."
+    AND: [UserAuthLogsWhereWhereConditions!]
+    "A set of conditions that requires at least one condition to match."
+    OR: [UserAuthLogsWhereWhereConditions!]
+    "The column that is used for the condition."
+    column: UserAuthLogsWhereColumn
+    "The operator that is used for the condition."
+    operator: SQLOperator = EQ
+    "The value that is used for the condition."
+    value: Mixed
+}
+
+"Dynamic WHERE conditions for queries."
+input WhereConditions {
+    "A set of conditions that requires all conditions to match."
+    AND: [WhereConditions!]
+    "A set of conditions that requires at least one condition to match."
+    OR: [WhereConditions!]
+    "The column that is used for the condition."
+    column: String
+    "The operator that is used for the condition."
+    operator: SQLOperator = EQ
+    "The value that is used for the condition."
+    value: Mixed
+}
+
 
 "A datetime string with format `Y-m-d H:i:s`, e.g. `2018-05-23 13:43:32`."
 scalar DateTime
 
+"""
+Loose type that allows any value. Be careful when passing in large `Int` or `Float` literals,
+as they may not be parsed correctly on the server side. Use `String` literals if you are
+dealing with really large numbers to be on the safe side.
+"""
+scalar Mixed
+
 "A date string with format `Y-m-d`, e.g. `2011-05-23`."
 scalar Date
+
+"A datetime and timezone string in ISO 8601 format `Y-m-dTH:i:sO`, e.g. `2020-04-20T13:53:12+02:00`."
+scalar DateTimeTz

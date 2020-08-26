@@ -15,6 +15,7 @@ import Form from "../ui/forms/Form";
 import Toggle from "../ui/forms/fields/Toggle";
 import Tabs from "../navigation/Tabs";
 import {useParams} from "react-router";
+import LogsTable from "./LogsTable";
 
 const USER = gql`
     query User($userHandle: String!) {
@@ -56,7 +57,8 @@ const UPDATE_USER = gql`
 `;
 
 
-function UserShowcase() {
+function User() {
+
 
 
     const [editing, setEditing] = React.useState(false);
@@ -96,6 +98,17 @@ function UserShowcase() {
     });
     if (loading) return <p><Trans>Loading...</Trans></p>;
     if (error) return <p><Trans>Error</Trans> :(</p>;
+
+
+
+
+    const tabs = [
+
+        {permissions: {label: 'Permissions' ,content: <Trans>Permissions</Trans>  }},
+
+        {logs: {label: 'Logs',content: <LogsTable lookupColumn='USER_ID' userID={data.user.id}/> }},
+
+        {history: {label: 'History',content: <Trans>History</Trans> }}];
 
 
     let metas = [];
@@ -302,19 +315,12 @@ function UserShowcase() {
         {editingPassword ? <Form {...formPasswordStructure} /> : null}
         {editingPin ? <Form {...formPinStructure} /> : null}
 
+        <Tabs tabs={tabs}/>
+
     </>)
 
 }
 
 
-const User = () => {
-
-    const tabs = [{permissions: {label: 'Permissions'}}, {logs: {label: 'Logs'}}, {history: {label: 'History'}}];
-
-    return (<>
-        <UserShowcase/>
-        <Tabs tabs={tabs}/>
-    </>);
-};
 
 export default User;
