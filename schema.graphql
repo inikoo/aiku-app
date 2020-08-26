@@ -140,6 +140,23 @@ type PaginatorInfo {
     total: Int!
 }
 
+type Permission {
+    created_at: DateTime!
+    id: ID!
+    name: String!
+    roles: [Role!]!
+    updated_at: DateTime!
+    users: [User]!
+}
+
+"A paginated list of Permission items."
+type PermissionPaginator {
+    "A list of Permission items."
+    data: [Permission!]!
+    "Pagination information about the list of items."
+    paginatorInfo: PaginatorInfo!
+}
+
 type Query {
     clocking_machine(slug: String): ClockingMachine
     clocking_machines(
@@ -163,12 +180,18 @@ type Query {
         page: Int
     ): LocationPaginator
     me: User
+    permissions(
+        "Limits number of fetched elements."
+        first: Int = 100,
+        "The offset from which elements are returned."
+        page: Int
+    ): PermissionPaginator
     roles(
         "Limits number of fetched elements."
         first: Int = 100,
         "The offset from which elements are returned."
         page: Int
-    ): UserPaginator
+    ): RolePaginator
     tenant(id: ID): Tenant
     tenants(
         "Limits number of fetched elements."
@@ -177,6 +200,12 @@ type Query {
         page: Int
     ): TenantPaginator
     user(handle: String): User
+    user_auth_logs(
+        "Limits number of fetched elements."
+        first: Int = 100,
+        "The offset from which elements are returned."
+        page: Int
+    ): UserAuthLogPaginator
     users(
         "Limits number of fetched elements."
         first: Int = 100,
@@ -197,6 +226,23 @@ type Query {
         "The offset from which elements are returned."
         page: Int
     ): WarehousePaginator
+}
+
+type Role {
+    created_at: DateTime!
+    id: ID!
+    name: String!
+    permissions: [Permission!]!
+    updated_at: DateTime!
+    users: [User]!
+}
+
+"A paginated list of Role items."
+type RolePaginator {
+    "A list of Role items."
+    data: [Role!]!
+    "Pagination information about the list of items."
+    paginatorInfo: PaginatorInfo!
 }
 
 type Tenant {
@@ -221,6 +267,22 @@ type User {
     status: Boolean!
     updated_at: DateTime!
     userable: Userable!
+}
+
+type UserAuthLog {
+    action: String!
+    handle: String!
+    ip: String!
+    time: DateTime!
+    user: [User]
+}
+
+"A paginated list of UserAuthLog items."
+type UserAuthLogPaginator {
+    "A list of UserAuthLog items."
+    data: [UserAuthLog!]!
+    "Pagination information about the list of items."
+    paginatorInfo: PaginatorInfo!
 }
 
 "A paginated list of User items."
