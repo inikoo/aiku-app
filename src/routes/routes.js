@@ -89,6 +89,9 @@ import Area from "../components/distribution/Area";
 import NewArea from "../components/distribution/NewArea";
 import NewLocation from "../components/distribution/NewLocation";
 import JobPositions from "../components/hr/JobPositions";
+import WLocation from "../components/distribution/WLocation";
+import NewJobPosition from "../components/hr/NewJobPosition";
+import JobPosition from "../components/hr/JobPosition";
 
 
 export default [
@@ -152,7 +155,7 @@ export default [
 
     {path: "/distribution/warehouses/:warehouseSlug/areas/:warehouseAreaSlug/locations", breadcrumb: () => <Trans>Locations</Trans>, module:'warehouse' ,Component: Locations},
     {path: "/distribution/warehouses/:warehouseSlug/areas/:warehouseAreaSlug/locations/new", breadcrumb: () => <Trans>New Location</Trans>, module:'warehouse' ,Component: NewLocation},
-    {path: "/distribution/warehouses/:warehouseSlug/areas/:warehouseAreaSlug/locations/:locationCode", breadcrumb: () => <Trans>Location</Trans>, module:'warehouse' ,Component: Location},
+    {path: "/distribution/warehouses/:warehouseSlug/areas/:warehouseAreaSlug/locations/:locationCode", breadcrumb: () => <Trans>Location</Trans>, module:'warehouse' ,Component: WLocation},
 
 
 
@@ -202,6 +205,11 @@ export default [
     {path: "/hr", breadcrumb: () => <Trans>Human resources</Trans>, module:'hr' ,Component: HumanResources},
     {path: "/hr/attendance",  breadcrumb: () => <Trans>Attendance</Trans>, Component: Attendance},
     {path: "/hr/jobPositions",  breadcrumb: () => <Trans>Job Positions</Trans>, Component: JobPositions},
+    {path: "/hr/jobPositions/new",  breadcrumb: () => <Trans>New Job Position</Trans>, Component: NewJobPosition},
+    {path: "/hr/jobPositions/:jobPositionSlug",  breadcrumb: () => <Trans>Job Position</Trans>, Component: JobPosition},
+
+
+
     {path: "/hr/calender", name: "Calendar", Component: HRCalendar},
     {path: "/hr/attendance/clocking-machines",  breadcrumb: () => <Trans>Clocking-machines</Trans>, Component: ClockingMachines},
     {path: "/hr/attendance/clocking-machines/new",breadcrumb: () => <Trans>New clocking-machine</Trans>, Component: NewClockingMachine},

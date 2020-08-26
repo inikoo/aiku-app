@@ -13,6 +13,7 @@ import {faIdCardAlt, faPencilAlt} from '@fortawesome/pro-solid-svg-icons'
 import Input from "../ui/forms/fields/Input";
 import {i18nMark} from "@lingui/react";
 import Form from "../ui/forms/Form";
+import Tabs from "../navigation/Tabs";
 
 const EMPLOYEE = gql`
     query Employee($employeeSlug: String!) {
@@ -41,6 +42,15 @@ const UPDATE_EMPLOYEE = gql`
 
 function EmployeeShowcase(props) {
 
+    const [editing, setEditing] = React.useState(false);
+
+    const openEditView = () => {
+        setEditing(true);
+    }
+    const cancelEdit = () => {
+        setEditing(false);
+    }
+
 
     let {employeeSlug} = useParams();
     const [updateEmployee] = useMutation(UPDATE_EMPLOYEE);
@@ -57,9 +67,9 @@ function EmployeeShowcase(props) {
     let metas = [];
     let actions = [];
 
-    if (!props.editing) {
+    if (!editing) {
         actions.push({
-            'icon': faPencilAlt, 'label': <Trans>Edit</Trans>, 'highlighted': false, handleClick: props.openEditView
+            'icon': faPencilAlt, 'label': <Trans>Edit</Trans>, 'highlighted': false, handleClick: openEditView
 
         });
     }
@@ -80,7 +90,7 @@ function EmployeeShowcase(props) {
 
 
     const formStructure = {
-        handleCancel: props.cancelEdit,
+        handleCancel: cancelEdit,
 
         handleSubmit: updateEmployee,
 
@@ -252,7 +262,7 @@ function EmployeeShowcase(props) {
 
     />
 
-    {props.editing ? <Form {...formStructure} /> : null}
+    {editing ? <Form {...formStructure} /> : null}
 
     </>)
 }
@@ -260,19 +270,12 @@ function EmployeeShowcase(props) {
 
 const Employee = () => {
 
-    const [editing, setEditing] = React.useState(false);
-
-    const openEditView = () => {
-        setEditing(true);
-    }
-    const cancelEdit = () => {
-        setEditing(false);
-    }
+    const tabs = [{attendance: {label: 'Attendance'}}, {clockings: {label: 'Clockings'}}, {history: {label: 'History'}}];
 
     return (<>
 
-        <EmployeeShowcase editing={editing} openEditView={openEditView} cancelEdit={cancelEdit}/>
-
+        <EmployeeShowcase/>
+        <Tabs tabs={tabs}/>
     </>);
 };
 
