@@ -9,13 +9,12 @@ import Table from "../ui/tables/Table";
 import {useQuery, gql} from '@apollo/client';
 import {Trans} from '@lingui/macro';
 
-import AvatarCell from "../ui/tables/cells/AvatarCell";
-import TwoLineCell from "../ui/tables/cells/TwoLineCell";
-import {Link} from "react-router-dom";
 import HeaderMetaActions from "../ui/headers/HeaderMetaActions";
 import {faPlus} from "@fortawesome/pro-solid-svg-icons";
 import Alert from "../ui/alerts/Alert";
 import {useHistory} from "react-router";
+import Cell from "../ui/tables/cells/Cell";
+import {Link} from "react-router-dom";
 
 
 
@@ -29,7 +28,6 @@ const ROLES = gql`
             }
             data {
                 id
-                slug
                 name
                 created_at
 
@@ -46,11 +44,12 @@ function RolesTable() {
     if (error) return <p><Trans>Error</Trans> :(</p>;
 
     const res = data['roles'];
-    const headers = [<Trans>Name</Trans>, 'Payroll ID', 'Position', 'user', ''];
+    const headers = [<Trans>Name</Trans>];
 
 
     const roles = res.data.map(obj => {
-        return [<Link to={'/system/roles/' + obj.slug}><AvatarCell slug={obj.slug} name={obj.name}/></Link>, <TwoLineCell main={obj.name} secondary={obj.name}/>,
+        return [
+            <Link to={'/system/roles/' + obj.name}><Cell content={obj.name}/></Link>
 
         ]
     })
