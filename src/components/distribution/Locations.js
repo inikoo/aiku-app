@@ -16,15 +16,20 @@ import Alert from "../ui/alerts/Alert";
 import {useHistory} from "react-router";
 
 
-const WAREHOUSE_LOCATIONS = gql`
-    query WarehouseLocations($WarehouseLocationsSlug: String!) {
-        WarehouseLocations(slug: $WarehouseLocationsSlug) {
-            id
-            slug
-            name
-            created_at,
+const LOCATIONS = gql`
+    query Locations {
+        locations(first: 100) {
+            paginatorInfo {
+                total
+                currentPage
+                lastPage
+            }
+            data {
+                id
+                code
+                created_at
 
-
+            }
         }
     }
 `;
@@ -32,22 +37,23 @@ const WAREHOUSE_LOCATIONS = gql`
 
 function LocationsTable() {
 
-    const {loading, error, data} = useQuery(WAREHOUSE_LOCATIONS);
+    const {loading, error, data} = useQuery(LOCATIONS);
     if (loading) return <p><Trans>Loading...</Trans></p>;
     if (error) return <p><Trans>Error</Trans> :(</p>;
 
-    const res = data['WarehouseLocations'];
+    console.log (data)
+    const res = data['locations'];
     const headers = [<Trans>Name</Trans>];
 
-    const WarehouseLocations = res.data.map(obj => {
-        return [<Link to={'/distribution/warehouses/new/area/newArea/location' + obj.slug}>{obj.name}</Link>,
+    const locations = res.data.map(obj => {
+        return [<Link to={'/distribution/warehouses/:warehouseSlug/areas/:areaSlug/locations/' + obj.slug}>{obj.name}</Link>,
 
         ]
     })
 
 
 
-    return <Table ifEmpty={<Alert type='info' text={<Trans>No location found</Trans>} />}  paginatorInfo={res.paginatorInfo} headers={headers} rows={WarehouseLocations}/>
+    return <Table ifEmpty={<Alert type='info' text={<Trans>No location found</Trans>} />}  paginatorInfo={res.paginatorInfo} headers={headers} rows={locations}/>
 
 }
 
@@ -61,7 +67,7 @@ const WarehouseLocations = () => {
         'icon': faPlus,
         'label': <Trans>Locations</Trans>,
         'highlighted': false,
-        'handleClick': ()=> {history.push("/distribution/warehouses/new/area/newArea/location/newLocation")}
+        'handleClick': ()=> {history.push("/distribution/warehouses/:warehouseSlug/areas/:areaSlug/locations/new")}
     }];
 
     return (<div>

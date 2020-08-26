@@ -1,6 +1,6 @@
 /*
  Author: Kohani (kohani@aiku.io)
- Created: Tue, 25 Aug 2020 11:57:50 Singapore Standard Time, Kuala Lumpur, Malaysia
+ Created: Wed, 26 Aug 2020 11:53:07 Singapore Standard Time, Kuala Lumpur, Malaysia
  Copyright (c) 2020. Aiku.io
  */
 
@@ -15,19 +15,19 @@ import {gql, useMutation} from "@apollo/client";
 import {faChessClockAlt} from "@fortawesome/pro-regular-svg-icons";
 
 
-const CREATE_LOCATION = gql`
-    mutation CreateLocation( $code: String!) {
-        createLocation( code: $code) {
-            code
+const CREATE_JOB_POSITION = gql`
+    mutation CreateJobPosition( $name: String!) {
+        createJobPosition( name: $name) {
+            name
         }
     }
 `;
 
-const NewLocation = () => {
+const NewJobPosition = () => {
 
     const history = useHistory();
 
-    const [createLocation] = useMutation(CREATE_LOCATION);
+    const [createJobPosition] = useMutation(CREATE_JOB_POSITION);
 
 
     const cancelEdit = () => {
@@ -37,13 +37,13 @@ const NewLocation = () => {
 
     const formStructure = {
 
-        handleCancel: cancelEdit, handleSubmit: createLocation,
+        handleCancel: cancelEdit, handleSubmit: createJobPosition,
 
 
         inputGroups: [{
             title: <Trans>Identification</Trans>,
 
-            note: <Trans>Give your new location a identification name</Trans>,
+            note: <Trans>Give your new job position a identification name</Trans>,
 
 
 
@@ -51,7 +51,7 @@ const NewLocation = () => {
                 key: 'name', label: <Trans>Name</Trans>, inputComponent:
                     <Input
                         name='name'
-                        help={<Trans>Used to identify the warehouse location.</Trans>}
+                        help={<Trans>Used to identify the warehouse area.</Trans>}
                         placeholder={i18nMark('name')}
                         hint='&nbsp;'
                         register={{
@@ -68,7 +68,7 @@ const NewLocation = () => {
 
 
     return (<><HeaderMetaActions
-        title={<Trans>New Location</Trans>}
+        title={<Trans>New Job Position</Trans>}
         metas={[]}
         actions={[]}
 
@@ -81,4 +81,4 @@ const NewLocation = () => {
 
 };
 
-export default NewLocation;
+export default NewJobPosition;
