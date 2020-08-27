@@ -14,8 +14,9 @@ import {i18nMark} from "@lingui/react";
 import Form from "../ui/forms/Form";
 import Toggle from "../ui/forms/fields/Toggle";
 import Tabs from "../navigation/Tabs";
-import {useParams} from "react-router";
+import {useHistory, useParams} from "react-router";
 import LogsTable from "./LogsTable";
+import Alert from "../ui/alerts/Alert";
 
 const USER = gql`
     query User($userHandle: String!) {
@@ -59,6 +60,7 @@ const UPDATE_USER = gql`
 
 function User() {
 
+    let history = useHistory();
 
 
     const [editing, setEditing] = React.useState(false);
@@ -88,8 +90,20 @@ function User() {
         setEditingPin(false);
     }
 
+
     let {userHandle} = useParams();
-    const [updateUser] = useMutation(UPDATE_USER);
+    const [updateUser] = useMutation(UPDATE_USER, {
+        onCompleted(data) {
+
+
+            if (history.location.pathname !== '/system/users/' + data['updateUser'].handle) {
+                history.replace('/system/users/' + data['updateUser'].handle)
+
+            }
+
+
+        }
+    });
 
 
     const {loading, error, data} = useQuery(USER, {
@@ -99,16 +113,18 @@ function User() {
     if (loading) return <p><Trans>Loading...</Trans></p>;
     if (error) return <p><Trans>Error</Trans> :(</p>;
 
-
+    if(data['user']===null){
+        return <Alert type='error' text={<Trans>Not found</Trans>} />
+    }
 
 
     const tabs = [
 
-        {permissions: {label: 'Permissions' ,content: <Trans>Permissions</Trans>  }},
+        {permissions: {label: 'Permissions', content: <Trans>Permissions</Trans>}},
 
-        {logs: {label: 'Logs',content: <LogsTable lookupColumn='USER_ID' userID={data.user.id}/> }},
+        {logs: {label: 'Logs', content: <LogsTable lookupColumn='USER_ID' userID={data.user.id}/>}},
 
-        {history: {label: 'History',content: <Trans>History</Trans> }}];
+        {history: {label: 'History', content: <Trans>History</Trans>}}];
 
 
     let metas = [];
@@ -320,7 +336,6 @@ function User() {
     </>)
 
 }
-
 
 
 export default User;

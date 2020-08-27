@@ -55,7 +55,10 @@ const InputGroups = (props) => {
 const Form = (props) => {
 
     const methods = useForm();
-    const onSubmit = function (data) {
+    const onSubmit = function (data,e) {
+
+        e.preventDefault();
+
 
         if (props.postProcess !== undefined) {
             data = props.postProcess(data)
