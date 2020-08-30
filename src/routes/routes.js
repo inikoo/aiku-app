@@ -92,6 +92,9 @@ import JobPositions from "../components/hr/JobPositions";
 import WLocation from "../components/distribution/WLocation";
 import NewJobPosition from "../components/hr/NewJobPosition";
 import JobPosition from "../components/hr/JobPosition";
+import Supplier from "../components/suppliers/supplier";
+import cus from "../components/customers/cus";
+import NewCustomer from "../components/customers/NewCustomer";
 
 
 export default [
@@ -101,7 +104,12 @@ export default [
 
 // CUSTOMERS
     {path: "/customers", breadcrumb: () => <Trans>CRM</Trans>, module:'customers' ,Component: CustomersDashboard},
-    {path: "/customers/customer", breadcrumb: () => <Trans>Customers</Trans>, module:'customers' ,Component: Cus},
+    {path: "/customers/customer", breadcrumb: () => <Trans>Customers</Trans>, module:'customers' ,Component: Customers},
+    {path: "/customers/customer/new", breadcrumb: () => <Trans>Customer</Trans>, module:'customers' ,Component: NewCustomer},
+    {path: "/customers/customer/:customerSlug", breadcrumb: () => <Trans>Customer</Trans>, module:'customers' ,Component: cus },
+
+
+
     {path: "/customers/lists", breadcrumb: () => <Trans>Lists</Trans>, module:'customers' ,Component: Lists},
     {path: "/customers/insights", breadcrumb: () => <Trans>Insights</Trans>, module:'customers' ,Component: Insights},
     {path: "/customers/prospects", breadcrumb: () => <Trans>Prospects</Trans>, module:'customers' ,Component: Prospects},
@@ -177,8 +185,11 @@ export default [
 //SUPPLIERS
     // eslint-disable-next-line no-undef
     {path: "/suppliers", breadcrumb: () => <Trans>Suppliers dashboard</Trans>, module:'suppliers' ,Component: SuppliersDashboard},
+
     {path: "/suppliers/suppliers", breadcrumb: () => <Trans>Suppliers</Trans>, module:'suppliers' ,Component: Suppliers},
     {path: "/suppliers/suppliers/new", breadcrumb: () => <Trans>New Suppliers</Trans>, module:'suppliers' ,Component: NewSupplier },
+    {path: "/suppliers/suppliers/:supplierSlug", breadcrumb: () => <Trans>Supplier</Trans>, module:'suppliers' ,Component: Supplier },
+
     {path: "/suppliers/agents", breadcrumb: () => <Trans>Agents</Trans>, module:'suppliers' ,Component: Agents},
     {path: "/suppliers/products", breadcrumb: () => <Trans>Products</Trans>, module:'suppliers' ,Component: SuppliersProducts},
     {path: "/suppliers/orders", breadcrumb: () => <Trans>Purchase Orders/Deliveries</Trans>, module:'suppliers' ,Component: PurchaseOrders},
@@ -234,7 +245,8 @@ export default [
     {path: "/system/users/:userHandle", breadcrumb: () => <Trans>User</Trans>, Component: User},
     {path: "/system/roles", breadcrumb: () => <Trans>Roles</Trans>, Component: Roles},
     {path: "/system/roles/new", breadcrumb: () => <Trans>Roles</Trans>, Component: NewRoles},
-    {path: "/system/role/:roleID",  breadcrumb: () => <Trans>Role</Trans>, Component: Role},
+    {path: "/system/roles/:roleSlug", breadcrumb: () => <Trans>Role</Trans>, Component: Role},
+
     {path: "/system/logs",  breadcrumb: () => <Trans>Logs</Trans>, Component: Logs},
     {path: "/system/settings",  breadcrumb: () => <Trans>Settings</Trans>, Component: SystemSettings},
 
