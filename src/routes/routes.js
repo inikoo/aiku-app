@@ -16,10 +16,6 @@ import Timesheets from "../components/hr/Timesheets";
 import Timesheet from "../components/hr/TimesheetId";
 import Stores from "../components/store/Stores";
 import Store from "../components/store/StoreId";
-import Orders from "../components/store/Orders";
-import Order from "../components/store/OrderId";
-import Products from "../components/store/Products";
-import Product from "../components/store/ProductId";
 import Website from "../components/store/Website";
 import Mailroom from "../components/store/Mailroom";
 import Profile from "../components/profile/Profile";
@@ -44,7 +40,6 @@ import Marketing from "../components/mailroom/Marketing";
 import CustomersNotifications from "../components/mailroom/CustomersNotifications";
 import StaffsNotifications from "../components/mailroom/StaffsNotifications";
 import ProductsDashboard from "../components/products/ProductsDashboard";
-import ProductsList from "../components/products/ProductsList";
 import Categories from "../components/products/Categories";
 import Settings from "../components/products/Settings";
 import OffersDashboard from "../components/offers/OffersDashboard";
@@ -94,6 +89,14 @@ import Supplier from "../components/suppliers/supplier";
 import cus from "../components/customers/cus";
 import NewCustomer from "../components/customers/NewCustomer";
 import Customers from "../components/customers/Customers";
+import NewProduct from "../components/products/NewProduct";
+import products from "../components/products/products";
+import product from "../components/products/product";
+import Orders from "../components/orders/Orders";
+import NewOrder from "../components/orders/NewOrder";
+import Order from "../components/orders/Order";
+
+
 
 
 export default [
@@ -121,7 +124,10 @@ export default [
 
 //PRODUCTS
     {path: "/products", breadcrumb: () => <Trans>Products dashboard</Trans>, module:'products' ,Component: ProductsDashboard},
-    {path: "/products/lists", breadcrumb: () => <Trans>Products List</Trans>, module:'products' ,Component: ProductsList},
+    {path: "/products/lists", breadcrumb: () => <Trans>Products List</Trans>, module:'products' ,Component: products},
+    {path: "/products/lists/new", breadcrumb: () => <Trans>New Product</Trans>, module:'products' ,Component: NewProduct},
+    {path: "/products/lists/:productsSlug", breadcrumb: () => <Trans>Products List</Trans>, module:'products' ,Component: product},
+
     {path: "/products/categories", breadcrumb: () => <Trans>Categories</Trans>, module:'products' ,Component: Categories},
     {path: "/products/settings", breadcrumb: () => <Trans>Settings</Trans>, module:'products' ,Component: Settings},
 
@@ -140,7 +146,9 @@ export default [
 //ORDERS
     {path: "/orders", breadcrumb: () => <Trans>Orders Dashboard</Trans>, module:'orders' ,Component: OrdersDashboard},
     {path: "/orders/control_panel", breadcrumb: () => <Trans>Control Panel</Trans>, module:'orders' ,Component: ControlPanel},
-    {path: "/orders/orders", breadcrumb: () => <Trans>Orders</Trans>, module:'orders' ,Component: OrdersList},
+    {path: "/orders/lists", breadcrumb: () => <Trans>Orders</Trans>, module:'orders' ,Component: Orders},
+    {path: "/orders/lists/new", breadcrumb: () => <Trans>New Order</Trans>, module:'orders' ,Component: NewOrder},
+    {path: "/orders/lists/:ordersSlug", breadcrumb: () => <Trans>Orders</Trans>, module:'orders' ,Component: Order},
 
 //DELIVERING
     {path: "/delivering", breadcrumb: () => <Trans>Delivering Dashboard</Trans>, module:'delivering' ,Component: DeliveringDashboard},
@@ -200,10 +208,10 @@ export default [
     {path: "/store/:storeID", name: "Store", Component: Store},
     {path: "/store/:storeID/customers", name: "Customers", Component: Customers},
     {path: "/store/:storeID/orders/:customerID", name: "Customer", Component: Customers},
-    {path: "/store/:storeID/orders", name: "Customers", Component: Orders},
-    {path: "/store/:storeID/orders/:orderID", name: "Customers", Component: Order},
-    {path: "/store/:storeID/products", name: "Products", Component: Products},
-    {path: "/store/:storeID/product/:storeID", name: "Products", Component: Product},
+   // {path: "/store/:storeID/orders", name: "Customers", Component: Orders},
+    //{path: "/store/:storeID/orders/:orderID", name: "Customers", Component:},
+    //{path: "/store/:storeID/products", name: "Products", Component: },
+    //{path: "/store/:storeID/product/:storeID", name: "Products", Component: },
     {path: "/store/:storeID/website", name: "Website", Component: Website},
     {path: "/store/:storeID/mailroom", name: "Mailroom", Component: Mailroom},
 
