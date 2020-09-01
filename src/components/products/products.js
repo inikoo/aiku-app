@@ -44,7 +44,7 @@ function ProductsTable() {
     const res = data['products'];
     const headers = [<Trans>Name</Trans>];
 
-    const clockingMachines = res.data.map(obj => {
+    const products = res.data.map(obj => {
         return [<Link to={'/products/lists/' + obj.slug}>{obj.name}</Link>,
 
         ]
@@ -52,7 +52,7 @@ function ProductsTable() {
 
 
 
-    return <Table ifEmpty={<Alert type='info' text={<Trans>No clocking machines found</Trans>} />}  paginatorInfo={res.paginatorInfo} headers={headers} rows={products}/>
+    return <Table ifEmpty={<Alert type='info' text={<Trans>No products found</Trans>} />}  paginatorInfo={res.paginatorInfo} headers={headers} rows={products}/>
 
 }
 
