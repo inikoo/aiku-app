@@ -27,7 +27,6 @@ const CUSTOMERS = gql`
             data {
                 id
                 slug
-                name
                 created_at
             }
         }

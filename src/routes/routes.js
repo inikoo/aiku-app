@@ -16,7 +16,6 @@ import Timesheets from "../components/hr/Timesheets";
 import Timesheet from "../components/hr/TimesheetId";
 import Stores from "../components/store/Stores";
 import Store from "../components/store/StoreId";
-import Customers from "../components/store/Customers";
 import Orders from "../components/store/Orders";
 import Order from "../components/store/OrderId";
 import Products from "../components/store/Products";
@@ -51,7 +50,6 @@ import Settings from "../components/products/Settings";
 import OffersDashboard from "../components/offers/OffersDashboard";
 import Offers from "../components/offers/Offers";
 import OffersCategories from "../components/offers/Categories";
-import Cus from "../components/customers/cus";
 import WebsitesDashboard from "../components/websites/WebsitesDashboard";
 import Analytics from "../components/websites/Analytics";
 import WebPages from "../components/websites/WebPages";
@@ -95,6 +93,7 @@ import JobPosition from "../components/hr/JobPosition";
 import Supplier from "../components/suppliers/supplier";
 import cus from "../components/customers/cus";
 import NewCustomer from "../components/customers/NewCustomer";
+import Customers from "../components/customers/Customers";
 
 
 export default [
@@ -104,8 +103,8 @@ export default [
 
 // CUSTOMERS
     {path: "/customers", breadcrumb: () => <Trans>CRM</Trans>, module:'customers' ,Component: CustomersDashboard},
-    {path: "/customers/customer", breadcrumb: () => <Trans>Customers</Trans>, module:'customers' ,Component: Customers},
-    {path: "/customers/customer/new", breadcrumb: () => <Trans>Customer</Trans>, module:'customers' ,Component: NewCustomer},
+    {path: "/customers/customer", breadcrumb: () => <Trans>Customers</Trans>, module:'customers' ,Component: Customers },
+    {path: "/customers/customer/new", breadcrumb: () => <Trans>New Customer</Trans>, module:'customers' ,Component: NewCustomer},
     {path: "/customers/customer/:customerSlug", breadcrumb: () => <Trans>Customer</Trans>, module:'customers' ,Component: cus },
 
 

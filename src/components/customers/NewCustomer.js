@@ -25,7 +25,7 @@ const CREATE_CUSTOMER = gql`
 const NewCustomer = () => {
 
     let history = useHistory();
-    const [createCustoemr] = useMutation(CREATE_CUSTOMER);
+    const [createCustomer] = useMutation(CREATE_CUSTOMER);
 
 
     const cancelEdit = () => {

@@ -19,6 +19,7 @@ const CUSTOMER = gql`
         customer(slug: $customerSlug) {
             id
             slug
+            name
             created_at,
 
 
