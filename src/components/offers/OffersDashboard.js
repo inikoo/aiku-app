@@ -5,11 +5,14 @@
  */
 
 import React from 'react';
+import StatsBrandIcon from "../ui/dashboard/StatsBrandIcon";
 
 
 const OffersDashboard = () => {
 
-    return (<div>Offers Dashboard</div>);
+    return (
+        <StatsBrandIcon/>
+    );
 
 
 };

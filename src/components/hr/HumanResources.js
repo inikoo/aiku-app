@@ -5,11 +5,27 @@
  */
 
 import React from 'react';
+import StatsBrandIcon from "../ui/dashboard/StatsBrandIcon";
+import StatsSharedBorders from "../ui/dashboard/StatsSharedBorders";
+import StatsSimple from "../ui/dashboard/StatsSimple";
 
 
 const HumanResources = () => {
 
-    return (<div>Human Resources</div>);
+    return (
+
+        <StatsBrandIcon/>
+);
+
+    return (
+
+        <StatsSharedBorders/>
+    );
+
+    return (
+
+        <StatsSimple/>
+    );
 
 
 };

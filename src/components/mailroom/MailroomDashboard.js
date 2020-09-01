@@ -5,11 +5,14 @@
  */
 
 import React from 'react';
+import StatsSharedBorders from "../ui/dashboard/StatsSharedBorders";
 
 
 const MailroomDashboard = () => {
 
-    return (<div>Mailroom Dashboard</div>);
+    return (
+        <StatsSharedBorders/>
+    );
 
 
 };

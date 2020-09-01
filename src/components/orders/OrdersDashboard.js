@@ -5,11 +5,14 @@
  */
 
 import React from 'react';
+import StatsSharedBorders from "../ui/dashboard/StatsSharedBorders";
 
 
 const OrdersDashboard = () => {
 
-    return (<div>Orders Dashboard</div>);
+    return (
+        <StatsSharedBorders/>
+    );
 
 
 };

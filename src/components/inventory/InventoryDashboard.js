@@ -5,11 +5,14 @@
  */
 
 import React from 'react';
+import StatsBrandIcon from "../ui/dashboard/StatsBrandIcon";
 
 
 const InventoryDashboard = () => {
 
-    return (<div>Inventory Dashboard</div>);
+    return (
+        <StatsBrandIcon/>
+    );
 
 
 };

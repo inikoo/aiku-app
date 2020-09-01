@@ -5,11 +5,14 @@
  */
 
 import React from 'react';
+import StatsSimple from "../ui/dashboard/StatsSimple";
 
 
 const CustomersDashboard = () => {
 
-    return (<div>Customers Dashboard</div>);
+    return (
+        <StatsSimple/>
+    );
 
 
 };
