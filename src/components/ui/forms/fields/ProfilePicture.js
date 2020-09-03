@@ -1,33 +1,141 @@
+import React, { useCallback, useState, useEffect } from 'react';
+import { useDropzone } from 'react-dropzone';
+import gql from 'graphql-tag';
+import { useMutation } from '@apollo/react-hooks';
 
-/*
- Author: Kohani (kohani@aiku.io)
- Created: Fri, 21 Aug 2020 11:51:47 Singapore Standard Time, Kuala Lumpur, Malaysia
- Copyright (c) 2020. Aiku.io
- */
+import styled from '@emotion/styled';
 
-import React from 'react';
-
-
-const ProfilePicture = (props) => {
-
-    return (<>
-        <div className="flex items-center">
-              <span className="h-12 w-12 rounded-full overflow-hidden bg-gray-100">
-                <svg className="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
-                  <path
-                      d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z"/>
-                </svg>
-              </span>
-            <span className="ml-5 rounded-md shadow-sm">
-                <button type="button"
-                        className="py-2 px-3 border border-gray-300 rounded-md text-sm leading-4 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out">
-                    Change {props.help}
-                </button>
-              </span>
-        </div>
-    </>);
-
-
+// just some styled components for the image upload area
+const getColor = props => {
+    if (props.isDragAccept) {
+        return '#00e676';
+    }
+    if (props.isDragReject) {
+        return '#ff1744';
+    }
+    if (props.isDragActive) {
+        return '#2196f3';
+    }
+    return '#eeeeee';
 };
 
-export default ProfilePicture;
+const Container = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-width: 2px;
+  border-radius: 2px;
+  border-color: ${props => getColor(props)};
+  border-style: dashed;
+  background-color: #fafafa;
+  color: #bdbdbd;
+  outline: none;
+  transition: border 0.24s ease-in-out;
+`;
+
+const thumbsContainer = {
+    display: 'flex',
+    marginTop: 16,
+};
+
+const thumbStyle = {
+    display: 'inline-flex',
+    borderRadius: 2,
+    border: '1px solid #eaeaea',
+    marginBottom: 8,
+    marginRight: 8,
+    width: 100,
+    height: 100,
+    padding: 4,
+};
+
+const thumbInner = {
+    display: 'flex',
+    minWidth: 0,
+    overflow: 'hidden',
+};
+
+const img = {
+    display: 'block',
+    width: 'auto',
+    height: '100%',
+};
+
+const errorStyle = {
+    color: '#c45e5e',
+    fontSize: '0.75rem',
+};
+
+// relevant code starts here
+const uploadFileMutation = gql`
+    mutation UploadFile($file: Upload!) {
+        uploadFile(file: $file) {
+            Location
+        }
+    }
+`;
+
+const Upload = ({ register }) => {
+    const [preview, setPreview] = useState();
+    const [errors, setErrors] = useState();
+    const [uploadFile, { data }] = useMutation(uploadFileMutation);
+    const onDrop = useCallback(
+        async ([file]) => {
+            if (file) {
+                setPreview(URL.createObjectURL(file));
+                uploadFile({ variables: { file } });
+            } else {
+                setErrors(
+                    'Something went wrong. Check file type and size (max. 1 MB)',
+                );
+            }
+        },
+        [uploadFile],
+    );
+    const {
+        getRootProps,
+        getInputProps,
+        isDragActive,
+        isDragAccept,
+        isDragReject,
+    } = useDropzone({
+        onDrop,
+        accept: 'image/jpeg, image/png',
+        maxSize: 1024000,
+    });
+
+    const thumb = (
+        <div style={thumbStyle}>
+            <div style={thumbInner}>
+                <img src={preview} style={img} />
+            </div>
+        </div>
+    );
+
+    return (
+        <Container
+            {...getRootProps({ isDragActive, isDragAccept, isDragReject })}
+        >
+            <input {...getInputProps()} />
+            {isDragActive ? (
+                <p>Drop the files here ...</p>
+            ) : (
+                <p>Drop file here, or click to select the file</p>
+            )}
+            {preview && <aside style={thumbsContainer}>{thumb}</aside>}
+            {errors && <span style={errorStyle}>{errors}</span>}
+            {data && data.uploadFile && (
+                <input
+                    type="hidden"
+                    name="avatarUrl"
+                    value={data.uploadFile.Location}
+                    ref={register}
+                />
+            )}
+        </Container>
+    );
+};
+
+export default Upload;

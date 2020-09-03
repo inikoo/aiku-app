@@ -8,6 +8,8 @@ import {i18nMark} from "@lingui/react";
 import Form from "../ui/forms/Form";
 import Tabs from "../navigation/Tabs";
 import LogsTable from "../system/LogsTable";
+import ProfilePicture from "../ui/forms/fields/ProfilePicture";
+
 
 
 const PROFILE = gql`
@@ -166,26 +168,24 @@ function Profile() {
 
             key: 'identification',
 
-            title: <Trans>Change ID</Trans>,
+            title: <Trans>Change profile picture</Trans>,
 
 
             fields: [
 
                 {
-                    key: 'password',
+                    key: 'picture',
 
-                    label: <Trans>ID</Trans>,
+                    label: <Trans>Profile picture</Trans>,
 
-                    inputComponent: <Input
+                    inputComponent: <ProfilePicture
 
-                        name='ID'
-                        placeholder={i18nMark('ID')}
+                        name='picture'
+                        placeholder={i18nMark('Profile picture')}
                         hint='&nbsp;'
                         value={''}
                         register={{
-                            required: <Trans>This is required.</Trans>, minLength: {
-                                value: 6, message: <Trans>This input requires minimum {6} characters.</Trans>
-                            }
+                            required: <Trans>This is required.</Trans>
                         }}
                     />
                 },
