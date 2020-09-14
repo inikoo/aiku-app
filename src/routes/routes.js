@@ -95,6 +95,10 @@ import product from "../components/products/product";
 import Orders from "../components/orders/Orders";
 import NewOrder from "../components/orders/NewOrder";
 import Order from "../components/orders/Order";
+import accounting from "../components/accounting/accounting";
+import invoice from "../components/accounting/invoice";
+import payment from "../components/accounting/payment";
+import credit_vault from "../components/accounting/credit_vault";
 
 
 
@@ -259,6 +263,13 @@ export default [
 
 
     {path: "/profile", breadcrumb: () => <Trans>Profile</Trans>, Component: Profile},
+
+
+//ACCOUNTING
+    {path: "/accounting", breadcrumb: () => <Trans>Accounting</Trans> ,Component: accounting, module:'accounting' },
+    {path: "/accounting/invoices", breadcrumb: () => <Trans>Invoices (All)</Trans>, Component: invoice},
+    {path: "/accounting/payments", breadcrumb: () => <Trans>Payments (All)</Trans>, Component: payment},
+    {path: "/accounting/credits", breadcrumb: () => <Trans>Credit vault (All)</Trans>, Component: credit_vault},
 
 
 ];
