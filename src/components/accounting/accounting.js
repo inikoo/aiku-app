@@ -5,13 +5,14 @@
  */
 
 import React from 'react';
+import StatsSimple from "../ui/dashboard/StatsSimple";
 
 
 const AccountingDashboard = () => {
 
-    return (<div>Accounting</div>);
-
-
+    return (
+        <StatsSimple/>
+    );
 };
 
 export default AccountingDashboard;

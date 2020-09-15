@@ -99,6 +99,12 @@ import accounting from "../components/accounting/accounting";
 import invoice from "../components/accounting/invoice";
 import payment from "../components/accounting/payment";
 import credit_vault from "../components/accounting/credit_vault";
+import invoices from "../components/accounting/invoices";
+import NewInvoice from "../components/accounting/NewInvoice";
+import NewPayment from "../components/accounting/NewPayment";
+import payments from "../components/accounting/payments";
+import NewCreditVault from "../components/accounting/NewCreadit_vault";
+import credit_vaults from "../components/accounting/credit_vaults";
 
 
 
@@ -267,9 +273,18 @@ export default [
 
 //ACCOUNTING
     {path: "/accounting", breadcrumb: () => <Trans>Accounting</Trans> ,Component: accounting, module:'accounting' },
-    {path: "/accounting/invoices", breadcrumb: () => <Trans>Invoices (All)</Trans>, Component: invoice},
-    {path: "/accounting/payments", breadcrumb: () => <Trans>Payments (All)</Trans>, Component: payment},
-    {path: "/accounting/credits", breadcrumb: () => <Trans>Credit vault (All)</Trans>, Component: credit_vault},
+
+    {path: "/accounting/invoices", breadcrumb: () => <Trans>Invoices (All)</Trans>, Component: invoices},
+    {path: "/accounting/invoices/new", breadcrumb: () => <Trans>New Invoice</Trans>, Component: NewInvoice},
+    {path: "/accounting/invoices/:invoiceSlug", breadcrumb: () => <Trans>Invoice</Trans>, Component: invoice},
+
+    {path: "/accounting/payments", breadcrumb: () => <Trans>Payments (All)</Trans>, Component: payments},
+    {path: "/accounting/payments/new", breadcrumb: () => <Trans>New Payment</Trans>, Component: NewPayment},
+    {path: "/accounting/payments/:paymentSlug", breadcrumb: () => <Trans>Payment</Trans>, Component: payment},
+
+    {path: "/accounting/credits", breadcrumb: () => <Trans>Credit vault (All)</Trans>, Component: credit_vaults},
+    {path: "/accounting/credits/new", breadcrumb: () => <Trans>New credit vault</Trans>, Component: NewCreditVault},
+    {path: "/accounting/credits/:creditSlug", breadcrumb: () => <Trans>Credit vault</Trans>, Component: credit_vault},
 
 
 ];
